@@ -201,7 +201,7 @@ claim_index_rows = []
 for row in claims:
     claim_id = row["Claim ID"]
     claim_index_rows.append({
-        "Claim ID": SafeHTML(f'<a href="{claim_id}/">{esc(claim_id)}</a>'),
+        "Claim ID": SafeHTML(f'<a href="/lititzbmx-public-knowledge-register/claims/{claim_id}/">{esc(claim_id)}</a>'),
         "Claim Label": row["Claim Label"],
         "Displayed Value": row["Displayed Value"],
         "Unit": row["Unit"],
@@ -252,7 +252,7 @@ record_index_rows = []
 for row in records:
     rid = row["Master ID"]
     record_index_rows.append({
-        "Master ID": SafeHTML(f'<a href="{rid}/">{esc(rid)}</a>'),
+        "Master ID": SafeHTML(f'<a href="/lititzbmx-public-knowledge-register/records/{rid}/">{esc(rid)}</a>'),
         "Title": row["Title"],
         "Date Text": row["Date Text"],
         "Brand / Promoter": row["Brand / Promoter"],
@@ -314,7 +314,7 @@ source_index_rows = []
 for row in source_register:
     sid = row["Source ID"]
     source_index_rows.append({
-        "Source ID": SafeHTML(f'<a href="{sid}/">{esc(sid)}</a>'),
+        "Source ID": SafeHTML(f'<a href="/lititzbmx-public-knowledge-register/sources/{sid}/">{esc(sid)}</a>'),
         "Domain": row["Domain"],
         "Stages Used": row["Stages Used"],
         "Source Roles": row["Source Roles"],
