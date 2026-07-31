@@ -1,0 +1,53 @@
+name: Record correction
+description: Report a factual correction, stronger source route, attribution concern, or rights issue.
+title: "Record correction: "
+labels:
+  - correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the Lititz BMX Public Knowledge Register. Do not upload protected historical scans unless you own the rights or have permission to share them.
+  - type: input
+    id: identifier
+    attributes:
+      label: Claim or record identifier
+      description: Claim ID, Master ID, Canonical Object ID, Price Observation ID, Source ID, or Chronology ID.
+      placeholder: PKR-CLM-001 or EPH-0001
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current statement or value
+      description: Quote or summarize the information that should be reviewed.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Explain the correction or stronger interpretation.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Supporting public source URL
+      placeholder: https://
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and limitations
+      description: Include page, issue, date, access, confidence, or rights limitations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights acknowledgement
+      options:
+        - label: I have not uploaded protected source scans unless I own the rights or have permission.
+          required: true

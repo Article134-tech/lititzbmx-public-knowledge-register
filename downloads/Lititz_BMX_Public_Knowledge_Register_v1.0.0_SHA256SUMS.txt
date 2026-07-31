@@ -1,0 +1,4 @@
+# Lititz BMX Public Knowledge Register v1.0.0
+# Generated 2026-07-31; SHA-256 checksums
+43f81c0afe06a21fd7d45041bcca40d9a6a26e13b07ac953f49ea961c274dfea  Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx
+6222f5460d4c9af6128ef7ab65d9d645a8bd49e2130e5c0d207775bf749f831d  Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip

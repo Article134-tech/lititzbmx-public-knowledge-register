@@ -1,0 +1,446 @@
+\
+from pathlib import Path
+from collections import defaultdict
+from urllib.parse import urlparse
+import csv
+import html
+import json
+import shutil
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "_site"
+DATA = ROOT / "data"
+DOWNLOADS = ROOT / "downloads"
+ASSETS = ROOT / "site" / "assets"
+BASE_URL = "https://article134-tech.github.io/lititzbmx-public-knowledge-register/"
+REPO_URL = "https://github.com/Article134-tech/lititzbmx-public-knowledge-register"
+
+def esc(value):
+    return html.escape("" if value is None else str(value))
+
+def read_csv(name):
+    with (DATA / name).open("r", encoding="utf-8-sig", newline="") as fh:
+        return list(csv.DictReader(fh))
+
+def write(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+
+def status_badge(value):
+    text = str(value or "")
+    key = text.lower()
+    cls = ""
+    if any(x in key for x in ("pass", "match", "ready", "verified")):
+        cls = "pass"
+    elif any(x in key for x in ("open", "lead", "review", "estimate", "medium", "unconfirmed", "provisional")):
+        cls = "review"
+    elif "low" in key:
+        cls = "low"
+    return f'<span class="badge {cls}">{esc(text)}</span>'
+
+def link_value(value):
+    text = str(value or "")
+    if text.startswith(("http://", "https://")):
+        return f'<a href="{esc(text)}">{esc(text)}</a>'
+    return esc(text)
+
+def field_list(row, order=None):
+    keys = order or list(row.keys())
+    parts = ["<dl>"]
+    for key in keys:
+        value = row.get(key)
+        if value in (None, ""):
+            continue
+        rendered = link_value(value)
+        if key.lower() in {"status", "publication status", "reconciliation", "count reconciliation", "confidence"}:
+            rendered = status_badge(value)
+        parts.append(f"<dt>{esc(key)}</dt><dd>{rendered}</dd>")
+    parts.append("</dl>")
+    return "\n".join(parts)
+
+def table(rows, columns, table_id=None):
+    attr = f' id="{esc(table_id)}"' if table_id else ""
+    out = [f'<div class="table-wrap"><table{attr}><thead><tr>']
+    out.extend(f"<th>{esc(c)}</th>" for c in columns)
+    out.append("</tr></thead><tbody>")
+    for row in rows:
+        out.append("<tr>")
+        for c in columns:
+            value = row.get(c, "")
+            rendered = link_value(value)
+            if c.lower() in {"status", "publication status", "reconciliation", "count reconciliation", "confidence"}:
+                rendered = status_badge(value)
+            out.append(f"<td>{rendered}</td>")
+        out.append("</tr>")
+    out.append("</tbody></table></div>")
+    return "".join(out)
+
+def layout(title, body, description=""):
+    nav = """
+    <nav><div class="nav-inner">
+      <a href="/lititzbmx-public-knowledge-register/">Home</a>
+      <a href="/lititzbmx-public-knowledge-register/claims/">Claims</a>
+      <a href="/lititzbmx-public-knowledge-register/records/">Records</a>
+      <a href="/lititzbmx-public-knowledge-register/objects/">Objects</a>
+      <a href="/lititzbmx-public-knowledge-register/prices/">Prices</a>
+      <a href="/lititzbmx-public-knowledge-register/sources/">Sources</a>
+      <a href="/lititzbmx-public-knowledge-register/chronology/">Chronology</a>
+      <a href="/lititzbmx-public-knowledge-register/validation/">Validation</a>
+      <a href="/lititzbmx-public-knowledge-register/data/">Data</a>
+      <a href="/lititzbmx-public-knowledge-register/downloads/">Downloads</a>
+    </div></nav>
+    """
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(title)} · Lititz BMX</title>
+<meta name="description" content="{esc(description or title)}">
+<link rel="stylesheet" href="/lititzbmx-public-knowledge-register/assets/site.css">
+<script defer src="/lititzbmx-public-knowledge-register/assets/site.js"></script>
+</head>
+<body>
+<header><div class="masthead">
+<img src="/lititzbmx-public-knowledge-register/assets/lititz-bmx-logo.png" alt="Lititz BMX logo">
+<div><h1>Lititz BMX Public BMX Knowledge Register</h1>
+<p>Ephemera v1.0.0 · Claim-visible public register · Data locked July 30, 2026</p></div>
+</div></header>
+{nav}
+<main>
+{body}
+</main>
+<footer><div class="inner">
+<strong>Evidence chain:</strong> Claim → Item → Evidence / Source → Limitation / Status → Correction<br>
+<span class="small">No protected historical source scans are reproduced. Maintained by Lititz BMX.</span>
+</div></footer>
+</body></html>"""
+
+claims = read_csv("public-claims-v1.0.csv")
+claim_items = read_csv("claim-items-v1.0.csv")
+objects = read_csv("canonical-objects-v1.0.csv")
+records = read_csv("ephemera-register-v1.0.csv")
+prices = read_csv("price-observations-v1.0.csv")
+source_register = read_csv("source-register-v1.0.csv")
+source_usage = read_csv("source-usage-v1.0.csv")
+chronology = read_csv("chronology-v1.0.csv")
+validation = read_csv("validation-v1.0.csv")
+
+claim_items_by_claim = defaultdict(list)
+for item in claim_items:
+    claim_items_by_claim[item["Claim ID"]].append(item)
+
+usage_by_source = {row["Source ID"]: row for row in source_usage}
+records_by_primary_url = defaultdict(list)
+for row in records:
+    for key in ("Primary Source URL", "Secondary Source URL"):
+        if row.get(key):
+            records_by_primary_url[row[key]].append(row)
+prices_by_url = defaultdict(list)
+for row in prices:
+    if row.get("Source URL"):
+        prices_by_url[row["Source URL"]].append(row)
+
+# Clean output.
+if OUT.exists():
+    shutil.rmtree(OUT)
+OUT.mkdir(parents=True)
+
+# Copy public files.
+shutil.copytree(ASSETS, OUT / "assets")
+shutil.copytree(DATA, OUT / "data")
+shutil.copytree(DOWNLOADS, OUT / "downloads")
+(OUT / ".nojekyll").write_text("", encoding="utf-8")
+shutil.copy2(ROOT / "release-manifest.json", OUT / "release-manifest.json")
+(OUT / "docs").mkdir(parents=True, exist_ok=True)
+shutil.copy2(ROOT / "docs" / "VALIDATION-REPORT.md", OUT / "docs" / "VALIDATION-REPORT.md")
+
+metrics = {
+    "Source records": len(records),
+    "Canonical objects": len(objects),
+    "Price observations": len(prices),
+    "Registered sources": len(source_register),
+    "Public claims": len(claims),
+    "Claim-item relationships": len(claim_items),
+    "Chronology rows": len(chronology),
+    "Validation checks passing": sum(1 for r in validation if r.get("Status") == "PASS"),
+}
+metric_cards = "".join(
+    f'<div class="metric"><strong>{value}</strong>{esc(label)}</div>'
+    for label, value in metrics.items()
+)
+home_body = f"""
+<section class="hero">
+<h2>Claim-visible BMX ephemera register</h2>
+<p>This public register exposes every aggregate claim through its itemized support, evidence route, limitation, status, and correction pathway.</p>
+<div class="actions">
+<a class="button" href="claims/">Inspect public claims</a>
+<a class="button" href="downloads/{esc("Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx")}">Download final workbook</a>
+</div>
+</section>
+<section class="metrics">{metric_cards}</section>
+<section class="panel">
+<h2>Governing standard</h2>
+<p><strong>PKR-CV-001 — Claim Visibility and Traceability:</strong> If the register makes a claim, the public user must be able to inspect the details supporting that claim.</p>
+<p><code>CLAIM → ITEM → EVIDENCE / SOURCE → LIMITATION / STATUS → CORRECTION</code></p>
+</section>
+<section class="panel">
+<h2>Rights boundary</h2>
+<p>No historical catalog, flyer, advertisement, publication, or BMXMuseum source scan is reproduced. The register preserves metadata, public URLs, citations, confidence, limitations, duplicate decisions, and research status.</p>
+</section>
+"""
+write(OUT / "index.html", layout("Home", home_body, "Claim-visible public register of BMX ephemera and supporting evidence."))
+
+# Claims index and pages.
+claim_index_rows = []
+for row in claims:
+    claim_id = row["Claim ID"]
+    claim_index_rows.append({
+        "Claim ID": f'<a href="{claim_id}/">{esc(claim_id)}</a>',
+        "Claim Label": row["Claim Label"],
+        "Displayed Value": row["Displayed Value"],
+        "Unit": row["Unit"],
+        "Category": row["Category"],
+        "Publication Status": row["Publication Status"],
+        "Reconciliation": row["Reconciliation"],
+    })
+claim_table = table(claim_index_rows, list(claim_index_rows[0].keys()), "claims-table")
+claim_body = f"""
+<section class="hero"><h2>Public Claims</h2>
+<p>All 57 aggregate claims, counting rules, limitations, correction routes, and reconciliation results.</p>
+<input class="search" data-table-filter="claims-table" aria-label="Filter claims" placeholder="Filter claims">
+</section>
+{claim_table}
+"""
+write(OUT / "claims" / "index.html", layout("Public Claims", claim_body))
+
+for claim in claims:
+    claim_id = claim["Claim ID"]
+    items = claim_items_by_claim[claim_id]
+    item_rows = []
+    for item in items:
+        item_rows.append({
+            "Item Type": item["Item Type"],
+            "Item ID": item["Item ID"],
+            "Item Label": item["Item Label"],
+            "Item Status": item["Item Status"],
+            "Item Note": item["Item Note"],
+            "Item URL": item["Item URL"],
+        })
+    correction = claim.get("Correction URL", "")
+    body = f"""
+<section class="hero">
+<h2>{esc(claim_id)} — {esc(claim["Claim Label"])}</h2>
+<p><strong>{esc(claim["Displayed Value"])} {esc(claim["Unit"])}</strong> · {status_badge(claim["Publication Status"])} · {status_badge(claim["Reconciliation"])}</p>
+<div class="actions"><a class="button" href="{esc(correction)}">Submit a correction</a></div>
+</section>
+<section class="panel"><h3>Definition and boundary</h3>{field_list(claim)}</section>
+<section class="panel"><h3>Itemized support ({len(items)})</h3>
+<input class="search" data-table-filter="items-{esc(claim_id)}" aria-label="Filter supporting items" placeholder="Filter supporting items">
+{table(item_rows, ["Item Type","Item ID","Item Label","Item Status","Item Note","Item URL"], f"items-{claim_id}")}
+</section>
+"""
+    write(OUT / "claims" / claim_id / "index.html", layout(f"{claim_id} — {claim['Claim Label']}", body))
+
+# Records index and individual pages.
+record_index_rows = []
+for row in records:
+    rid = row["Master ID"]
+    record_index_rows.append({
+        "Master ID": f'<a href="{rid}/">{esc(rid)}</a>',
+        "Title": row["Title"],
+        "Date Text": row["Date Text"],
+        "Brand / Promoter": row["Brand / Promoter"],
+        "Object Type": row["Object Type"],
+        "Confidence": row["Confidence"],
+        "Research Status": row["Research Status"],
+    })
+body = f"""
+<section class="hero"><h2>Source Records</h2><p>All {len(records)} source occurrences and provenance records.</p>
+<input class="search" data-table-filter="records-table" aria-label="Filter records" placeholder="Filter records"></section>
+{table(record_index_rows, list(record_index_rows[0].keys()), "records-table")}
+"""
+write(OUT / "records" / "index.html", layout("Source Records", body))
+for row in records:
+    rid = row["Master ID"]
+    body = f"""
+<section class="hero"><h2>{esc(rid)} — {esc(row["Title"])}</h2>
+<p>{status_badge(row["Confidence"])} {status_badge(row["Research Status"])}</p></section>
+<section class="record">{field_list(row)}</section>
+<div class="actions"><a class="button" href="{REPO_URL}/issues/new?template=record-correction.yml&title=Record%20correction%3A%20{esc(rid)}">Submit a correction</a></div>
+"""
+    write(OUT / "records" / rid / "index.html", layout(f"{rid} — {row['Title']}", body))
+
+# Canonical objects index with stable anchors.
+object_sections = []
+for row in objects:
+    oid = row["Canonical Object ID"]
+    object_sections.append(f"""
+<section class="record anchor-offset" id="{esc(oid)}">
+<h3>{esc(oid)} — {esc(row["Title"])}</h3>
+{field_list(row)}
+</section>""")
+body = f"""
+<section class="hero"><h2>Canonical Objects</h2><p>{len(objects)} reviewed object identities while preserving every source occurrence.</p></section>
+{''.join(object_sections)}
+"""
+write(OUT / "objects" / "index.html", layout("Canonical Objects", body))
+
+# Price observations index with stable anchors.
+price_sections = []
+for row in prices:
+    pid = row["Price Observation ID"]
+    price_sections.append(f"""
+<section class="record anchor-offset" id="{esc(pid)}">
+<h3>{esc(pid)} — {esc(row["Brand"])} {esc(row["Product / Model"])}</h3>
+<p>{status_badge(row["Confidence"])}</p>
+{field_list(row)}
+</section>""")
+body = f"""
+<section class="hero"><h2>Price Observations</h2>
+<p>{len(prices)} source-specific observations preserved without averaging, inflation adjustment, or unsupported MSRP conversion.</p>
+</section>
+{''.join(price_sections)}
+"""
+write(OUT / "prices" / "index.html", layout("Price Observations", body))
+
+# Sources index and individual pages.
+source_index_rows = []
+for row in source_register:
+    sid = row["Source ID"]
+    source_index_rows.append({
+        "Source ID": f'<a href="{sid}/">{esc(sid)}</a>',
+        "Domain": row["Domain"],
+        "Stages Used": row["Stages Used"],
+        "Source Roles": row["Source Roles"],
+        "Record References": row["Record References"],
+        "Rights Treatment": row["Default Rights Treatment"],
+        "Priority": row["Preservation Priority"],
+    })
+body = f"""
+<section class="hero"><h2>Source Register</h2><p>{len(source_register)} registered public source routes, rights treatment, and preservation priorities.</p>
+<input class="search" data-table-filter="sources-table" aria-label="Filter sources" placeholder="Filter sources"></section>
+{table(source_index_rows, list(source_index_rows[0].keys()), "sources-table")}
+"""
+write(OUT / "sources" / "index.html", layout("Source Register", body))
+
+for row in source_register:
+    sid = row["Source ID"]
+    usage = usage_by_source.get(sid, {})
+    url = row["URL"]
+    related_records = records_by_primary_url.get(url, [])
+    related_prices = prices_by_url.get(url, [])
+    related_record_table = table(
+        [{"Master ID": r["Master ID"], "Title": r["Title"], "Research Status": r["Research Status"],
+          "Record page": f'{BASE_URL}records/{r["Master ID"]}/'} for r in related_records],
+        ["Master ID","Title","Research Status","Record page"]
+    ) if related_records else "<p>No directly matched record URL in the public register.</p>"
+    related_price_table = table(
+        [{"Price Observation ID": p["Price Observation ID"], "Brand": p["Brand"],
+          "Product / Model": p["Product / Model"], "Displayed Price": p["Displayed Price"],
+          "Confidence": p["Confidence"]} for p in related_prices],
+        ["Price Observation ID","Brand","Product / Model","Displayed Price","Confidence"]
+    ) if related_prices else "<p>No directly matched price observation URL.</p>"
+    body = f"""
+<section class="hero"><h2>{esc(sid)} — {esc(row["Domain"])}</h2>
+<p><a href="{esc(url)}">{esc(url)}</a></p></section>
+<section class="panel"><h3>Source registration</h3>{field_list(row)}</section>
+<section class="panel"><h3>Published usage reconciliation</h3>{field_list(usage) if usage else "<p>No usage row.</p>"}</section>
+<section class="panel"><h3>Related source records</h3>{related_record_table}</section>
+<section class="panel"><h3>Related price observations</h3>{related_price_table}</section>
+"""
+    write(OUT / "sources" / sid / "index.html", layout(f"{sid} — {row['Domain']}", body))
+
+# Chronology.
+chron_sections = []
+for row in chronology:
+    cid = row["Chronology ID"]
+    chron_sections.append(f"""
+<section class="record anchor-offset" id="{esc(cid)}">
+<h3>{esc(cid)} — {esc(row["Date Text"])} — {esc(row["Title"])}</h3>
+{field_list(row)}
+</section>""")
+body = f"""
+<section class="hero"><h2>Chronology</h2><p>{len(chronology)} date-ordered public records with identity, source, confidence, and chronology notes.</p></section>
+{''.join(chron_sections)}
+"""
+write(OUT / "chronology" / "index.html", layout("Chronology", body))
+
+# Validation.
+validation_table = table(validation, ["Check","Expected","Method","Result","Status","Claim / evidence"], "validation-table")
+body = f"""
+<section class="hero"><h2>Validation</h2><div class="success"><strong>{sum(1 for r in validation if r["Status"] == "PASS")} / {len(validation)} checks PASS.</strong></div></section>
+{validation_table}
+<p><a href="/lititzbmx-public-knowledge-register/docs/VALIDATION-REPORT.md">Download the Markdown validation report.</a></p>
+"""
+write(OUT / "validation" / "index.html", layout("Validation", body))
+
+# Data index.
+data_files = sorted((OUT / "data").glob("*.csv"))
+data_rows = [{"Dataset": f.name, "Download": f"{BASE_URL}data/{f.name}"} for f in data_files]
+body = f"""
+<section class="hero"><h2>Public Data</h2><p>CSV exports used to generate the public site.</p></section>
+{table(data_rows, ["Dataset","Download"])}
+"""
+write(OUT / "data" / "index.html", layout("Public Data", body))
+
+# Downloads index.
+download_files = sorted((OUT / "downloads").iterdir())
+download_rows = [{"File": f.name, "Bytes": f.stat().st_size, "Download": f"{BASE_URL}downloads/{f.name}"} for f in download_files]
+body = f"""
+<section class="hero"><h2>Downloads</h2><p>Final workbook, authoritative ephemera sequence package, and SHA-256 checksums.</p></section>
+{table(download_rows, ["File","Bytes","Download"])}
+"""
+write(OUT / "downloads" / "index.html", layout("Downloads", body))
+
+# Methodology and correction route.
+method_body = """
+<section class="hero"><h2>Methodology</h2></section>
+<section class="panel"><h3>Claim visibility</h3><p>If the register makes a claim, the public user must be able to inspect the details supporting that claim.</p></section>
+<section class="panel"><h3>Canonical identity</h3><p>Source occurrences remain preserved even when multiple records are reviewed as the same canonical object.</p></section>
+<section class="panel"><h3>Price evidence</h3><p>Prices are source-specific observations. The register does not average them, inflation-adjust them, or convert them into MSRP without explicit evidence.</p></section>
+<section class="panel"><h3>Rights</h3><p>Historical source scans are not reproduced. Metadata, citations, public URLs, evidence notes, limitations, and research status are retained.</p></section>
+"""
+write(OUT / "methodology" / "index.html", layout("Methodology", method_body))
+
+# 404.
+not_found = """
+<section class="hero"><h2>Page not found</h2>
+<p>The requested route is not present in this release. Use the register navigation or submit a correction if a workbook link is broken.</p>
+<div class="actions"><a class="button" href="/lititzbmx-public-knowledge-register/">Return to the register</a></div>
+</section>
+"""
+write(OUT / "404.html", layout("Page not found", not_found))
+
+# robots and sitemap.
+(OUT / "robots.txt").write_text(
+    "User-agent: *\nAllow: /\nSitemap: " + BASE_URL + "sitemap.xml\n",
+    encoding="utf-8"
+)
+urls = []
+for path in OUT.rglob("index.html"):
+    rel = path.relative_to(OUT).as_posix()
+    url_path = rel[:-10]  # remove index.html
+    urls.append(BASE_URL + url_path)
+urls.extend([BASE_URL + "404.html"])
+sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for url in sorted(set(urls)):
+    sitemap.append(f"  <url><loc>{html.escape(url)}</loc></url>")
+sitemap.append("</urlset>")
+(OUT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
+
+# Build report.
+report = {
+    "generated_pages": len(list(OUT.rglob("*.html"))),
+    "claims": len(claims),
+    "records": len(records),
+    "objects": len(objects),
+    "prices": len(prices),
+    "sources": len(source_register),
+    "chronology": len(chronology),
+    "validation": len(validation),
+}
+(OUT / "build-report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+print(json.dumps(report, indent=2))

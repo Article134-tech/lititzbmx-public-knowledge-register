@@ -1,0 +1,37 @@
+LITITZ BMX PUBLIC KNOWLEDGE REGISTER v1.0.0 — GITHUB DEPLOYMENT MANIFEST
+
+Repository upload file count: 29
+GitHub browser upload limit: 100 files per upload.
+This package is intentionally below that limit.
+
+Upload every file and folder listed below:
+
+.github/ISSUE_TEMPLATE/config.yml
+.github/ISSUE_TEMPLATE/record-correction.yml
+.github/workflows/pages.yml
+CHANGELOG.md
+CITATION.cff
+CONTRIBUTING.md
+DEPLOYMENT.md
+README.md
+RELEASE_NOTES_v1.0.0.md
+RIGHTS.md
+data/canonical-objects-v1.0.csv
+data/chronology-v1.0.csv
+data/claim-items-v1.0.csv
+data/ephemera-register-v1.0.csv
+data/price-observations-v1.0.csv
+data/public-claims-v1.0.csv
+data/source-register-v1.0.csv
+data/source-usage-v1.0.csv
+data/validation-v1.0.csv
+docs/VALIDATION-REPORT.md
+downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip
+downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt
+downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx
+downloads/Lititz_BMX_Public_Knowledge_Register_v1.0.0_SHA256SUMS.txt
+release-manifest.json
+site/assets/lititz-bmx-logo.png
+site/assets/site.css
+site/assets/site.js
+site/build.py

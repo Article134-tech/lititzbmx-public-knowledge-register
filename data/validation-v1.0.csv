@@ -1,0 +1,15 @@
+﻿Check,Expected,Method,Result,Status,Claim / evidence
+Source records,61,Count Source Records Master IDs,61,PASS,PKR-CLM-001
+Canonical objects,51,Count Canonical Object IDs,51,PASS,PKR-CLM-002
+Price observations,38,Count Price Observation IDs,38,PASS,PKR-CLM-003
+Registered sources,57,Count Source IDs,57,PASS,PKR-CLM-004
+Reviewed duplicate groups,10,Count unique nonblank duplicate groups,10,PASS,PKR-CLM-005
+Open/unresolved records,20,"Status contains OPEN, unresolved, or Lead",20,PASS,PKR-CLM-006
+Copied historical scans,0,Package historical-source image audit,0,PASS,PKR-CLM-007
+Flyer/promotional records,12,Source Stage exactly v0.9,12,PASS,PKR-CLM-008
+Chronology rows,61,Count Chronology IDs,61,PASS,PKR-CLM-009
+Exact reference IDs,2,Unique nonblank Exact Reference ID,2,PASS,PKR-CLM-010
+Personal street addresses,0,Minimum-necessary public-field review,0,PASS,PKR-CLM-011
+Public claim definitions,57,Count Claim IDs,57,PASS,Public Claims
+Claim-item relationships,521,Count normalized Claim Items,521,PASS,Claim Items
+Source-use reconciliation,57,Each source published count equals record + price uses,57,PASS,Source Usage

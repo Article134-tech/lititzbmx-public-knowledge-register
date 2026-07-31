@@ -1,0 +1,38 @@
+{
+  "register": "Lititz BMX Public BMX Knowledge Register — Ephemera",
+  "version": "1.0.0",
+  "data_lock": "2026-07-30",
+  "release_date": "2026-07-31",
+  "repository": "https://github.com/Article134-tech/lititzbmx-public-knowledge-register",
+  "site": "https://article134-tech.github.io/lititzbmx-public-knowledge-register/",
+  "counts": {
+    "source_records": 61,
+    "canonical_objects": 51,
+    "price_observations": 38,
+    "registered_sources": 57,
+    "public_claims": 57,
+    "claim_item_relationships": 521,
+    "chronology_rows": 61,
+    "validation_checks": 14
+  },
+  "release_assets": {
+    "Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx": {
+      "sha256": "43f81c0afe06a21fd7d45041bcca40d9a6a26e13b07ac953f49ea961c274dfea",
+      "bytes": 2230474
+    },
+    "Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip": {
+      "sha256": "6222f5460d4c9af6128ef7ab65d9d645a8bd49e2130e5c0d207775bf749f831d",
+      "bytes": 913496,
+      "root_file_count": 6,
+      "root_files": [
+        "Lititz_BMX_BMXMuseum_Public_Knowledge_Register_v0.6_GTDyno.xlsx",
+        "Lititz_BMX_BMXMuseum_Public_Knowledge_Register_v0.7_Haro_Ashtabula.xlsx",
+        "Lititz_BMX_BMXMuseum_Public_Knowledge_Register_v0.8_Major_Brands.xlsx",
+        "Lititz_BMX_BMXMuseum_Public_Knowledge_Register_v0.9_Flyers.xlsx",
+        "Lititz_BMX_BMXMuseum_Public_Knowledge_Register_v1.0_Consolidated_Ephemera.xlsx",
+        "Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt"
+      ]
+    }
+  },
+  "rights_boundary": "No historical catalog, flyer, advertisement, publication, or BMXMuseum source scan is reproduced in this repository or public site."
+}
