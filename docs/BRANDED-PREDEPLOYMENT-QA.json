@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": {
+    "logo_sha256": "d685e1e971c9c37af2b914fe1f291f6c94986282a0ab47b0f18ba3f5c3188775",
+    "logo_sha256_expected": "d685e1e971c9c37af2b914fe1f291f6c94986282a0ab47b0f18ba3f5c3188775",
+    "logo_dimensions": [
+      446,
+      532
+    ],
+    "logo_mode": "RGBA",
+    "html_pages": 380,
+    "broken_internal_links": 0,
+    "metric_cards": 8,
+    "record_routes": 250,
+    "claim_routes": 58,
+    "source_routes": 60,
+    "sitemap_urls": 379,
+    "sitemap_unique_urls": 379
+  },
+  "warnings": [],
+  "errors": [],
+  "broken_link_examples": []
+}

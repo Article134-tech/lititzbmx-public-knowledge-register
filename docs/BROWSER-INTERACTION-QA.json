@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "test_method": "Playwright DOM, responsive CSS, keyboard, and interaction testing with generated HTML/CSS/JS inlined because outbound navigation is blocked in the sandbox. Static route and internal-link resolution are covered separately by BRANDED-PREDEPLOYMENT-QA.json.",
+  "results": {
+    "desktop_home_rendered": {
+      "pass": true,
+      "detail": "Every claim can be inspected. Every number opens."
+    },
+    "desktop_metric_cards": {
+      "pass": true,
+      "detail": 8
+    },
+    "desktop_current_overview": {
+      "pass": true,
+      "detail": [
+        "Overview"
+      ]
+    },
+    "official_logo_natural_dimensions": {
+      "pass": true,
+      "detail": [
+        446,
+        532
+      ]
+    },
+    "metric_link_target": {
+      "pass": true,
+      "detail": "/lititzbmx-public-knowledge-register/claims/PKR-CLM-001/"
+    },
+    "skip_link_first_focus": {
+      "pass": true,
+      "detail": "<a class=\"skip-link\" href=\"#main-content\">Skip to main content</a>"
+    },
+    "skip_link_targets_main": {
+      "pass": true,
+      "detail": "main-content"
+    },
+    "claim_heading": {
+      "pass": true,
+      "detail": "PKR-CLM-001 \u2014 Master source records"
+    },
+    "claim_reconciliation_bar": {
+      "pass": true,
+      "detail": 1
+    },
+    "claim_correction_action": {
+      "pass": true,
+      "detail": 1
+    },
+    "records_initial_count": {
+      "pass": true,
+      "detail": "250"
+    },
+    "records_search_count": {
+      "pass": true,
+      "detail": "1"
+    },
+    "records_search_one_visible": {
+      "pass": true,
+      "detail": 1
+    },
+    "records_search_highlight": {
+      "pass": true,
+      "detail": 1
+    },
+    "records_reset_count": {
+      "pass": true,
+      "detail": "250"
+    },
+    "EPH-0051_heading": {
+      "pass": true,
+      "detail": "EPH-0051 \u2014 Lee Cooper BMX Indoor Grand Prix pre-registration"
+    },
+    "EPH-0051_breadcrumb": {
+      "pass": true,
+      "detail": "Overview\nRecords\nEPH-0051"
+    },
+    "EPH-0250_heading": {
+      "pass": true,
+      "detail": "EPH-0250 \u2014 Gainsborough Firebird frame-and-fork retail offer"
+    },
+    "EPH-0250_breadcrumb": {
+      "pass": true,
+      "detail": "Overview\nRecords\nEPH-0250"
+    },
+    "mobile_menu_toggle_visible": {
+      "pass": true,
+      "detail": true
+    },
+    "mobile_menu_expanded": {
+      "pass": true,
+      "detail": "true"
+    },
+    "mobile_nav_panel_visible": {
+      "pass": true,
+      "detail": true
+    },
+    "mobile_current_records": {
+      "pass": true,
+      "detail": [
+        "Records"
+      ]
+    },
+    "mobile_menu_escape_closes": {
+      "pass": true,
+      "detail": "false"
+    },
+    "mobile_row_card_display": {
+      "pass": true,
+      "detail": "block"
+    },
+    "mobile_data_label": {
+      "pass": true,
+      "detail": "\"Record ID\""
+    },
+    "mobile_menu_touch_target": {
+      "pass": true,
+      "detail": [
+        390,
+        57.1875
+      ]
+    },
+    "mobile_record_detail_breadcrumb": {
+      "pass": true,
+      "detail": true
+    },
+    "mobile_record_heading": {
+      "pass": true,
+      "detail": "EPH-0051 \u2014 Lee Cooper BMX Indoor Grand Prix pre-registration"
+    },
+    "browser_console_errors": {
+      "pass": true,
+      "detail": []
+    },
+    "browser_page_errors": {
+      "pass": true,
+      "detail": []
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "errors": [],
+  "screenshots": [
+    "/mnt/data/branded_site_screenshots/claim-detail-desktop.png",
+    "/mnt/data/branded_site_screenshots/home-desktop.png",
+    "/mnt/data/branded_site_screenshots/record-detail-mobile.png",
+    "/mnt/data/branded_site_screenshots/records-mobile.png"
+  ]
+}

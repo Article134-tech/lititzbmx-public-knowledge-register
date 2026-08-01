@@ -1,33 +1,29 @@
-# Validation Report
+# Validation Report — v1.1.0
 
-**Register:** Lititz BMX Public BMX Knowledge Register — Ephemera v1.0.0  
-**Data lock:** July 30, 2026  
-**Workbook release audit:** July 31, 2026  
+**Data lock:** August 1, 2026  
+**State:** Deployment candidate
 
-All fourteen release-gate checks pass.
+| Check | Expected | Result | Status |
+|---|---:|---:|---|
+| Source records | 250 | 250 | PASS |
+| Canonical objects | 240 | 240 | PASS |
+| Price observations | 101 | 101 | PASS |
+| Registered sources | 60 | 60 | PASS |
+| Reviewed duplicate groups | 10 | 10 | PASS |
+| Open/unresolved records | 20 | 20 | PASS |
+| Copied historical scans | 0 | 0 | PASS |
+| Flyer/promotional records | 12 | 12 | PASS |
+| Chronology rows | 250 | 250 | PASS |
+| Exact reference IDs | 2 | 2 | PASS |
+| Personal street addresses | 0 | 0 | PASS |
+| Public claim definitions | 58 | 58 | PASS |
+| Claim-item relationships | 1910 | 1910 | PASS |
+| Source-use reconciliation | 60 | 60 | PASS |
+| Indexed-text page-image review backlog | 189 | 189 | PASS |
 
-| Check | Expected | Result | Status | Claim / evidence |
-|---|---:|---:|---|---|
-| Source records | 61 | 61 | PASS | PKR-CLM-001 |
-| Canonical objects | 51 | 51 | PASS | PKR-CLM-002 |
-| Price observations | 38 | 38 | PASS | PKR-CLM-003 |
-| Registered sources | 57 | 57 | PASS | PKR-CLM-004 |
-| Reviewed duplicate groups | 10 | 10 | PASS | PKR-CLM-005 |
-| Open/unresolved records | 20 | 20 | PASS | PKR-CLM-006 |
-| Copied historical scans | 0 | 0 | PASS | PKR-CLM-007 |
-| Flyer/promotional records | 12 | 12 | PASS | PKR-CLM-008 |
-| Chronology rows | 61 | 61 | PASS | PKR-CLM-009 |
-| Exact reference IDs | 2 | 2 | PASS | PKR-CLM-010 |
-| Personal street addresses | 0 | 0 | PASS | PKR-CLM-011 |
-| Public claim definitions | 57 | 57 | PASS | Public Claims |
-| Claim-item relationships | 521 | 521 | PASS | Claim Items |
-| Source-use reconciliation | 57 | 57 | PASS | Source Usage |
-
-The workbook-wide release audit also confirmed:
-
-- 57 of 57 Public Claims reconcile as `MATCH`.
-- 57 of 57 Source Usage records reconcile as `MATCH`.
-- 521 Claim Items agree with their Public Claims recomputed totals.
-- No duplicate primary identifiers were detected.
+- 58/58 Public Claims reconcile as `MATCH`.
+- 60/60 Source Usage rows reconcile as `MATCH`.
+- No duplicate primary IDs were detected.
 - No spreadsheet formula-error cells were detected.
-- Dedicated public URLs passed format checks.
+- The 189-record page-image review backlog is disclosed and itemized.
+- The v1.0.0 release remains preserved.
