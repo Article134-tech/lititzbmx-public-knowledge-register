@@ -68,6 +68,27 @@ def table(rows, columns, table_id=None, caption=None):
         out.append('</tr>')
     out.append('</tbody></table></div>'); return "".join(out)
 
+def supporting_item_cards(items, collection_id):
+    out = [f'<div class="supporting-items" id="{esc(collection_id)}">']
+    for item in items:
+        item_id = item.get("Item ID", "")
+        item_type = item.get("Item Type", "")
+        label = item.get("Item Label", "")
+        status = item.get("Item Status", "")
+        note = item.get("Item Note", "")
+        url = item.get("Item URL", "")
+        action = f'<a class="button button-secondary support-open" href="{esc(url)}">Open item <span aria-hidden="true">→</span></a>' if url else '<span class="support-open-unavailable">No public route</span>'
+        out.append(
+            f'<article class="support-item-card" data-filter-item>'
+            f'<div class="support-identity"><span class="support-type">{esc(item_type)}</span><strong class="support-id">{esc(item_id)}</strong></div>'
+            f'<div class="support-title"><h3>{esc(label)}</h3></div>'
+            f'<div class="support-details"><p><span class="support-label">Status</span>{esc(status) or "Not stated"}</p><p><span class="support-label">Evidence note</span>{esc(note) or "No additional note."}</p></div>'
+            f'<div class="support-action">{action}</div>'
+            f'</article>'
+        )
+    out.append('</div>')
+    return "".join(out)
+
 def filter_controls(target_id, noun, total, placeholder):
     iid = f'filter-{target_id}'
     return f'''<div class="filter-tools" data-filter-tools data-target="{esc(target_id)}" data-noun="{esc(noun)}">
@@ -131,9 +152,9 @@ for r in claims:
 body=f'<section class="hero"><p class="kicker">Explore</p><h1>Public Claims</h1><p>All {len(claims)} aggregate claims, counting rules, limitations, correction routes, and reconciliation results.</p></section>{filter_controls("claims-table","claims",len(claims),"Search by claim ID, label, category, or status")}{table(claim_rows,list(claim_rows[0]),"claims-table","Public claims")}'
 write(OUT/"claims"/"index.html",layout("Public Claims",body,section="claims",crumbs=[("Overview",internal()),("Claims",internal("claims/"))]))
 for c in claims:
-    cid=c["Claim ID"]; items=claim_items_by_claim[cid]; rows=[]
-    for i in items: rows.append({"Item Type":i["Item Type"],"Item ID":i["Item ID"],"Item Label":i["Item Label"],"Item Status":i["Item Status"],"Item Note":i["Item Note"],"Open":SafeHTML(f'<a href="{esc(i.get("Item URL",""))}">Open item</a>') if i.get("Item URL") else ""})
-    body=f'<section class="claim-identity"><p class="kicker">Public claim</p><h1>{cid} <span>— {esc(c["Claim Label"])}</span></h1><p class="claim-total"><strong>{esc(c["Displayed Value"])}</strong> {esc(c["Unit"])}</p><div class="status-row">{status_badge(c["Publication Status"])}{status_badge(c["Reconciliation"])}</div></section><div class="reconciliation-bar"><strong>Reconciliation:</strong> displayed value {esc(c["Displayed Value"])}; recomputed support {esc(c["Recomputed Item Count"])}; status {esc(c["Reconciliation"])}.</div><div class="actions"><a class="button" href="{esc(c.get("Correction URL",""))}">Submit a claim correction</a><a class="button button-secondary" href="{internal("claims/")}">Back to all claims</a></div><section class="panel"><p class="kicker">Definition</p><h2>Counting rule and boundary</h2>{field_list(c)}</section><section class="panel"><p class="kicker">Itemized evidence</p><h2>Supporting items ({len(items)})</h2>{filter_controls("items-"+cid,"supporting items",len(items),"Search IDs, labels, notes, or status")}{table(rows,["Item Type","Item ID","Item Label","Item Status","Item Note","Open"],"items-"+cid,"Supporting items")}</section>'
+    cid=c["Claim ID"]; items=claim_items_by_claim[cid]
+    definition_order=["Category","Counting Rule","Source Dataset","Publication Status","Limitations / Boundary","Zero-State Evidence"]
+    body=f'<section class="claim-identity"><p class="kicker">Public claim</p><h1>{cid} <span>— {esc(c["Claim Label"])}</span></h1><p class="claim-total"><strong>{esc(c["Displayed Value"])}</strong> {esc(c["Unit"])}</p><div class="status-row">{status_badge(c["Publication Status"])}{status_badge(c["Reconciliation"])}</div></section><div class="reconciliation-bar"><strong>Reconciliation:</strong> displayed value {esc(c["Displayed Value"])}; recomputed support {esc(c["Recomputed Item Count"])}; status {esc(c["Reconciliation"])}.</div><div class="actions"><a class="button" href="{esc(c.get("Correction URL",""))}">Submit a claim correction</a><a class="button button-secondary" href="{internal("claims/")}">Back to all claims</a></div><section class="panel claim-definition"><p class="kicker">Definition</p><h2>Counting rule and boundary</h2>{field_list(c,definition_order)}</section><section class="panel supporting-panel"><div class="section-heading compact-heading"><div><p class="kicker">Itemized evidence</p><h2>Supporting items ({len(items)})</h2></div><p>Each item keeps its identifier, status, evidence note, and direct route together.</p></div>{filter_controls("items-"+cid,"supporting items",len(items),"Search IDs, labels, notes, or status")}{supporting_item_cards(items,"items-"+cid)}</section>'
     write(OUT/"claims"/cid/"index.html",layout(f'{cid} — {c["Claim Label"]}',body,section="claims",crumbs=[("Overview",internal()),("Claims",internal("claims/")),(cid,internal(f"claims/{cid}/"))]))
 
 record_rows=[]
