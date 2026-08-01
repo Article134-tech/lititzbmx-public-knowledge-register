@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "generated_html_pages": 380,
+  "internal_links_checked": 11086,
+  "internal_link_or_anchor_errors": [],
+  "duplicate_html_id_pages": [],
+  "content_self_links": [],
+  "external_links_rendered": 4910,
+  "unique_external_urls": 431,
+  "evidence_source_action_links": 3400,
+  "unique_evidence_source_urls": 60,
+  "claim_item_cards": 1910,
+  "claim_item_cards_with_external_evidence": 1904,
+  "release_asset_cards_with_download_action": 6,
+  "claim_cards_missing_expected_source_or_download": [],
+  "coverage": {
+    "record_pages": {
+      "count": 250,
+      "missing_source": []
+    },
+    "source_pages": {
+      "count": 60,
+      "missing_source": []
+    },
+    "object_cards": {
+      "count": 240,
+      "missing_source": []
+    },
+    "price_cards": {
+      "count": 101,
+      "missing_source": []
+    },
+    "chronology_cards": {
+      "count": 250,
+      "missing_source": []
+    }
+  },
+  "reviewed_duplicate_group_anchors": 10,
+  "raw_self_url_fields_remaining": {
+    "Object URL": [],
+    "Detail URL": []
+  },
+  "claim_pages_missing_source_dataset_link": []
+}
