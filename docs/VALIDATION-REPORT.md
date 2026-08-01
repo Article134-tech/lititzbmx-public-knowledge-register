@@ -1,29 +1,29 @@
-# Validation Report — v1.1.0
+# Validation Report — v1.2.0 Final Release
 
 **Data lock:** August 1, 2026  
-**State:** Deployment candidate
+**State:** Final public release
 
 | Check | Expected | Result | Status |
 |---|---:|---:|---|
-| Source records | 250 | 250 | PASS |
-| Canonical objects | 240 | 240 | PASS |
-| Price observations | 101 | 101 | PASS |
-| Registered sources | 60 | 60 | PASS |
+| Source records | 500 | 500 | PASS |
+| Canonical objects | 490 | 490 | PASS |
+| Price observations | 335 | 335 | PASS |
+| Registered sources | 65 | 65 | PASS |
 | Reviewed duplicate groups | 10 | 10 | PASS |
 | Open/unresolved records | 20 | 20 | PASS |
 | Copied historical scans | 0 | 0 | PASS |
-| Flyer/promotional records | 12 | 12 | PASS |
-| Chronology rows | 250 | 250 | PASS |
-| Exact reference IDs | 2 | 2 | PASS |
-| Personal street addresses | 0 | 0 | PASS |
-| Public claim definitions | 58 | 58 | PASS |
-| Claim-item relationships | 1910 | 1910 | PASS |
-| Source-use reconciliation | 60 | 60 | PASS |
-| Indexed-text page-image review backlog | 189 | 189 | PASS |
+| Chronology rows | 500 | 500 | PASS |
+| Public claim definitions | 69 | 69 | PASS |
+| Claim-item relationships | 4,472 | 4,472 | PASS |
+| Source-use reconciliation | 65 | 65 | PASS |
+| Primary category assignments | 500 | 500 | PASS |
+| Recurring candidate disclosure | 73 | 73 | PASS |
+| v1.2 indexed-text price qualification | 234 | 234 | PASS |
+| Total release-gate checks | 20 | 20 | PASS |
 
-- 58/58 Public Claims reconcile as `MATCH`.
-- 60/60 Source Usage rows reconcile as `MATCH`.
+- 69/69 Public Claims reconcile as `MATCH`.
+- 65/65 Source Usage rows reconcile as `MATCH`.
 - No duplicate primary IDs were detected.
 - No spreadsheet formula-error cells were detected.
-- The 189-record page-image review backlog is disclosed and itemized.
-- The v1.0.0 release remains preserved.
+- All 500 records have a controlled Primary Category.
+- The recurring-campaign and page-image-review backlogs remain disclosed and itemized.

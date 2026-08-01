@@ -1,9 +1,8 @@
 {
   "register": "Lititz BMX Public BMX Knowledge Register \u2014 Ephemera",
-  "version": "1.2.0-deployment-candidate",
+  "version": "1.2.0",
   "data_lock": "2026-08-01",
-  "deployment_candidate": true,
-  "public_deployment": false,
+  "public_deployment": true,
   "record_range": [
     "EPH-0001",
     "EPH-0500"
@@ -29,7 +28,8 @@
     "branding": "PASS"
   },
   "release_assets": {
-    "workbook": "downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx",
-    "workbook_sha256": "34e947b9d1a75a83a5e615d49b421a6bb66a140f4a73bc92283fc35c386b2235"
-  }
+    "workbook": "downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx",
+    "workbook_sha256": "5b956c0ed7877ccaa6a0a7c03f0d08a00cad695e869e9269026634372431639d"
+  },
+  "final_release": true
 }

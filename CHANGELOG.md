@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.2.0 Deployment Candidate — 2026-08-01
+## v1.2.0 Final Release — 2026-08-01
 
 - Expanded the register from 250 to 500 Source Records.
 - Added 250 new Source Records through EPH-0500.
@@ -10,6 +10,7 @@
 - Reached 20/20 release-gate checks passing.
 - Corrected desktop navigation overflow and hidden-control display behavior during browser testing.
 - Passed static link, source-action, responsive-layout, mobile, keyboard, accessibility, branding, and ZIP-integrity audits.
+- Finalized public wording and renamed the downloadable workbook to remove release-candidate language.
 
 
 ## v1.2.0 scale-ready checkpoint — 2026-08-01

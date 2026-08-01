@@ -1,6 +1,7 @@
-Lititz BMX Public Knowledge Register — v1.2.0 500-Record Deployment Candidate
+Lititz BMX Public Knowledge Register — v1.2.0 Final Release
 Data lock: August 1, 2026
-Copy all contents of this folder into the repository root.
+Copy finalization-patch contents into the repository root.
+Delete the obsolete v1.2.0 RELEASE_CANDIDATE workbook from downloads/.
 Generated _site output is intentionally excluded; GitHub Actions rebuilds it.
 
 Included files before this manifest: 78
@@ -74,7 +75,7 @@ downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip
 downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt
 downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx
 downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx
+downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx
 downloads/Lititz_BMX_Public_Knowledge_Register_v1.0.0_SHA256SUMS.txt
 downloads/Lititz_BMX_Public_Knowledge_Register_v1.1.0_SHA256SUMS.txt
 release-manifest.json

@@ -1,6 +1,6 @@
 # Lititz BMX Public Knowledge Register — Ephemera v1.2.0
 
-This deployment candidate expands the Lititz BMX Public BMX Knowledge Register from 250 to **500 Source Records** and adds the scale-ready category, filtering, sorting, pagination, mobile, accessibility, and source-link architecture.
+This finalized release expands the Lititz BMX Public BMX Knowledge Register from 250 to **500 Source Records** and adds category-first browsing, full-register filtering, sorting, progressive loading, mobile usability, accessibility, and corrected source-link architecture.
 
 ## Release totals
 
@@ -34,6 +34,6 @@ This deployment candidate expands the Lititz BMX Public BMX Knowledge Register f
 
 The release preserves metadata, citations, public evidence URLs, descriptive facts, limitations, rights treatment, and correction pathways. Protected historical scans and publication pages are not reproduced.
 
-## Deployment
+## Release state
 
-Follow `DEPLOY_V1.2.0.md`. The current public site remains unchanged until this candidate is committed and the GitHub Pages workflow completes successfully.
+v1.2.0 is the finalized 500-record public release. See `RELEASE_NOTES_v1.2.0.md` for scope and `DEPLOY_V1.2.0.md` for the finalization deployment check.
