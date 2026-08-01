@@ -1,44 +1,85 @@
-.github/ISSUE_TEMPLATE/config.yml	268	6a0c1d25e96c5ecf3c433f55e75b9c9575dc28b339f4a913193434fdfd55dff4
-.github/ISSUE_TEMPLATE/record-correction.yml	1708	03349da47c1098bc2a70122778749cebf07374f7418b3d0294357bf2d98f4f4f
-.github/workflows/pages.yml	1011	af1dfed8e4ba6a74727b2a7784046cca7ae842fa5c983130cb7c6ac063b9c453
-CHANGELOG.md	945	5ecfedb9a561afd8f4bf4fcb75a9401d96370d0faad040a1f18bb7d126df1ff0
-CITATION.cff	736	4602c707217aa68ad139b3d546d3030295f174871eb23bb9eaf12083d39e6adf
-CONTRIBUTING.md	765	e67bedb14401c4b176cbb2565ddd46fcdd3cbbfc135ab7120687716db0226c33
-DEPLOYMENT.md	2098	4f6a7ee9c50b9913a5fb7c7e75a556130a3fb5d01a3d80965897fae3033238ef
-DEPLOY_V1.1.0.md	823	83d5ccfcd4eec2efb42c364d2a2658da31444a3d794e6fca69fb1930c6207110
-README.md	1266	60ffecf49c60d1e350fe57c57ecbedd7bc217627019070cf73e5ff4158582be7
-RELEASE_NOTES_v1.0.0.md	1123	c28d2fbff1c4e1ff322ac27924870986c1d9ddc8ae874a8be745cf7c4cfbe134
-RELEASE_NOTES_v1.1.0.md	762	11bf47dedc21d2b87d4b98e6dc7a6c6a5fdb594001d6bec4c16456208be1b89a
-RIGHTS.md	1188	ce4114f489e2fdac053c641649cfe8ccda5565016028604fd41cd5c9ef691a11
-UPLOAD_MANIFEST.txt	1129	b50f21d492ccd00480fe884a0aa91caf055048ebaef42c1075f28c3914bda93b
-data/canonical-objects-v1.0.csv	16632	2fddf33b13e527bb4714ef862995d81450d01c1acf3c474c839efa2f80f509d6
-data/canonical-objects-v1.1.csv	87685	6b4a98a97e666ade3ff19c5ecce6f7dc53b6b243162cc7878f4730c497b16d80
-data/chronology-v1.0.csv	14885	654ac78dfea4e8838361e51a2b896c6e8fe8301c6c135ff782ec343e8bd695e0
-data/chronology-v1.1.csv	71297	93b448efe7b5ea5b2f838a29fcbdf299f6cb89de416c8da2fa6f076fba981369
-data/claim-items-v1.0.csv	148238	68224c8ef305613eea664016fc0a988f3915bec8fa66684dfb78f7d56b2e9c06
-data/claim-items-v1.1.csv	639497	c1a3e88c1622f8310858543d9e5d6291a776502cf9db0709682934ce9b4ae353
-data/ephemera-register-v1.0.csv	47753	e516ef3e3acb3eb4220c21f0147e5f8af58b0c20a97e8d7a4b8f15649c605745
-data/ephemera-register-v1.1.csv	245930	7c17c9b7266fe9fcd955edf963c95ac2b60a327ec6e7ebceef59cb1ebb1264b3
-data/price-observations-v1.0.csv	19740	5beb28d4f2b0ac38494a10302b80e2d2239a3506a6864d2175dd7b97eb71bbc4
-data/price-observations-v1.1.csv	55945	9343ed5d2e191b2bd4be4964ea230f3ea55dfc9a278fd5bcd77e7d457134a3e2
-data/public-claims-v1.0.csv	28426	10e08ebc63ea3c37d319964c826a30ae2d7d12da6adf63e3ab22bb404086846d
-data/public-claims-v1.1.csv	29270	9f7e1a1e1525d30ec84e3d1e24e6bc9678fc6112f3270eb1a7f03ee6389323be
-data/source-register-v1.0.csv	14936	d686cb40387fabfa759eefd5c948aa874fedadddeb8ee53daf210c23cebb6cf5
-data/source-register-v1.1.csv	16390	0aa933c999b2357b1ddc66647518e9ea726c4d89bd48beb5bb74e975003bde1d
-data/source-usage-v1.0.csv	11726	83f244fec73fa3286f75d3423d0be71348fdb581ada5b0d4f7c0fff42c238ce1
-data/source-usage-v1.1.csv	15357	1725ce364e29d0bb3a04fda4ebc88b6e7ce6f2d62d6d165d86c50b711f317ac1
-data/validation-v1.0.csv	1146	0161bff4c11347f7032d9760b0ce3b7fb5cf3b1bf0069f3d26d222a06d68ef21
-data/validation-v1.1.csv	1273	f3608266d2cadd75954352a26addc5bbb25142824cef604650bbf564214bd81e
-docs/Lititz_BMX_v1.1.0_Predeployment_Test_Report.txt	1302	ed52b637193d062352cf616d80c29bfbd9b8ac959d891b19d5273b7c4dda79be
-docs/VALIDATION-REPORT.md	1124	9fcdccfe2189b758f7ea1f52786986865855ef9d8cdd488090958647dd89bff3
-downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip	913496	6222f5460d4c9af6128ef7ab65d9d645a8bd49e2130e5c0d207775bf749f831d
-downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt	792	c696cb2dc1f652ae04b0bb397ec597c327f4e6ba1fdb46b5f715f9bf1d899a3a
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx	2230474	43f81c0afe06a21fd7d45041bcca40d9a6a26e13b07ac953f49ea961c274dfea
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx	2392224	db6e57e65973d78be314cd7cc3562c3172ce4914c0f27370c85073635b4d8167
-downloads/Lititz_BMX_Public_Knowledge_Register_v1.0.0_SHA256SUMS.txt	343	8881fafcdf0ba14a054c1cdc8a125791a7946ad03cde5467604bfcaf5892f683
-downloads/Lititz_BMX_Public_Knowledge_Register_v1.1.0_SHA256SUMS.txt	642	0120f1f84591e2587742e051aa828e890ebf516e660097b1a0d35623ae9485be
-release-manifest.json	1150	95a486df9e759c2d146d0a4f7998e773c2ca4806b5e5e10eb2e78fd566a1483d
-site/assets/lititz-bmx-logo.png	19851	55d032df323ddc8471f87494c7f53d48b14115979577e1f8e7effb1775967888
-site/assets/site.css	4189	c78acae3250654c6da61e6b9aa706c098469913467579029551bfddf6a92e0d9
-site/assets/site.js	523	6ce095cbd6dc957457f2b2be3e66687b6703a4a51c064ec5836cf41f1882a977
-site/build.py	20185	d041ff4aa5b2c13ee7194a6f3da6b0c0caebfa979760b10eb13d7437d0cd9cfa
+Lititz BMX Public Knowledge Register — v1.2.0 500-Record Deployment Candidate
+Data lock: August 1, 2026
+Copy all contents of this folder into the repository root.
+Generated _site output is intentionally excluded; GitHub Actions rebuilds it.
+
+Included files before this manifest: 78
+
+.github/ISSUE_TEMPLATE/config.yml
+.github/ISSUE_TEMPLATE/record-correction.yml
+.github/workflows/pages.yml
+CHANGELOG.md
+CITATION.cff
+CONTRIBUTING.md
+DEPLOYMENT.md
+DEPLOY_V1.1.0.md
+DEPLOY_V1.2.0.md
+README.md
+RELEASE_NOTES_v1.0.0.md
+RELEASE_NOTES_v1.1.0.md
+RELEASE_NOTES_v1.2.0.md
+RIGHTS.md
+data/canonical-objects-v1.0.csv
+data/canonical-objects-v1.1.csv
+data/canonical-objects-v1.2.csv
+data/category-register-v1.2.csv
+data/chronology-v1.0.csv
+data/chronology-v1.1.csv
+data/chronology-v1.2.csv
+data/claim-items-v1.0.csv
+data/claim-items-v1.1.csv
+data/claim-items-v1.2.csv
+data/ephemera-register-v1.0.csv
+data/ephemera-register-v1.1.csv
+data/ephemera-register-v1.2.csv
+data/price-observations-v1.0.csv
+data/price-observations-v1.1.csv
+data/price-observations-v1.2.csv
+data/public-claims-v1.0.csv
+data/public-claims-v1.1.csv
+data/public-claims-v1.2.csv
+data/source-register-v1.0.csv
+data/source-register-v1.1.csv
+data/source-register-v1.2.csv
+data/source-usage-v1.0.csv
+data/source-usage-v1.1.csv
+data/source-usage-v1.2.csv
+data/validation-v1.0.csv
+data/validation-v1.1.csv
+data/validation-v1.2.csv
+docs/ACCESSIBILITY-IMPLEMENTATION.md
+docs/BRAND-COMPLIANCE-RECORD.md
+docs/BRANDED-PREDEPLOYMENT-QA.json
+docs/BRANDED-PREDEPLOYMENT-TEST-REPORT.md
+docs/BROWSER-INTERACTION-QA.json
+docs/LINK-INTEGRITY-AUDIT.md
+docs/LINK-INTEGRITY-QA.json
+docs/PRODUCT-NAVIGATION-IMPLEMENTATION.md
+docs/V1.2-500-ACCESSIBILITY-QA.json
+docs/V1.2-500-BROWSER-QA.json
+docs/V1.2-500-FINAL-ACCESSIBILITY-QA.json
+docs/V1.2-500-FINAL-BROWSER-QA.json
+docs/V1.2-500-FINAL-BUILD-REPORT.json
+docs/V1.2-500-FINAL-PREDEPLOYMENT-AUDIT.md
+docs/V1.2-500-FINAL-STATIC-QA.json
+docs/V1.2-500-STATIC-QA.json
+docs/V1.2-SCALE-READY-AUDIT.md
+docs/V1.2-SCALE-READY-QA.json
+docs/VALIDATION-REPORT.md
+docs/qa-screenshots/claim-detail-desktop.png
+docs/qa-screenshots/home-desktop.png
+docs/qa-screenshots/record-detail-mobile.png
+docs/qa-screenshots/records-mobile.png
+downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip
+downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt
+downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx
+downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx
+downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx
+downloads/Lititz_BMX_Public_Knowledge_Register_v1.0.0_SHA256SUMS.txt
+downloads/Lititz_BMX_Public_Knowledge_Register_v1.1.0_SHA256SUMS.txt
+release-manifest.json
+site/assets/Lititz-BMX-Logo-White-Tire-White-Lettering.png
+site/assets/site.css
+site/assets/site.js
+site/build.py
+V1.2.0_SHA256SUMS.txt

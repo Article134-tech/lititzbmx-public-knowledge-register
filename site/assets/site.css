@@ -49,3 +49,46 @@ main{max-width:var(--max);margin:0 auto;padding:1.15rem 1.25rem 4rem}.breadcrumb
 .support-action .button:not(.button-secondary):hover{background:var(--black);border-color:var(--black)}
 @media(max-width:980px){.support-action{min-width:0;max-width:220px}}
 @media(max-width:700px){.support-action{max-width:none}.card-actions{flex-direction:column}.card-actions .button{width:100%}.table-actions{display:grid;grid-template-columns:1fr}.table-actions a{white-space:normal}}
+
+/* v1.2.0 scale-ready category, filtering, sorting, and pagination layer */
+.record-tools{margin:1.1rem 0 1.35rem;padding:1rem;background:var(--white);border:1px solid #cfdbe1;border-top:5px solid var(--blue);border-radius:6px;box-shadow:var(--shadow)}
+.record-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:end}
+.record-search-row label,.filter-grid label{display:grid;gap:.35rem;color:var(--blue-deep);font-weight:800;font-size:.92rem}
+.record-search-row input,.filter-grid select{width:100%;min-height:44px;padding:.62rem .7rem;border:1px solid #8fa8b5;border-radius:4px;background:#fff;color:var(--ink);font:inherit}
+.record-search-row input:focus,.filter-grid select:focus{outline:3px solid rgba(207,154,28,.35);outline-offset:2px;border-color:var(--blue)}
+.filter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:.9rem}
+.filter-more-wrap{margin-top:.75rem;display:flex;justify-content:center}
+.browse-records{display:grid;gap:.9rem}
+.browse-record-card{padding:1rem 1.05rem}
+.record-taxonomy{margin:.25rem 0 .55rem;color:var(--blue);font-weight:800}
+.record-taxonomy a{font-weight:900}
+.record-subject{margin:.45rem 0 .8rem;font-size:1rem;line-height:1.55}
+.record-card-facts{display:flex;flex-wrap:wrap;gap:.45rem .9rem;padding:.65rem .75rem;background:var(--cream);border-left:4px solid var(--gold);font-size:.92rem}
+.record-card-facts span{min-width:180px;flex:1 1 220px}
+.category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0 1.4rem}
+.category-card{display:flex;flex-direction:column;padding:1rem;background:var(--white);border:1px solid #cfdbe1;border-top:6px solid var(--blue);border-radius:6px;box-shadow:var(--shadow)}
+.category-card h3{margin:.1rem 0 .5rem;font-size:1.15rem}
+.category-card p{margin:.35rem 0;line-height:1.45}
+.category-card .button{margin-top:auto;align-self:flex-start}
+.category-count{font-size:2.15rem;font-weight:900;color:var(--blue);line-height:1}
+.category-types{font-size:.84rem;color:#40545e}
+.category-stat{display:inline-grid;grid-template-columns:auto auto;align-items:baseline;gap:.55rem;margin:.8rem 0;padding:.55rem .75rem;background:var(--cream);border-left:5px solid var(--gold)}
+.category-stat strong{font-size:2.1rem;line-height:1;color:var(--blue-deep)}
+.category-stat span{font-weight:800}
+.category-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.category-breakdown ul{columns:2;column-gap:1.4rem;margin:.5rem 0 0;padding-left:1.15rem}
+.category-breakdown li{break-inside:avoid;margin:0 0 .45rem}
+.empty-category{text-align:center;margin-top:1rem}
+.supporting-items[data-page-size] .support-item-card[hidden],.record-collection[data-page-size] [data-filter-item][hidden]{display:none!important}
+
+@media(max-width:980px){.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-breakdown ul{columns:1}}
+@media(max-width:680px){.record-search-row{grid-template-columns:1fr}.record-search-row .button{width:100%}.filter-grid,.category-grid,.category-breakdown{grid-template-columns:1fr}.record-card-facts{display:grid}.category-card .button{width:100%}.category-breakdown ul{columns:1}}
+
+/* v1.2.0 desktop product-navigation containment */
+@media(min-width:981px){
+  .nav-panel{flex-wrap:wrap}
+  .nav-external{flex:0 0 100%;justify-content:flex-end;margin-left:0;padding-top:.2rem;border-top:1px solid rgba(255,255,255,.18)}
+}
+
+/* v1.2.0 ensure semantic hidden state overrides component display rules */
+[hidden]{display:none!important}

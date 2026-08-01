@@ -1,0 +1,21 @@
+﻿Check,Expected,Method,Result,Status,Claim / evidence
+Source records,500,Count Source Records Master IDs,500,PASS,PKR-CLM-001
+Canonical objects,490,Count Canonical Object IDs,490,PASS,PKR-CLM-002
+Price observations,335,Count Price Observation IDs,335,PASS,PKR-CLM-003
+Registered sources,65,Count Source IDs,65,PASS,PKR-CLM-004
+Reviewed duplicate groups,10,Count unique nonblank duplicate groups,10,PASS,PKR-CLM-005
+Open/unresolved records,20,"Status contains OPEN, unresolved, or Lead",20,PASS,PKR-CLM-006
+Copied historical scans,0,Package historical-source image audit,0,PASS,PKR-CLM-007
+Flyer/promotional records,12,Source Stage exactly v0.9,12,PASS,PKR-CLM-008
+Chronology rows,500,Count Chronology IDs,500,PASS,PKR-CLM-009
+Exact reference IDs,2,Unique nonblank Exact Reference ID,2,PASS,PKR-CLM-010
+Personal street addresses,0,Minimum-necessary public-field review,0,PASS,PKR-CLM-011
+Public claim definitions,69,Count Claim IDs,69,PASS,Public Claims
+Claim-item relationships,4472,Count normalized Claim Items,4472,PASS,Claim Items
+Source-use reconciliation,65,Each source published count equals record + price uses,65,PASS,Source Usage
+Indexed-text page-image review backlog,439,Count Source Records whose Source Stage begins v1.1 or v1.2,439,PASS,PKR-CLM-016
+Primary category assignments,500,Count nonblank Category ID and Primary Category values in Source Records,500,PASS,Category Register
+Primary category total reconciliation,500,Sum Category Register Record Count values,500,PASS,Category Register
+Unique category IDs and slugs,10,Count unique nonblank Category IDs and public slugs,10,PASS,Category Register
+Recurring candidate disclosure,73,Count Source Records whose Canonical Action begins REVIEW — recurring campaign/feature candidate,73,PASS,PKR-CLM-017
+v1.2 indexed-text price qualification,234,Count v1.2 Price Observations using MEDIUM-HIGH confidence and page-image-pending evidence language,234,PASS,Price Observations

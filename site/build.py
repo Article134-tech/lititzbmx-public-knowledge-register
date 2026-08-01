@@ -13,7 +13,7 @@ BASE_URL = "https://article134-tech.github.io/lititzbmx-public-knowledge-registe
 REPO_URL = "https://github.com/Article134-tech/lititzbmx-public-knowledge-register"
 ARCHIVE_URL = "https://lititzbmx.com"
 LOGO = "Lititz-BMX-Logo-White-Tire-White-Lettering.png"
-WORKBOOK = "Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx"
+WORKBOOK = "Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx"
 
 
 def esc(v): return html.escape("" if v is None else str(v))
@@ -92,7 +92,7 @@ def table(rows, columns, table_id=None, caption=None):
     out.append('</tbody></table></div>'); return "".join(out)
 
 def supporting_item_cards(items, collection_id):
-    out = [f'<div class="supporting-items" id="{esc(collection_id)}">']
+    out = [f'<div class="supporting-items" id="{esc(collection_id)}" data-page-size="25">']
     for item in items:
         item_id = item.get("Item ID", "")
         item_type = item.get("Item Type", "")
@@ -129,7 +129,87 @@ def filter_controls(target_id, noun, total, placeholder):
     iid = f'filter-{target_id}'
     return f'''<div class="filter-tools" data-filter-tools data-target="{esc(target_id)}" data-noun="{esc(noun)}">
 <label for="{iid}">Search {esc(noun)}</label><div class="filter-row"><input id="{iid}" class="search" type="search" data-filter-input placeholder="{esc(placeholder)}" autocomplete="off"><button class="button button-secondary" type="button" data-filter-reset>Reset</button></div>
-<p class="filter-summary" aria-live="polite"><strong data-filter-count>{total}</strong> of {total} {esc(noun)} shown</p><p class="empty-state" data-filter-empty hidden>No matching {esc(noun)}. Clear the search and try again.</p></div>'''
+<p class="filter-summary" aria-live="polite"><strong data-filter-count>{total}</strong> of {total} {esc(noun)} shown</p><div class="filter-more-wrap"><button class="button button-secondary" type="button" data-filter-more hidden>Load more</button></div><p class="empty-state" data-filter-empty hidden>No matching {esc(noun)}. Clear the search and try again.</p></div>'''
+
+
+def decade_label(value):
+    text = str(value or "").strip()
+    if len(text) == 4 and text.isdigit():
+        return f"{text[:3]}0s"
+    return "Undated"
+
+
+def status_band(value):
+    key = str(value or "").lower()
+    if any(x in key for x in ("ready", "included", "verified", "match", "pass")): return "ready"
+    if any(x in key for x in ("open", "lead", "review", "estimate", "pending", "provisional", "unresolved", "medium")): return "review"
+    if any(x in key for x in ("low", "fail")): return "caution"
+    return "other"
+
+
+def category_for_record(record):
+    return category_by_id.get(record.get("Category ID", ""), {})
+
+
+def record_has_price(record):
+    return bool(prices_by_object.get(record.get("Original ID", ""), []))
+
+
+def option_markup(values, blank_label):
+    out = [f'<option value="">{esc(blank_label)}</option>']
+    out.extend(f'<option value="{esc(value)}">{esc(value)}</option>' for value in values)
+    return "".join(out)
+
+
+def record_card(record):
+    rid = record["Master ID"]
+    cat = category_for_record(record)
+    category_label = record.get("Primary Category", "Other or unresolved ephemera")
+    category_slug = cat.get("Slug", "other-unresolved-ephemera")
+    decade = decade_label(record.get("Start Year"))
+    has_price = "yes" if record_has_price(record) else "no"
+    year_sort = str(record.get("Start Year") or "9999")
+    if not (len(year_sort) == 4 and year_sort.isdigit()): year_sort = "9999"
+    source_actions = source_actions_for_record(record)
+    category_link = action_link(internal(f"categories/{category_slug}/"), "Browse category", secondary=True, external=False)
+    return (
+        f'<article class="record-card browse-record-card" id="{esc(rid)}" data-filter-item '
+        f'data-category="{esc(category_slug)}" data-category-label="{esc(category_label)}" '
+        f'data-decade="{esc(decade)}" data-brand="{esc(record.get("Brand / Promoter", ""))}" '
+        f'data-geography="{esc(record.get("Geography", ""))}" data-status-band="{esc(status_band(record.get("Research Status", "")))}" '
+        f'data-has-price="{has_price}" data-year="{esc(year_sort)}" data-title="{esc(record.get("Title", "").lower())}" data-id="{esc(rid)}">'
+        f'<div class="record-card-heading"><div><p class="record-id">{esc(rid)}</p><h2>{esc(record["Title"])}</h2></div>{status_badge(record.get("Confidence"))}</div>'
+        f'<p class="record-taxonomy"><a href="{internal(f"categories/{category_slug}/")}">{esc(category_label)}</a><span aria-hidden="true"> · </span>{esc(record.get("Object Type"))}<span aria-hidden="true"> · </span>{esc(record.get("Date Text"))}</p>'
+        f'<p class="record-subject">{esc(record.get("Primary Subject"))}</p>'
+        f'<div class="record-card-facts"><span><strong>Brand:</strong> {esc(record.get("Brand / Promoter"))}</span><span><strong>Geography:</strong> {esc(record.get("Geography"))}</span><span><strong>Price evidence:</strong> {"Yes" if has_price == "yes" else "No"}</span></div>'
+        f'<div class="card-actions"><a class="button button-secondary" href="{internal(f"records/{rid}/")}">Open register record</a>{source_actions}{category_link}</div>'
+        f'</article>'
+    )
+
+
+def record_filter_controls(target_id, records_for_controls, total, include_category=True):
+    categories_used = sorted({category_for_record(r).get("Slug", "other-unresolved-ephemera"): r.get("Primary Category", "Other or unresolved ephemera") for r in records_for_controls}.items(), key=lambda x: x[1])
+    decades = sorted({decade_label(r.get("Start Year")) for r in records_for_controls}, key=lambda x: (x == "Undated", x))
+    brands = sorted({r.get("Brand / Promoter", "") for r in records_for_controls if r.get("Brand / Promoter")})
+    geographies = sorted({r.get("Geography", "") for r in records_for_controls if r.get("Geography")})
+    category_select = ""
+    if include_category:
+        category_options = "".join(f'<option value="{esc(slug)}">{esc(label)}</option>' for slug, label in categories_used)
+        category_select = f'<label>Category<select data-record-filter="category"><option value="">All categories</option>{category_options}</select></label>'
+    return f'''<section class="record-tools" data-filter-tools data-target="{esc(target_id)}" data-noun="records">
+<div class="record-search-row"><label for="search-{esc(target_id)}">Search all records<input id="search-{esc(target_id)}" type="search" data-filter-input placeholder="Search ID, title, brand, type, evidence note, or status" autocomplete="off"></label><button class="button button-secondary" type="button" data-filter-reset>Reset</button></div>
+<div class="filter-grid">{category_select}<label>Decade<select data-record-filter="decade">{option_markup(decades,"All decades")}</select></label><label>Brand or promoter<select data-record-filter="brand">{option_markup(brands,"All brands and promoters")}</select></label><label>Geography<select data-record-filter="geography">{option_markup(geographies,"All geographies")}</select></label><label>Research status<select data-record-filter="status-band"><option value="">All status groups</option><option value="ready">Ready / verified</option><option value="review">Open / review</option><option value="caution">Low confidence / caution</option><option value="other">Other</option></select></label><label>Price evidence<select data-record-filter="has-price"><option value="">With or without prices</option><option value="yes">Has price evidence</option><option value="no">No price evidence</option></select></label><label>Sort records<select data-record-sort><option value="id-asc">ID — ascending</option><option value="id-desc">ID — descending</option><option value="oldest">Oldest first</option><option value="newest">Newest first</option><option value="title">Title — A to Z</option><option value="category">Category — A to Z</option></select></label></div>
+<p class="filter-summary" aria-live="polite"><strong data-filter-count>{total}</strong> matching records · <strong data-visible-count>{min(total,25)}</strong> visible of {total} total</p><div class="filter-more-wrap"><button class="button button-secondary" type="button" data-filter-more>Load 25 more</button></div><p class="empty-state" data-filter-empty hidden>No matching records. Clear one or more filters and try again.</p></section>'''
+
+
+def category_summary_cards():
+    cards = []
+    for category in categories:
+        count = int(category.get("Record Count") or 0)
+        category_url = internal("categories/" + category["Slug"] + "/")
+        cards.append(f'<article class="category-card"><p class="category-count">{count}</p><h3>{esc(category["Category Label"])}</h3><p>{esc(category["Definition"])}</p><p class="category-types"><strong>Included types:</strong> {esc(category["Included Object Types"])}</p><a class="button button-secondary" href="{category_url}">Browse {count} records</a></article>')
+    return "".join(cards)
+
 
 def nav_link(href, label, current, key, external=False):
     active = current == key
@@ -145,15 +225,15 @@ def breadcrumbs(items):
 def layout(title, body, description="", section="home", crumbs=None):
     nav = f'''<nav class="site-nav" aria-label="Primary navigation"><div class="nav-shell"><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span aria-hidden="true">☰</span><span>Menu</span></button><div class="nav-panel" id="primary-nav">
 <div class="nav-home">{nav_link(internal(), "Overview", section, "home")}</div>
-<div class="nav-group"><span class="nav-group-label">Explore</span><div class="nav-links">{nav_link(internal("claims/"),"Claims",section,"claims")}{nav_link(internal("records/"),"Records",section,"records")}{nav_link(internal("objects/"),"Objects",section,"objects")}{nav_link(internal("prices/"),"Prices",section,"prices")}</div></div>
+<div class="nav-group"><span class="nav-group-label">Explore</span><div class="nav-links">{nav_link(internal("claims/"),"Claims",section,"claims")}{nav_link(internal("records/"),"Records",section,"records")}{nav_link(internal("categories/"),"Categories",section,"categories")}{nav_link(internal("objects/"),"Objects",section,"objects")}{nav_link(internal("prices/"),"Prices",section,"prices")}</div></div>
 <div class="nav-group"><span class="nav-group-label">Evidence</span><div class="nav-links">{nav_link(internal("sources/"),"Sources",section,"sources")}{nav_link(internal("chronology/"),"Chronology",section,"chronology")}{nav_link(internal("validation/"),"Validation",section,"validation")}</div></div>
 <div class="nav-group"><span class="nav-group-label">Resources</span><div class="nav-links">{nav_link(internal("data/"),"Data",section,"data")}{nav_link(internal("downloads/"),"Downloads",section,"downloads")}{nav_link(internal("methodology/"),"Methodology",section,"methodology")}</div></div>
 <div class="nav-external">{nav_link(ARCHIVE_URL,"View Archive",section,"archive",True)}{nav_link(REPO_URL,"View on GitHub",section,"github",True)}</div></div></div></nav>'''
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>{esc(title)} · Lititz BMX</title><meta name="description" content="{esc(description or title)}"><link rel="stylesheet" href="{internal('assets/site.css')}"><script defer src="{internal('assets/site.js')}"></script></head><body data-section="{esc(section)}"><a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header"><div class="masthead"><a class="brand-mark" href="{internal()}" aria-label="Lititz BMX Public BMX Knowledge Register home"><img src="{internal('assets/'+LOGO)}" width="446" height="532" alt="Lititz BMX"></a><div class="masthead-copy"><p class="brand-eyebrow">Lititz BMX</p><p class="product-title">Public BMX Knowledge Register</p><p class="release-line">Ephemera v1.1.0 · Claim-visible public register · Data locked August 1, 2026</p></div></div></header>{nav}<main id="main-content" tabindex="-1">{breadcrumbs(crumbs or [])}{body}</main>
+<header class="site-header"><div class="masthead"><a class="brand-mark" href="{internal()}" aria-label="Lititz BMX Public BMX Knowledge Register home"><img src="{internal('assets/'+LOGO)}" width="446" height="532" alt="Lititz BMX"></a><div class="masthead-copy"><p class="brand-eyebrow">Lititz BMX</p><p class="product-title">Public BMX Knowledge Register</p><p class="release-line">Ephemera v1.2.0 · 500-record deployment candidate · Data locked August 1, 2026</p></div></div></header>{nav}<main id="main-content" tabindex="-1">{breadcrumbs(crumbs or [])}{body}</main>
 <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="{internal('assets/'+LOGO)}" width="446" height="532" alt=""><div><strong>Lititz BMX</strong><br><span>Public BMX Knowledge Register</span></div></div><div class="footer-copy"><p><strong>Evidence chain:</strong> Claim → Item → Evidence / Source → Limitation / Status → Correction</p><p>No protected historical source scans are reproduced. Maintained by Lititz BMX.</p><p><a href="{internal('methodology/')}">Methodology</a> · <a href="{internal('validation/')}">Validation</a> · <a href="{REPO_URL}/issues/new?template=record-correction.yml">Submit a correction</a></p></div></div></footer></body></html>'''
 
-claims = read_csv("public-claims-v1.1.csv"); claim_items = read_csv("claim-items-v1.1.csv"); objects = read_csv("canonical-objects-v1.1.csv"); records = read_csv("ephemera-register-v1.1.csv"); prices = read_csv("price-observations-v1.1.csv"); source_register = read_csv("source-register-v1.1.csv"); source_usage = read_csv("source-usage-v1.1.csv"); chronology = read_csv("chronology-v1.1.csv"); validation = read_csv("validation-v1.1.csv")
+claims = read_csv("public-claims-v1.2.csv"); claim_items = read_csv("claim-items-v1.2.csv"); objects = read_csv("canonical-objects-v1.2.csv"); records = read_csv("ephemera-register-v1.2.csv"); prices = read_csv("price-observations-v1.2.csv"); source_register = read_csv("source-register-v1.2.csv"); source_usage = read_csv("source-usage-v1.2.csv"); chronology = read_csv("chronology-v1.2.csv"); validation = read_csv("validation-v1.2.csv"); categories = read_csv("category-register-v1.2.csv")
 claim_items_by_claim = defaultdict(list)
 for x in claim_items: claim_items_by_claim[x["Claim ID"]].append(x)
 usage_by_source = {x["Source ID"]:x for x in source_usage}; source_by_url = {x["URL"]:x for x in source_register}
@@ -173,6 +253,8 @@ objects_by_id = {x["Canonical Object ID"]: x for x in objects}
 prices_by_id = {x["Price Observation ID"]: x for x in prices}
 chronology_by_id = {x["Chronology ID"]: x for x in chronology}
 sources_by_id = {x["Source ID"]: x for x in source_register}
+category_by_id = {x["Category ID"]: x for x in categories}
+category_by_slug = {x["Slug"]: x for x in categories}
 
 
 def dedupe_source_links(links):
@@ -234,15 +316,15 @@ def source_actions_for_object(obj):
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir(parents=True); shutil.copytree(ASSETS,OUT/"assets"); shutil.copytree(DATA,OUT/"data"); shutil.copytree(DOWNLOADS,OUT/"downloads"); shutil.copytree(DOCS,OUT/"docs"); (OUT/".nojekyll").write_text(""); shutil.copy2(ROOT/"release-manifest.json",OUT/"release-manifest.json")
 claim_ids = {x["Claim ID"] for x in claims}
-metrics=[("Source records",len(records),"PKR-CLM-001","Inspect all source records"),("Canonical objects",len(objects),"PKR-CLM-002","Inspect the canonical-object count"),("Price observations",len(prices),"PKR-CLM-003","Inspect all price observations"),("Registered sources",len(source_register),"PKR-CLM-004","Inspect the source count"),("Public claims",len(claims),None,"Inspect all public claims"),("Claim-item relationships",len(claim_items),None,"Inspect relationship validation"),("Chronology rows",len(chronology),"PKR-CLM-009","Inspect chronology support"),("Validation checks passing",sum(1 for x in validation if x.get("Status")=="PASS"),None,"Inspect validation results")]
+metrics=[("Source records",len(records),"PKR-CLM-001","Inspect all source records"),("Canonical objects",len(objects),"PKR-CLM-002","Inspect the canonical-object count"),("Price observations",len(prices),"PKR-CLM-003","Inspect all price observations"),("Registered sources",len(source_register),"PKR-CLM-004","Inspect the source count"),("Primary categories",len(categories),None,"Browse category routes"),("Public claims",len(claims),None,"Inspect all public claims"),("Claim-item relationships",len(claim_items),None,"Inspect relationship validation"),("Chronology rows",len(chronology),"PKR-CLM-009","Inspect chronology support"),("Validation checks passing",sum(1 for x in validation if x.get("Status")=="PASS"),None,"Inspect validation results")]
 cards=[]
 for label,value,cid,action in metrics:
-    href=internal(f"claims/{cid}/") if cid in claim_ids else internal("claims/" if label=="Public claims" else "validation/")
+    href=internal(f"claims/{cid}/") if cid in claim_ids else internal("categories/" if label=="Primary categories" else ("claims/" if label=="Public claims" else "validation/"))
     cards.append(f'<a class="metric-card" href="{href}"><span class="metric-value">{value}</span><span class="metric-label">{esc(label)}</span><span class="metric-action">{esc(action)} <span aria-hidden="true">→</span></span></a>')
-home=f'''<section class="hero home-hero"><p class="kicker">Public research product</p><h1>Every claim can be inspected. Every number opens.</h1><p class="lede">A claim-visible BMX ephemera register connecting aggregate statements to records, evidence routes, limitations, status, and correction pathways.</p><div class="actions"><a class="button" href="{internal('claims/')}">Browse public claims</a><a class="button button-secondary" href="{internal('downloads/'+WORKBOOK)}">Download the v1.1.0 workbook</a></div></section>
-<section><div class="section-heading"><div><p class="kicker">Current release candidate</p><h2>Register totals</h2></div><p>Each total links to its definition, itemized support, or release-gate evidence.</p></div><div class="metrics">{''.join(cards)}</div></section>
-<section><div class="section-heading"><div><p class="kicker">Product navigation</p><h2>Choose a route into the register</h2></div></div><div class="product-grid"><article class="product-card"><h3>Explore</h3><p>Browse claims, source occurrences, reviewed identities, and price evidence.</p><ul class="link-list"><li><a href="{internal('claims/')}">Claims</a></li><li><a href="{internal('records/')}">Records</a></li><li><a href="{internal('objects/')}">Objects</a></li><li><a href="{internal('prices/')}">Prices</a></li></ul></article><article class="product-card"><h3>Evidence</h3><p>Trace sources, chronology, rights treatment, and validation.</p><ul class="link-list"><li><a href="{internal('sources/')}">Sources</a></li><li><a href="{internal('chronology/')}">Chronology</a></li><li><a href="{internal('validation/')}">Validation</a></li></ul></article><article class="product-card"><h3>Resources</h3><p>Download datasets, release files, and methodology.</p><ul class="link-list"><li><a href="{internal('data/')}">Data</a></li><li><a href="{internal('downloads/')}">Downloads</a></li><li><a href="{internal('methodology/')}">Methodology</a></li></ul></article></div></section>
-<section class="panel evidence-panel"><p class="kicker">Governing principle</p><h2>Claim visibility and traceability</h2><p>If the register makes a claim, the public user must be able to inspect the details supporting that claim.</p><p class="evidence-chain"><code>CLAIM → ITEM → EVIDENCE / SOURCE → LIMITATION / STATUS → CORRECTION</code></p></section><section class="panel"><p class="kicker">Rights boundary</p><h2>Metadata and evidence routes—not copied historical scans</h2><p>No historical catalog, flyer, advertisement, publication, or BMXMuseum source scan is reproduced.</p></section>'''
+home=f'''<section class="hero home-hero"><p class="kicker">Public research product</p><h1>Every claim can be inspected. Every number opens.</h1><p class="lede">A claim-visible BMX ephemera register connecting aggregate statements to records, evidence routes, limitations, status, and correction pathways.</p><div class="actions"><a class="button" href="{internal('claims/')}">Browse public claims</a><a class="button button-secondary" href="{internal('downloads/'+WORKBOOK)}">Download the audited 500-record workbook</a></div></section>
+<section><div class="section-heading"><div><p class="kicker">500-record deployment candidate</p><h2>Register totals</h2></div><p>Each total links to its definition, itemized support, or release-gate evidence.</p></div><div class="metrics">{''.join(cards)}</div></section>
+<section><div class="section-heading"><div><p class="kicker">Product navigation</p><h2>Choose a route into the register</h2></div></div><div class="product-grid"><article class="product-card"><h3>Explore</h3><p>Browse claims, source occurrences, reviewed identities, and price evidence.</p><ul class="link-list"><li><a href="{internal('claims/')}">Claims</a></li><li><a href="{internal('records/')}">Records</a></li><li><a href="{internal('categories/')}">Categories</a></li><li><a href="{internal('objects/')}">Objects</a></li><li><a href="{internal('prices/')}">Prices</a></li></ul></article><article class="product-card"><h3>Evidence</h3><p>Trace sources, chronology, rights treatment, and validation.</p><ul class="link-list"><li><a href="{internal('sources/')}">Sources</a></li><li><a href="{internal('chronology/')}">Chronology</a></li><li><a href="{internal('validation/')}">Validation</a></li></ul></article><article class="product-card"><h3>Resources</h3><p>Download datasets, release files, and methodology.</p><ul class="link-list"><li><a href="{internal('data/')}">Data</a></li><li><a href="{internal('downloads/')}">Downloads</a></li><li><a href="{internal('methodology/')}">Methodology</a></li></ul></article></div></section>
+<section><div class="section-heading"><div><p class="kicker">Browse by category</p><h2>Ten controlled routes into the register</h2></div><p>Every record keeps its exact Object Type while also belonging to one primary navigation category.</p></div><div class="category-grid">{category_summary_cards()}</div></section><section class="panel evidence-panel"><p class="kicker">Governing principle</p><h2>Claim visibility and traceability</h2><p>If the register makes a claim, the public user must be able to inspect the details supporting that claim.</p><p class="evidence-chain"><code>CLAIM → ITEM → EVIDENCE / SOURCE → LIMITATION / STATUS → CORRECTION</code></p></section><section class="panel"><p class="kicker">Rights boundary</p><h2>Metadata and evidence routes—not copied historical scans</h2><p>No historical catalog, flyer, advertisement, publication, or BMXMuseum source scan is reproduced.</p></section>'''
 write(OUT/"index.html",layout("Public BMX Knowledge Register",home,"Claim-visible public register of BMX ephemera and supporting evidence.","home"))
 
 claim_rows=[]
@@ -256,18 +338,16 @@ for c in claims:
     body=f'<section class="claim-identity"><p class="kicker">Public claim</p><h1>{cid} <span>— {esc(c["Claim Label"])}</span></h1><p class="claim-total"><strong>{esc(c["Displayed Value"])}</strong> {esc(c["Unit"])}</p><div class="status-row">{status_badge(c["Publication Status"])}{status_badge(c["Reconciliation"])}</div></section><div class="reconciliation-bar"><strong>Reconciliation:</strong> displayed value {esc(c["Displayed Value"])}; recomputed support {esc(c["Recomputed Item Count"])}; status {esc(c["Reconciliation"])}.</div><div class="actions">{action_link(internal(c.get("Source Dataset","")),"Open source dataset",secondary=False,external=False) if c.get("Source Dataset") else ""}<a class="button button-secondary" href="{esc(c.get("Correction URL",""))}">Submit a claim correction</a><a class="button button-secondary" href="{internal("claims/")}">Back to all claims</a></div><section class="panel claim-definition"><p class="kicker">Definition</p><h2>Counting rule and boundary</h2>{field_list(c,definition_order,link_labels={"Source Dataset":"Open source dataset"})}</section><section class="panel supporting-panel"><div class="section-heading compact-heading"><div><p class="kicker">Itemized evidence</p><h2>Supporting items ({len(items)})</h2></div><p>Every supporting item includes its register route and the underlying evidence source whenever one exists.</p></div>{filter_controls("items-"+cid,"supporting items",len(items),"Search IDs, labels, notes, or status")}{supporting_item_cards(items,"items-"+cid)}</section>'
     write(OUT/"claims"/cid/"index.html",layout(f'{cid} — {c["Claim Label"]}',body,section="claims",crumbs=[("Overview",internal()),("Claims",internal("claims/")),(cid,internal(f"claims/{cid}/"))]))
 
-record_rows=[]
-for r in records:
-    rid=r["Master ID"]; record_rows.append({"Record ID":SafeHTML(f'<a class="id-link" href="{internal(f"records/{rid}/")}">{rid}</a>'),"Title":r["Title"],"Date":r["Date Text"],"Brand / Promoter":r["Brand / Promoter"],"Object Type":r["Object Type"],"Confidence":r["Confidence"],"Research Status":r["Research Status"],"Action":SafeHTML(f'<div class="table-actions"><a href="{internal(f"records/{rid}/")}">Open record</a><a href="{esc(r["Primary Source URL"])}" target="_blank" rel="noopener noreferrer">Source</a></div>')})
-body=f'<section class="hero"><p class="kicker">Explore</p><h1>Source Records</h1><p>All {len(records)} source occurrences and provenance records.</p></section>{filter_controls("records-table","records",len(records),"Search record ID, title, brand, type, status, or date")}{table(record_rows,list(record_rows[0]),"records-table","Source records")}'
+record_cards = [record_card(r) for r in records]
+body=f'<section class="hero"><p class="kicker">Explore</p><h1>Source Records</h1><p>All {len(records)} source occurrences and provenance records. Search, combine filters, sort, and load records in groups of 25.</p><div class="actions"><a class="button" href="{internal("categories/")}">Browse categories</a><a class="button button-secondary" href="{internal("claims/PKR-CLM-001/")}">Inspect the record-count claim</a></div></section>{record_filter_controls("records-collection",records,len(records),True)}<div class="record-collection browse-records" id="records-collection" data-page-size="25">{"".join(record_cards)}</div>'
 write(OUT/"records"/"index.html",layout("Source Records",body,section="records",crumbs=[("Overview",internal()),("Records",internal("records/"))]))
 for r in records:
-    rid=r["Master ID"]; rel=[]
+    rid=r["Master ID"]; cat=category_for_record(r); rel=[]
     for o in objects_by_record.get(rid,[]): rel.append(f'<div><h3>Canonical object</h3><p><a class="relation-link" href="{internal("objects/")}#{o["Canonical Object ID"]}">{o["Canonical Object ID"]} — {esc(o["Title"])}</a></p></div>')
     for p in prices_by_object.get(r.get("Original ID",""),[]): rel.append(f'<div><h3>Price evidence</h3><p><a class="relation-link" href="{internal("prices/")}#{p["Price Observation ID"]}">{p["Price Observation ID"]} — {esc(p["Displayed Price"])}</a></p></div>')
     s=source_by_url.get(r.get("Primary Source URL",""))
     if s: rel.append(f'<div><h3>Registered source</h3><p><a class="relation-link" href="{internal(f"sources/{s["Source ID"]}/")}">{s["Source ID"]} — {esc(s["Domain"])}</a></p></div>')
-    body=f'<section class="record-identity"><p class="kicker">Source record</p><h1>{rid} <span>— {esc(r["Title"])}</span></h1><div class="status-row">{status_badge(r["Confidence"])}{status_badge(r["Research Status"])}</div></section><div class="actions source-first-actions">{source_actions_for_record(r)}<a class="button button-secondary" href="{REPO_URL}/issues/new?template=record-correction.yml&title=Record%20correction%3A%20{rid}">Submit a record correction</a><a class="button button-secondary" href="{internal("records/")}">Back to all records</a></div><section class="panel"><p class="kicker">Record metadata</p><h2>Evidence, provenance, and limitations</h2>{field_list(r,exclude={"Primary Source URL","Secondary Source URL"})}</section><section class="panel relationship-panel"><p class="kicker">Relationship navigation</p><h2>Connected register entries</h2>{"".join(rel) if rel else "<p>No related register entry was resolved for this release.</p>"}</section>'
+    body=f'<section class="record-identity"><p class="kicker">Source record</p><h1>{rid} <span>— {esc(r["Title"])}</span></h1><div class="status-row">{status_badge(r["Confidence"])}{status_badge(r["Research Status"])}</div></section><div class="actions source-first-actions">{source_actions_for_record(r)}{action_link(internal(f"categories/{cat.get('Slug','other-unresolved-ephemera')}/"),"Browse category",secondary=True,external=False)}<a class="button button-secondary" href="{REPO_URL}/issues/new?template=record-correction.yml&title=Record%20correction%3A%20{rid}">Submit a record correction</a><a class="button button-secondary" href="{internal("records/")}">Back to all records</a></div><section class="panel"><p class="kicker">Record metadata</p><h2>Evidence, provenance, and limitations</h2>{field_list(r,exclude={"Primary Source URL","Secondary Source URL"})}</section><section class="panel relationship-panel"><p class="kicker">Relationship navigation</p><h2>Connected register entries</h2>{"".join(rel) if rel else "<p>No related register entry was resolved for this release.</p>"}</section>'
     write(OUT/"records"/rid/"index.html",layout(f'{rid} — {r["Title"]}',body,section="records",crumbs=[("Overview",internal()),("Records",internal("records/")),(rid,internal(f"records/{rid}/"))]))
 
 duplicate_groups = defaultdict(list)
@@ -319,6 +399,24 @@ for c in chronology:
 body=f'<section class="hero"><p class="kicker">Evidence</p><h1>Chronology</h1><p>{len(chronology)} date-ordered records with source identity, confidence, and chronology notes.</p></section>{filter_controls("chronology-collection","chronology rows",len(chronology),"Search date, title, brand, type, record ID, or confidence")}<div class="record-collection timeline" id="chronology-collection">{"".join(chron_cards)}</div>'
 write(OUT/"chronology"/"index.html",layout("Chronology",body,section="chronology",crumbs=[("Overview",internal()),("Chronology",internal("chronology/"))]))
 
+category_index = f'<section class="hero"><p class="kicker">Explore</p><h1>Browse by Category</h1><p>{len(categories)} controlled primary categories classify all {len(records)} Source Records without replacing their exact Object Type.</p></section><div class="category-grid">{category_summary_cards()}</div><section class="panel"><p class="kicker">Classification rule</p><h2>One primary route; exact types remain visible</h2><p>Primary Category supports navigation and aggregation. Object Type preserves the source-specific description used by the register.</p><div class="actions"><a class="button button-secondary" href="{internal("data/category-register-v1.2.csv")}">Download Category Register</a><a class="button button-secondary" href="{internal("records/")}">Filter all records</a></div></section>'
+write(OUT/"categories"/"index.html",layout("Browse by Category",category_index,section="categories",crumbs=[("Overview",internal()),("Categories",internal("categories/"))]))
+for category in categories:
+    slug=category["Slug"]
+    category_records=[r for r in records if r.get("Category ID")==category.get("Category ID")]
+    decade_counts=defaultdict(int)
+    type_counts=defaultdict(int)
+    for r in category_records:
+        decade_counts[decade_label(r.get("Start Year"))]+=1
+        type_counts[r.get("Object Type", "Not stated")]+=1
+    breakdown=''.join(f'<li><strong>{esc(label)}:</strong> {count}</li>' for label,count in sorted(decade_counts.items(),key=lambda x:(x[0]=="Undated",x[0]))) or '<li>No records assigned.</li>'
+    types=''.join(f'<li><strong>{esc(label)}:</strong> {count}</li>' for label,count in sorted(type_counts.items(),key=lambda x:(-x[1],x[0]))) or '<li>No exact Object Types assigned.</li>'
+    cards=''.join(record_card(r) for r in category_records)
+    claim_number=int(category["Category ID"].split("-")[-1])
+    claim_id=f'PKR-CLM-CAT-{claim_number:03d}'
+    body=f'<section class="hero category-hero"><p class="kicker">Primary category</p><h1>{esc(category["Category Label"])}</h1><p>{esc(category["Definition"])}</p><div class="category-stat"><strong>{len(category_records)}</strong><span>Source Records</span></div><div class="actions"><a class="button" href="{internal(f"claims/{claim_id}/")}">Inspect category claim</a><a class="button button-secondary" href="{internal("categories/")}">All categories</a></div></section><div class="category-breakdown"><section class="panel"><h2>Decade distribution</h2><ul>{breakdown}</ul></section><section class="panel"><h2>Exact Object Types</h2><ul>{types}</ul></section></div>{record_filter_controls("category-records-"+slug,category_records,len(category_records),False) if category_records else ""}<div class="record-collection browse-records" id="category-records-{esc(slug)}" data-page-size="25">{cards}</div>{"<section class=\"panel empty-category\"><h2>Verified zero</h2><p>No current Source Record requires this holding category. The route remains permanent so future assignments do not require a navigation redesign.</p></section>" if not category_records else ""}'
+    write(OUT/"categories"/slug/"index.html",layout(category["Category Label"],body,section="categories",crumbs=[("Overview",internal()),("Categories",internal("categories/")),(category["Category Label"],internal(f"categories/{slug}/"))]))
+
 vrows=[]
 for v in validation:
     ev=v.get("Claim / evidence",""); evh=SafeHTML(f'<a href="{internal(f"claims/{ev}/")}">{ev}</a>') if ev in claim_ids else ev
@@ -327,13 +425,13 @@ pass_count=sum(1 for v in validation if v["Status"]=="PASS")
 body=f'<section class="hero"><p class="kicker">Evidence</p><h1>Validation</h1><div class="success"><strong>{pass_count} of {len(validation)} release-gate checks pass.</strong><span>Validation supports structural integrity; it does not replace historical review.</span></div></section>{filter_controls("validation-table","validation checks",len(validation),"Search check, method, result, status, or claim")}{table(vrows,["Check","Expected","Method","Result","Status","Claim / evidence"],"validation-table","Validation checks")}<div class="actions"><a class="button button-secondary" href="{internal("docs/VALIDATION-REPORT.md")}">Download validation report</a><a class="button button-secondary" href="{internal("docs/BRAND-COMPLIANCE-RECORD.md")}">Read brand compliance record</a></div>'
 write(OUT/"validation"/"index.html",layout("Validation",body,section="validation",crumbs=[("Overview",internal()),("Validation",internal("validation/"))]))
 
-data_files=sorted((OUT/"data").glob("*.csv")); drows=[{"Dataset":f.name,"Version":"v1.1" if "v1.1" in f.name else "v1.0 frozen baseline","Bytes":f.stat().st_size,"Download":SafeHTML(f'<a href="{internal(f"data/{f.name}")}">Download CSV</a>')} for f in data_files]
+data_files=sorted((OUT/"data").glob("*.csv")); drows=[{"Dataset":f.name,"Version":"v1.2 working" if "v1.2" in f.name else ("v1.1 stable" if "v1.1" in f.name else "v1.0 frozen baseline"),"Bytes":f.stat().st_size,"Download":SafeHTML(f'<a href="{internal(f"data/{f.name}")}">Download CSV</a>')} for f in data_files]
 body=f'<section class="hero"><p class="kicker">Resources</p><h1>Public Data</h1><p>Versioned CSV exports used to generate the public register.</p></section>{filter_controls("data-table","datasets",len(drows),"Search dataset name or version")}{table(drows,["Dataset","Version","Bytes","Download"],"data-table","Public datasets")}'
 write(OUT/"data"/"index.html",layout("Public Data",body,section="data",crumbs=[("Overview",internal()),("Data",internal("data/"))]))
 files=sorted(f for f in (OUT/"downloads").iterdir() if f.is_file()); frows=[{"File":f.name,"Type":f.suffix.lstrip('.').upper() or "File","Bytes":f.stat().st_size,"Download":SafeHTML(f'<a href="{internal(f"downloads/{f.name}")}">Download file</a>')} for f in files]
 body=f'<section class="hero"><p class="kicker">Resources</p><h1>Downloads</h1><p>Release workbooks, authoritative sequence package, and checksums.</p></section>{filter_controls("downloads-table","downloads",len(frows),"Search file name or type")}{table(frows,["File","Type","Bytes","Download"],"downloads-table","Downloads")}'
 write(OUT/"downloads"/"index.html",layout("Downloads",body,section="downloads",crumbs=[("Overview",internal()),("Downloads",internal("downloads/"))]))
-method=f'<section class="hero"><p class="kicker">Resources</p><h1>Methodology</h1><p>The register is designed as a public research product: stable identifiers, visible evidence routes, explicit limitations, and correction pathways.</p></section><div class="method-grid"><section class="panel"><h2>Claim visibility</h2><p>Aggregate statements link to stable Claim IDs and normalized supporting items.</p></section><section class="panel"><h2>Canonical identity</h2><p>Source occurrences remain preserved even when multiple records are reviewed as one object.</p></section><section class="panel"><h2>Price evidence</h2><p>Prices remain source-specific and are not automatically averaged or converted into MSRP.</p></section><section class="panel"><h2>Rights treatment</h2><p>Historical source scans are not reproduced; metadata and evidence routes are retained.</p></section><section class="panel"><h2>Status language</h2><dl class="status-key"><dt>{status_badge("READY / MATCH / PASS")}</dt><dd>Release-ready under the stated rule.</dd><dt>{status_badge("OPEN / REVIEW / PROVISIONAL")}</dt><dd>A limitation or review task remains visible.</dd><dt>{status_badge("LOW / FAIL")}</dt><dd>Caution or corrective work is required.</dd></dl></section><section class="panel"><h2>Corrections</h2><p>Claim, record, and source pages include direct correction actions.</p><p><a class="button" href="{REPO_URL}/issues/new?template=record-correction.yml">Open correction form</a></p></section></div>'
+method=f'<section class="hero"><p class="kicker">Resources</p><h1>Methodology</h1><p>The register is designed as a public research product: stable identifiers, visible evidence routes, explicit limitations, and correction pathways.</p></section><div class="method-grid"><section class="panel"><h2>Claim visibility</h2><p>Aggregate statements link to stable Claim IDs and normalized supporting items.</p></section><section class="panel"><h2>Primary categories</h2><p>Each Source Record belongs to one controlled navigation category while retaining its exact Object Type.</p></section><section class="panel"><h2>Canonical identity</h2><p>Source occurrences remain preserved even when multiple records are reviewed as one object.</p></section><section class="panel"><h2>Price evidence</h2><p>Prices remain source-specific and are not automatically averaged or converted into MSRP.</p></section><section class="panel"><h2>Rights treatment</h2><p>Historical source scans are not reproduced; metadata and evidence routes are retained.</p></section><section class="panel"><h2>Status language</h2><dl class="status-key"><dt>{status_badge("READY / MATCH / PASS")}</dt><dd>Release-ready under the stated rule.</dd><dt>{status_badge("OPEN / REVIEW / PROVISIONAL")}</dt><dd>A limitation or review task remains visible.</dd><dt>{status_badge("LOW / FAIL")}</dt><dd>Caution or corrective work is required.</dd></dl></section><section class="panel"><h2>Corrections</h2><p>Claim, record, and source pages include direct correction actions.</p><p><a class="button" href="{REPO_URL}/issues/new?template=record-correction.yml">Open correction form</a></p></section></div>'
 write(OUT/"methodology"/"index.html",layout("Methodology",method,section="methodology",crumbs=[("Overview",internal()),("Methodology",internal("methodology/"))]))
 notfound=f'<section class="hero"><p class="kicker">Navigation</p><h1>Page not found</h1><p>The requested route is not present in this release.</p><div class="actions"><a class="button" href="{internal()}">Return to register</a><a class="button button-secondary" href="{REPO_URL}/issues/new?template=record-correction.yml">Report broken route</a></div></section>'
 write(OUT/"404.html",layout("Page not found",notfound,section="none"))
@@ -343,5 +441,5 @@ for p in OUT.rglob("index.html"):
     rel=p.relative_to(OUT).as_posix(); urls.append(BASE_URL+rel[:-10])
 sm=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']+[f'  <url><loc>{html.escape(u)}</loc></url>' for u in sorted(set(urls))]+['</urlset>']
 (OUT/"sitemap.xml").write_text("\n".join(sm)+"\n",encoding="utf-8")
-report={"generated_pages":len(list(OUT.rglob("*.html"))),"sitemap_urls":len(set(urls)),"claims":len(claims),"records":len(records),"objects":len(objects),"prices":len(prices),"sources":len(source_register),"chronology":len(chronology),"validation":len(validation),"claim_items":len(claim_items),"brand_asset":LOGO}
+report={"generated_pages":len(list(OUT.rglob("*.html"))),"sitemap_urls":len(set(urls)),"claims":len(claims),"records":len(records),"objects":len(objects),"prices":len(prices),"sources":len(source_register),"chronology":len(chronology),"validation":len(validation),"claim_items":len(claim_items),"categories":len(categories),"category_assignments":sum(int(x.get("Record Count") or 0) for x in categories),"brand_asset":LOGO}
 (OUT/"build-report.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8"); print(json.dumps(report,indent=2))

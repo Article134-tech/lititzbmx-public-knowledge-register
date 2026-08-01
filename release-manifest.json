@@ -1,68 +1,35 @@
 {
   "register": "Lititz BMX Public BMX Knowledge Register \u2014 Ephemera",
-  "version": "1.1.0",
-  "state": "branded deployment candidate",
+  "version": "1.2.0-deployment-candidate",
   "data_lock": "2026-08-01",
-  "baseline_release": "v1.0.0",
-  "repository": "https://github.com/Article134-tech/lititzbmx-public-knowledge-register",
-  "site": "https://article134-tech.github.io/lititzbmx-public-knowledge-register/",
+  "deployment_candidate": true,
+  "public_deployment": false,
+  "record_range": [
+    "EPH-0001",
+    "EPH-0500"
+  ],
   "counts": {
-    "source_records": 250,
-    "canonical_objects": 240,
-    "price_observations": 101,
-    "registered_sources": 60,
-    "public_claims": 58,
-    "claim_items": 1910,
-    "chronology_rows": 250,
-    "validation_checks": 15,
-    "page_image_review_backlog": 189
+    "source_records": 500,
+    "canonical_objects": 490,
+    "price_observations": 335,
+    "registered_sources": 65,
+    "public_claims": 69,
+    "claim_items": 4472,
+    "chronology_rows": 500,
+    "categories": 10,
+    "validation_checks": 20,
+    "recurring_candidates": 73,
+    "v1_2_qualified_prices": 234
   },
   "audit": {
-    "price_correction": "ABMX-PR-0048 corrected to GBP 151.50",
-    "recurring_campaign_candidate_pairs": 6,
-    "duplicate_primary_ids": 0,
-    "claim_reconciliation_mismatches": 0,
-    "source_usage_mismatches": 0,
-    "formula_error_cells": 0
+    "workbook": "PASS",
+    "static_site": "PASS",
+    "browser_interaction": "PASS",
+    "accessibility": "PASS",
+    "branding": "PASS"
   },
   "release_assets": {
-    "Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx": {
-      "sha256": "db6e57e65973d78be314cd7cc3562c3172ce4914c0f27370c85073635b4d8167",
-      "bytes": 2392224
-    }
-  },
-  "brand": {
-    "standard": "LBS-004 v1.0",
-    "official_logo": "Lititz-BMX-Logo-White-Tire-White-Lettering.png",
-    "variant": "White tire / White lettering",
-    "width_px": 446,
-    "height_px": 532,
-    "color_mode": "RGBA",
-    "transparent_background": true,
-    "sha256": "d685e1e971c9c37af2b914fe1f291f6c94986282a0ab47b0f18ba3f5c3188775",
-    "prohibited_alterations_detected": 0
-  },
-  "product_navigation": {
-    "grouped_desktop_navigation": true,
-    "accessible_mobile_menu": true,
-    "current_page_state": true,
-    "breadcrumbs": true,
-    "clickable_metric_cards": 8,
-    "responsive_mobile_cards": true,
-    "search_result_counts": true,
-    "search_reset": true,
-    "search_highlighting": true,
-    "zero_result_state": true,
-    "direct_correction_actions": true
-  },
-  "predeployment_qa": {
-    "status": "PASS",
-    "generated_html_pages": 380,
-    "sitemap_urls": 379,
-    "broken_internal_links": 0,
-    "duplicate_html_ids": 0,
-    "browser_console_errors": 0,
-    "browser_page_errors": 0,
-    "live_smoke_test_required": true
+    "workbook": "downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx",
+    "workbook_sha256": "34e947b9d1a75a83a5e615d49b421a6bb66a140f4a73bc92283fc35c386b2235"
   }
 }

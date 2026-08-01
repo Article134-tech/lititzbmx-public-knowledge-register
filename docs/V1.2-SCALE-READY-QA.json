@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "checks": {
+    "Generated HTML pages": {
+      "pass": true,
+      "detail": "401"
+    },
+    "Duplicate HTML IDs": {
+      "pass": true,
+      "detail": ""
+    },
+    "Broken internal links or anchors": {
+      "pass": true,
+      "detail": "[]"
+    },
+    "Evidence actions looping to register": {
+      "pass": true,
+      "detail": "[]"
+    },
+    "Source Record count": {
+      "pass": true,
+      "detail": "250"
+    },
+    "Primary categories": {
+      "pass": true,
+      "detail": "10"
+    },
+    "Category assignments complete": {
+      "pass": true,
+      "detail": ""
+    },
+    "Category totals reconcile": {
+      "pass": true,
+      "detail": ""
+    },
+    "Public claims": {
+      "pass": true,
+      "detail": "68"
+    },
+    "Claim Items": {
+      "pass": true,
+      "detail": "2160"
+    },
+    "Validation checks": {
+      "pass": true,
+      "detail": "18 / 18 pass"
+    },
+    "Category route counts": {
+      "pass": true,
+      "detail": "{'PKR-CAT-001': 59, 'PKR-CAT-002': 42, 'PKR-CAT-003': 37, 'PKR-CAT-004': 21, 'PKR-CAT-005': 16, 'PKR-CAT-006': 12, 'PKR-CAT-007': 18, 'PKR-CAT-008': 16, 'PKR-CAT-009': 29, 'PKR-CAT-010': 0}"
+    },
+    "Records page contains 250 cards": {
+      "pass": true,
+      "detail": "250"
+    },
+    "Records page has all scale filters": {
+      "pass": true,
+      "detail": ""
+    },
+    "Records page has sorting": {
+      "pass": true,
+      "detail": ""
+    },
+    "Records page has page size 25": {
+      "pass": true,
+      "detail": ""
+    },
+    "Record pages expose Primary Category": {
+      "pass": true,
+      "detail": "[]"
+    },
+    "Record pages expose primary evidence source": {
+      "pass": true,
+      "detail": "[]"
+    },
+    "Claim support page size 25": {
+      "pass": true,
+      "detail": ""
+    },
+    "Claim 001 contains 250 cards": {
+      "pass": true,
+      "detail": "250"
+    },
+    "Claim 001 source actions": {
+      "pass": true,
+      "detail": ""
+    },
+    "Sitemap URL count": {
+      "pass": true,
+      "detail": "400"
+    },
+    "Sitemap excludes 404": {
+      "pass": true,
+      "detail": ""
+    },
+    "Sitemap unique": {
+      "pass": true,
+      "detail": ""
+    },
+    "Official logo checksum": {
+      "pass": true,
+      "detail": "d685e1e971c9c37af2b914fe1f291f6c94986282a0ab47b0f18ba3f5c3188775"
+    },
+    "JavaScript syntax": {
+      "pass": true,
+      "detail": ""
+    }
+  },
+  "issues": [],
+  "category_page_counts": {
+    "PKR-CAT-001": 59,
+    "PKR-CAT-002": 42,
+    "PKR-CAT-003": 37,
+    "PKR-CAT-004": 21,
+    "PKR-CAT-005": 16,
+    "PKR-CAT-006": 12,
+    "PKR-CAT-007": 18,
+    "PKR-CAT-008": 16,
+    "PKR-CAT-009": 29,
+    "PKR-CAT-010": 0
+  }
+}

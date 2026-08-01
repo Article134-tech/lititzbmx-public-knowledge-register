@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": {
+    "desktop_home_no_overflow": true,
+    "home_has_500": true,
+    "records_initial_25": true,
+    "records_load_more_50": true,
+    "records_search_one": true,
+    "load_more_hidden_after_search": true,
+    "desktop_records_no_overflow": true,
+    "claim_017_total_73": true,
+    "claim_initial_25": true,
+    "record_0500_source_action": true,
+    "mobile_home_no_overflow": true,
+    "mobile_menu_opens": true,
+    "mobile_menu_escape_closes": true,
+    "mobile_records_no_overflow": true,
+    "mobile_input_height_ok": true,
+    "mobile_search_one": true,
+    "mobile_load_more_hidden": true
+  },
+  "console_errors": [],
+  "page_errors": []
+}
