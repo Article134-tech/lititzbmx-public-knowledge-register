@@ -14,6 +14,7 @@ REPO_URL = "https://github.com/Article134-tech/lititzbmx-public-knowledge-regist
 ARCHIVE_URL = "https://lititzbmx.com"
 LOGO = "Lititz-BMX-Logo-White-Tire-White-Lettering.png"
 WORKBOOK = "Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx"
+VERIFICATION_FILE = "google18d56e6f5b82785e.html"
 
 
 def esc(v): return html.escape("" if v is None else str(v))
@@ -314,7 +315,7 @@ def source_actions_for_object(obj):
     return "".join(action_link(url, label, secondary=False, external=True) for label, url in dedupe_source_links(links))
 
 if OUT.exists(): shutil.rmtree(OUT)
-OUT.mkdir(parents=True); shutil.copytree(ASSETS,OUT/"assets"); shutil.copytree(DATA,OUT/"data"); shutil.copytree(DOWNLOADS,OUT/"downloads"); shutil.copytree(DOCS,OUT/"docs"); (OUT/".nojekyll").write_text(""); shutil.copy2(ROOT/"release-manifest.json",OUT/"release-manifest.json")
+OUT.mkdir(parents=True); shutil.copytree(ASSETS,OUT/"assets"); shutil.copytree(DATA,OUT/"data"); shutil.copytree(DOWNLOADS,OUT/"downloads"); shutil.copytree(DOCS,OUT/"docs"); (OUT/".nojekyll").write_text(""); shutil.copy2(ROOT/"release-manifest.json",OUT/"release-manifest.json"); shutil.copy2(ROOT/VERIFICATION_FILE,OUT/VERIFICATION_FILE)
 claim_ids = {x["Claim ID"] for x in claims}
 metrics=[("Source records",len(records),"PKR-CLM-001","Inspect all source records"),("Canonical objects",len(objects),"PKR-CLM-002","Inspect the canonical-object count"),("Price observations",len(prices),"PKR-CLM-003","Inspect all price observations"),("Registered sources",len(source_register),"PKR-CLM-004","Inspect the source count"),("Primary categories",len(categories),None,"Browse category routes"),("Public claims",len(claims),None,"Inspect all public claims"),("Claim-item relationships",len(claim_items),None,"Inspect relationship validation"),("Chronology rows",len(chronology),"PKR-CLM-009","Inspect chronology support"),("Validation checks passing",sum(1 for x in validation if x.get("Status")=="PASS"),None,"Inspect validation results")]
 cards=[]
