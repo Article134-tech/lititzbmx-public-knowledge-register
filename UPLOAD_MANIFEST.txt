@@ -1,86 +1,36 @@
-Lititz BMX Public Knowledge Register — v1.2.0 Final Release
-Data lock: August 1, 2026
-Copy finalization-patch contents into the repository root.
-Delete the obsolete v1.2.0 RELEASE_CANDIDATE workbook from downloads/.
-Generated _site output is intentionally excluded; GitHub Actions rebuilds it.
+Lititz BMX Public Knowledge Register — v2.0.0
 
-Included files before this manifest: 78
+STATUS
+- Exact authorized deployment release
+- Cleared for controlled deployment by Kyle A. Huffman on August 2, 2026
+- Public deployment not yet performed
+- Data lock: August 2, 2026
 
-.github/ISSUE_TEMPLATE/config.yml
-.github/ISSUE_TEMPLATE/record-correction.yml
-.github/workflows/pages.yml
-CHANGELOG.md
-CITATION.cff
-CONTRIBUTING.md
-DEPLOYMENT.md
-DEPLOY_V1.1.0.md
-DEPLOY_V1.2.0.md
-README.md
-RELEASE_NOTES_v1.0.0.md
-RELEASE_NOTES_v1.1.0.md
-RELEASE_NOTES_v1.2.0.md
-RIGHTS.md
-data/canonical-objects-v1.0.csv
-data/canonical-objects-v1.1.csv
-data/canonical-objects-v1.2.csv
-data/category-register-v1.2.csv
-data/chronology-v1.0.csv
-data/chronology-v1.1.csv
-data/chronology-v1.2.csv
-data/claim-items-v1.0.csv
-data/claim-items-v1.1.csv
-data/claim-items-v1.2.csv
-data/ephemera-register-v1.0.csv
-data/ephemera-register-v1.1.csv
-data/ephemera-register-v1.2.csv
-data/price-observations-v1.0.csv
-data/price-observations-v1.1.csv
-data/price-observations-v1.2.csv
-data/public-claims-v1.0.csv
-data/public-claims-v1.1.csv
-data/public-claims-v1.2.csv
-data/source-register-v1.0.csv
-data/source-register-v1.1.csv
-data/source-register-v1.2.csv
-data/source-usage-v1.0.csv
-data/source-usage-v1.1.csv
-data/source-usage-v1.2.csv
-data/validation-v1.0.csv
-data/validation-v1.1.csv
-data/validation-v1.2.csv
-docs/ACCESSIBILITY-IMPLEMENTATION.md
-docs/BRAND-COMPLIANCE-RECORD.md
-docs/BRANDED-PREDEPLOYMENT-QA.json
-docs/BRANDED-PREDEPLOYMENT-TEST-REPORT.md
-docs/BROWSER-INTERACTION-QA.json
-docs/LINK-INTEGRITY-AUDIT.md
-docs/LINK-INTEGRITY-QA.json
-docs/PRODUCT-NAVIGATION-IMPLEMENTATION.md
-docs/V1.2-500-ACCESSIBILITY-QA.json
-docs/V1.2-500-BROWSER-QA.json
-docs/V1.2-500-FINAL-ACCESSIBILITY-QA.json
-docs/V1.2-500-FINAL-BROWSER-QA.json
-docs/V1.2-500-FINAL-BUILD-REPORT.json
-docs/V1.2-500-FINAL-PREDEPLOYMENT-AUDIT.md
-docs/V1.2-500-FINAL-STATIC-QA.json
-docs/V1.2-500-STATIC-QA.json
-docs/V1.2-SCALE-READY-AUDIT.md
-docs/V1.2-SCALE-READY-QA.json
-docs/VALIDATION-REPORT.md
-docs/qa-screenshots/claim-detail-desktop.png
-docs/qa-screenshots/home-desktop.png
-docs/qa-screenshots/record-detail-mobile.png
-docs/qa-screenshots/records-mobile.png
-downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_Release_Package.zip
-downloads/Lititz_BMX_Ephemera_Sequence_v0.6-v1.0_SHA256SUMS.txt
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.0.0_FINAL.xlsx
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.1.0_RELEASE_CANDIDATE.xlsx
-downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx
-downloads/Lititz_BMX_Public_Knowledge_Register_v1.0.0_SHA256SUMS.txt
-downloads/Lititz_BMX_Public_Knowledge_Register_v1.1.0_SHA256SUMS.txt
-release-manifest.json
-site/assets/Lititz-BMX-Logo-White-Tire-White-Lettering.png
-site/assets/site.css
-site/assets/site.js
-site/build.py
-V1.2.0_SHA256SUMS.txt
+AUTHORITATIVE BUILD INPUTS
+- data/ephemera-register-v2.0.0.csv
+- data/canonical-objects-v2.0.0.csv
+- data/price-observations-v2.0.0.csv
+- data/source-register-v2.0.0.csv
+- data/source-usage-v2.0.0.csv
+- data/chronology-v2.0.0.csv
+- data/public-claims-v2.0.0.csv
+- data/claim-items-v2.0.0.csv
+- data/category-register-v2.0.0.csv
+- data/source-page-routing-v2.0.0.csv
+- data/universal-search-index-v2.0.0-rc1.json (frozen search-layer input)
+- downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v2.0.0_1010_RECORDS.xlsx
+
+BUILD
+- site/build.py
+- .github/workflows/pages.yml
+- GitHub Actions generates and deploys _site/
+
+CURRENT RELEASE AUTHORITY
+- docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.md
+- docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json
+- docs/V2.0.0-RELEASE-AUTHORIZATION.md
+- docs/V2.0.0-RELEASE-AUTHORIZATION.json
+- docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.md
+- docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json
+
+DEPLOY ONLY THROUGH THE CONTROLLED SEQUENCE IN DEPLOYMENT.md.

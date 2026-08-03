@@ -1,0 +1,79 @@
+{
+  "result": "PASS",
+  "public_deployment_changed": false,
+  "deployment_authorization": "CLEARED FOR CONTROLLED DEPLOYMENT",
+  "checks": {
+    "html_pages": 1177,
+    "internal_refs": 43783,
+    "broken": 0,
+    "network_headers": 1177,
+    "duplicate_id_pages": 0,
+    "bad_h1": 0,
+    "images_missing_alt": 0,
+    "unlabeled_controls": 0,
+    "offline_text_pages": 0,
+    "record_routes": 1010,
+    "search_entries": 3879,
+    "routing_rows": 967,
+    "known_page_routes": 880,
+    "unresolved_page_routes": 87,
+    "source_buttons_checked": 1938,
+    "routing_errors": 0,
+    "governed_counts": {
+      "Harry Leary": 10,
+      "GT/Dyno/Auburn/Robinson": 54,
+      "Diamond Back": 47,
+      "Catalogs": 240,
+      "Advertisements": 174,
+      "BMX Action Bike": 699,
+      "Bicross": 250,
+      "Prices": 717
+    },
+    "curated_links": {
+      "brand_family": true,
+      "bmx_action": true,
+      "bicross": true,
+      "radical_not_search": true
+    },
+    "documentation_state": {
+      "validation_final_qa": true,
+      "validation_authorization": true,
+      "validation_no_current_rc1": true,
+      "authorization_status": true,
+      "historical_marked": true
+    },
+    "historical_unmarked": 0,
+    "js_syntax": "PASS",
+    "portable_build": "PASS",
+    "portable_parity": "PASS",
+    "chromium_navigation": "BLOCKED_BY_ADMINISTRATOR",
+    "project_owner_browser_review": "PASS",
+    "project_owner_release_approval": "PASS"
+  },
+  "details": {
+    "broken": [],
+    "routing_errors": [],
+    "h1": [],
+    "duplicate_ids": [],
+    "unlabeled": [],
+    "historical_unmarked": [],
+    "portable_parity": []
+  },
+  "audit_name": "V2.0.0 documentation cleanup and exact-package regression audit",
+  "audit_date": "2026-08-02",
+  "scope": [
+    "current validation-page authority links",
+    "historical-document status marking",
+    "authorized root release language",
+    "full generated-site structural regression",
+    "source-page routing regression",
+    "clean portable rebuild and selected byte parity"
+  ],
+  "research_status_disclosures": {
+    "open_or_unresolved_records": 28,
+    "indexed_text_records_awaiting_page_image_comparison": 949,
+    "recurring_campaign_or_feature_candidates": 235,
+    "exact_page_unresolved_source_routes": 87,
+    "treatment": "Visible governed research queues; non-blocking for deployment."
+  }
+}

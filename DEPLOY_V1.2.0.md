@@ -1,34 +1,41 @@
-# Finalize v1.2.0
+# Deploy v1.2.0
 
 ## Copy
 
-Copy everything inside the finalization-patch folder into:
+Extract this package to a short path such as `C:\LBX`.
+
+Copy everything inside the `LBX-v1.2.0-500` folder into:
 
 `Documents\GitHub\lititzbmx-public-knowledge-register`
 
 Choose **Replace the files in the destination**.
 
-Then delete:
-
-`downloads\Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_RELEASE_CANDIDATE.xlsx`
-
 ## GitHub Desktop
 
 **Summary**
 
-`Finalize v1.2.0 public release`
+`Deploy v1.2.0 500-record register`
 
 **Description**
 
-`Removes deployment-candidate language, publishes the final v1.2.0 workbook filename, and refreshes release metadata and checksums without changing the 500-record dataset.`
+`Publishes the audited 500-record register with category browsing, full-dataset filters, sorting, progressive loading, mobile navigation, corrected evidence-source actions, and 20 release-gate checks.`
 
 Commit to `main`, push origin, and wait for the newest Pages workflow to turn green.
 
 ## Live verification
 
-- Header says `Final 500-record release`.
-- Homepage still shows 500 Source Records, 490 Canonical Objects, 335 Price Observations, 69 Public Claims, and 20 Validation checks.
-- The workbook button downloads `Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx`.
-- `EPH-0500`, `PKR-CLM-017`, category routes, Sources, Validation, and the sitemap still open.
+Hard-refresh the public site, then verify:
 
-After those checks pass, submit the sitemap and publish the GitHub `v1.2.0` Release.
+- Homepage shows 500 Source Records, 490 Canonical Objects, 335 Price Observations, 69 Public Claims, and 20 Validation checks.
+- `/records/` initially shows 25 records and can load 25 more.
+- Search for `EPH-0500` returns exactly one record.
+- Category filter `Catalogs and product literature` returns 103 records.
+- `/records/EPH-0500/` includes both the register record and original-source action.
+- `/claims/PKR-CLM-017/` shows 73 recurring-campaign candidates.
+- `/categories/catalogs-product-literature/` shows 103 records.
+- `/sources/SRC-065/` opens the October 1983 source route.
+- `/validation/` shows 20 passing checks.
+- Mobile menu, search, filters, record cards, and claim evidence cards remain readable with no horizontal scrolling.
+- `/sitemap.xml` loads and contains the new v1.2.0 routes.
+
+After those checks pass, submit the sitemap in Google Search Console and publish the GitHub `v1.2.0` Release.

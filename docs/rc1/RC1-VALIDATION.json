@@ -1,0 +1,123 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "version": "v2.0.0 RELEASE CANDIDATE 1",
+  "data_lock": "2026-08-02",
+  "public_deployment_changed": false,
+  "stable_public_release": "v1.2.0 — 500 Source Records",
+  "frozen_baseline": {
+    "source_records": 1010,
+    "canonical_objects": 1000,
+    "price_observations": 717,
+    "registered_sources": 73,
+    "public_claims": 69,
+    "claim_items": 9109,
+    "chronology_rows": 1010,
+    "categories": 10,
+    "validation_checks": 20,
+    "open_records": 28,
+    "recurring_candidates": 235
+  },
+  "workbook_sha256": "467d41982fb7b420293ead2fb18e345ba1b2bacfe80b5f29828e5fc5b0adcc54",
+  "active_dataset_filename_replacements": {
+    "ephemera-register-v1.2.csv": "ephemera-register-v2.0.0.csv",
+    "canonical-objects-v1.2.csv": "canonical-objects-v2.0.0.csv",
+    "price-observations-v1.2.csv": "price-observations-v2.0.0.csv",
+    "source-register-v1.2.csv": "source-register-v2.0.0.csv",
+    "chronology-v1.2.csv": "chronology-v2.0.0.csv"
+  },
+  "csv_export_counts": {
+    "ephemera-register-v2.0.0.csv": 1010,
+    "canonical-objects-v2.0.0.csv": 1000,
+    "price-observations-v2.0.0.csv": 717,
+    "source-register-v2.0.0.csv": 73,
+    "source-usage-v2.0.0.csv": 73,
+    "chronology-v2.0.0.csv": 1010,
+    "public-claims-v2.0.0.csv": 69,
+    "claim-items-v2.0.0.csv": 9109,
+    "category-register-v2.0.0.csv": 10
+  },
+  "universal_search": {
+    "entry_count": 3879,
+    "layer_counts": {
+      "source_record": 1010,
+      "canonical_object": 1000,
+      "price_observation": 717,
+      "public_claim": 69,
+      "source": 73,
+      "chronology": 1010
+    },
+    "duplicate_layer_id_pairs": 0,
+    "smoke_queries": {
+      "EPH-1010": {
+        "count": 3,
+        "top_ids": [
+          "EPH-1010",
+          "OBJ-1000",
+          "CHR-1010"
+        ]
+      },
+      "Harry Leary": {
+        "count": 28,
+        "top_ids": [
+          "OBJ-0275",
+          "OBJ-0570",
+          "OBJ-0247",
+          "OBJ-0167",
+          "OBJ-0611"
+        ]
+      },
+      "Mongoose": {
+        "count": 183,
+        "top_ids": [
+          "OBJ-0034",
+          "OBJ-0035",
+          "OBJ-0882",
+          "OBJ-0036",
+          "OBJ-0612"
+        ]
+      },
+      "Bicross": {
+        "count": 197,
+        "top_ids": [
+          "OBJ-0996",
+          "OBJ-0921",
+          "OBJ-0877",
+          "OBJ-0865",
+          "OBJ-0824"
+        ]
+      },
+      "France": {
+        "count": 315,
+        "top_ids": [
+          "OBJ-0824",
+          "OBJ-0804",
+          "OBJ-0825",
+          "OBJ-0893",
+          "OBJ-0949"
+        ]
+      }
+    }
+  },
+  "review_queues": {
+    "open_records": 28,
+    "recurring_candidates": 235,
+    "reviewed_duplicate_occurrences": 20,
+    "expected_routes": 1010
+  },
+  "workbook_checks": {
+    "formula_error_scan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "stale_checkpoint_language_scan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "stale_v1_2_dataset_filename_scan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "key_metric_inspection": "{\"kind\":\"table\",\"sheet\":\"READ FIRST\",\"address\":\"A17:G25\",\"rows\":9,\"cols\":7,\"values\":[[null,null,null,null,null,null,null],[\"CORE PUBLIC METRICS · EACH CARD RESOLVES TO A STABLE CLAIM ID\",null,null,null,null,null,null],[\"Master source records\",null,\"Estimated canonical objects\",null,\"Normalized price observations\",null,\"Registered source URLs\"],[1010,null,1000,null,717,null,73],[null,null,null,null,null,null,null],[\"PKR-CLM-001 · READY\",null,\"PKR-CLM-002 · REVIEWED ESTIMATE\",null,\"PKR-CLM-003 · READY\",null,\"PKR-CLM-004 · READY\"],[null,null,null,null,null,null,null],[\"Open or unresolved records\",null,\"Indexed-text page review backlog\",null,\"Copied historical source scans\",null,\"Workbook formula-error cells\"],[28,null,949,null,0,null,0]]}",
+    "release_gate_inspection": "{\"kind\":\"table\",\"sheet\":\"Release Gate\",\"address\":\"A1:H21\",\"rows\":21,\"cols\":8,\"values\":[[\"LITITZ BMX · PUBLIC BMX KNOWLEDGE REGISTER · v2.0.0 RELEASE GATE\",null,null,null,null,null,null,null],[\"RELEASE CANDIDATE 1 · DATA FREEZE, EXPORT PARITY & UNIVERSAL SEARCH INDEX\",null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[\"Gate ID\",\"Workstream\",\"Check\",\"Current Result\",\"Status\",\"Evidence\",\"Blocks Release\",\"Next Action\"],[\"BASE-01\",\"Baseline\",\"Freeze governed corpus\",\"1,010 Source Records through EPH-1010\",\"PASS\",\"Checkpoint 08 → RC1\",\"Yes\",\"Keep expansion frozen\"],[\"BASE-02\",\"Identifiers\",\"Preserve stable IDs\",\"0 duplicate governed IDs; no renumbering\",\"PASS\",\"20/20 data validation\",\"Yes\",\"Use IDs as permanent routes\"],[\"DATA-01\",\"Versioning\",\"Convert active dataset names\",\"All active CSV references now use v2.0.0\",\"PASS\",\"Public Claims source paths\",\"Yes\",\"Carry names into site build\"],[\"DATA-02\",\"Exports\",\"Generate governed CSV tables\",\"9 public CSV datasets generated\",\"PASS\",\"RC1 data directory\",\"Yes\",\"Use as site source of truth\"],[\"SEARCH-01\",\"Universal Search\",\"Build six-layer index\",\"3,879 unique index entries\",\"PASS\",\"universal-search-index-v2.0.0-rc1.json\",\"Yes\",\"Implement client UI\"],[\"REVIEW-01\",\"Open Records\",\"Review unresolved public wording\",\"28 records in controlled queue\",\"QUEUED\",\"open-records-v2.0.0-rc1.csv\",\"Conditional\",\"Review before final RC\"],[\"REVIEW-02\",\"Recurring Candidates\",\"Review possible repeated campaigns\",\"235 disclosed candidates\",\"QUEUED\",\"recurring-candidates-v2.0.0-rc1.csv\",\"Conditional\",\"Prioritize highest-risk identities\"],[\"REVIEW-03\",\"Duplicate Groups\",\"Preserve reviewed duplicate groups\",\"10 groups / 20 retained source occurrences\",\"PASS\",\"Canonical Objects + Source Records\",\"Yes\",\"No silent merge\"],[\"SITE-01\",\"Routes\",\"Generate permanent record routes\",\"1,010 routes required\",\"QUEUED\",\"route-inventory-v2.0.0-rc1.csv\",\"Yes\",\"Build offline site overlay\"],[\"SITE-02\",\"Aggregate Pages\",\"Regenerate categories, claims, sources, chronology, prices\",\"Data ready; site pages not regenerated\",\"QUEUED\",\"RC1 CSV exports\",\"Yes\",\"Build from frozen exports\"],[\"SEARCH-02\",\"Universal Search\",\"Implement accessible search UI\",\"Index ready; UI not built\",\"QUEUED\",\"Universal Search specification\",\"Yes\",\"Add keyboard-first grouped results\"],[\"PARITY-01\",\"Parity\",\"Reconcile workbook and generated site\",\"Workbook/export parity passes\",\"IN PROGRESS\",\"RC1 validation report\",\"Yes\",\"Test site after generation\"],[\"ACCESS-01\",\"Accessibility\",\"Keyboard, focus, headings, labels, contrast\",\"Not yet tested on RC site\",\"QUEUED\",\"Release Gate checklist\",\"Yes\",\"Run desktop/mobile audit\"],[\"MOBILE-01\",\"Responsive\",\"Phone and narrow-screen usability\",\"Not yet tested on RC site\",\"QUEUED\",\"Release Gate checklist\",\"Yes\",\"Test Android and iPhone widths\"],[\"PERF-01\",\"Performance\",\"Search and progressive loading at 1,010 records\",\"Index size measured; UI not benchmarked\",\"QUEUED\",\"RC1 search index\",\"Yes\",\"Benchmark offline build\"],[\"PACKAGE-01\",\"Packaging\",\"Manifest, checksums, audit, rollback notes\",\"RC1 data package built\",\"IN PROGRESS\",\"release-manifest-rc1.json\",\"Yes\",\"Add site overlay and final notes\"],[\"DEPLOY-01\",\"Deployment\",\"Publish v2.0.0\",\"Blocked while release gates remain open\",\"BLOCKED\",\"v1.2.0 remains public\",\"Yes\",\"Deploy only after one clean pass\"]]}",
+    "release_gate_preview": "PASS",
+    "release_gate_preview_error": null
+  },
+  "next_phase": "RC2 offline site generation and Universal Search UI"
+}

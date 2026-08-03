@@ -1,0 +1,119 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "entry_count": 3879,
+  "unique_layer_id_pairs": 3879,
+  "duplicate_layer_id_pairs": 0,
+  "internal_result_urls_checked": 3879,
+  "missing_result_targets": 0,
+  "queries": {
+    "EPH-1010": {
+      "count": 3,
+      "top_ids": [
+        "EPH-1010",
+        "CHR-1010",
+        "OBJ-1000"
+      ],
+      "top_layers": [
+        "source_record",
+        "chronology",
+        "canonical_object"
+      ]
+    },
+    "Harry Leary": {
+      "count": 28,
+      "top_ids": [
+        "EPH-0230",
+        "CHR-0230",
+        "OBJ-0220",
+        "ABMX-PR-0109",
+        "ABMX-PR-0133"
+      ],
+      "top_layers": [
+        "source_record",
+        "chronology",
+        "canonical_object",
+        "price_observation",
+        "price_observation"
+      ]
+    },
+    "Mongoose": {
+      "count": 183,
+      "top_ids": [
+        "EPH-0034",
+        "EPH-0035",
+        "EPH-0039",
+        "EPH-0042",
+        "EPH-0154"
+      ],
+      "top_layers": [
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record"
+      ]
+    },
+    "Bicross": {
+      "count": 197,
+      "top_ids": [
+        "EPH-0761",
+        "EPH-0771",
+        "EPH-0778",
+        "EPH-0818",
+        "EPH-0820"
+      ],
+      "top_layers": [
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record"
+      ]
+    },
+    "France": {
+      "count": 315,
+      "top_ids": [
+        "EPH-0903",
+        "EPH-0959",
+        "ABMX-PR-0645",
+        "CHR-0903",
+        "CHR-0959"
+      ],
+      "top_layers": [
+        "source_record",
+        "source_record",
+        "price_observation",
+        "chronology",
+        "chronology"
+      ]
+    },
+    "1982": {
+      "count": 1328,
+      "top_ids": [
+        "EPH-0761",
+        "EPH-0769",
+        "EPH-0777",
+        "EPH-0820",
+        "EPH-0858"
+      ],
+      "top_layers": [
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record",
+        "source_record"
+      ]
+    }
+  },
+  "layer_filter_harry_source_records": 9,
+  "exact_id_top_result_pass": true,
+  "index_bytes": 3153427,
+  "index_gzip_bytes": 331211,
+  "sample_missing": []
+}

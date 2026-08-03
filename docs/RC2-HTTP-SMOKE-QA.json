@@ -1,0 +1,22 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "server_base": "http://127.0.0.1:8765/lititzbmx-public-knowledge-register/",
+  "note": "Local HTTP server responds normally to non-browser clients. Chromium in this environment blocks navigation before page execution.",
+  "representative_routes": [
+    "/",
+    "/search/",
+    "/records/EPH-0001/",
+    "/records/EPH-1010/",
+    "/records/EPH-0729/",
+    "/sources/SRC-073/",
+    "/prices/",
+    "/claims/PKR-CLM-001/",
+    "/data/"
+  ]
+}

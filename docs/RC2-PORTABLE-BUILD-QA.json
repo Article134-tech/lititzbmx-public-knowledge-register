@@ -1,0 +1,15 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "test": "Copy package to a new directory, delete _site, run python site/build.py",
+  "generated_html_pages": 1177,
+  "record_routes": 1010,
+  "search_entries": 3879,
+  "external_working_directory_required": false,
+  "public_deployment_changed": false
+}

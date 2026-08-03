@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "Please cite this register using the metadata below."
 title: "Lititz BMX Public BMX Knowledge Register — Ephemera"
 type: dataset
-version: 1.2.0
-date-released: 2026-08-01
+version: 2.0.0
+date-released: 2026-08-02
 authors:
   - family-names: "Huffman"
     given-names: "Kyle A."

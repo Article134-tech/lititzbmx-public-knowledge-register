@@ -1,0 +1,47 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "static_html": {
+    "result": "PASS",
+    "html_pages": 1177,
+    "internal_references_checked": 41414,
+    "missing_internal_targets": 0,
+    "duplicate_id_pages": 0,
+    "pages_without_h1": 0,
+    "unlabeled_form_controls": 0,
+    "images_without_alt": 0,
+    "record_routes": 1010,
+    "expected_record_routes": 1010,
+    "search_entries": 3879,
+    "sample_missing": [],
+    "sample_duplicate_ids": [],
+    "sample_unlabeled_forms": []
+  },
+  "contrast_ratios": {
+    "body_text_on_cream": 14.57,
+    "muted_text_on_white": 5.38,
+    "blue_on_white": 8.2,
+    "link_on_white": 5.61,
+    "verified_badge": 6.62,
+    "review_badge": 6.64,
+    "caution_badge": 6.86,
+    "white_on_header": 18.46,
+    "black_on_gold_button": 12.68,
+    "focus_on_header": 11.25
+  },
+  "minimum_contrast_ratio": 5.38,
+  "focus_rule_present": true,
+  "reduced_motion_rule_present": true,
+  "mobile_breakpoints": [
+    "940px",
+    "620px",
+    "360px"
+  ],
+  "browser_runtime_status": "NOT EXECUTED — Chromium navigation is blocked by the execution environment policy (ERR_BLOCKED_BY_ADMINISTRATOR). This is an environment limitation, not a site test result.",
+  "required_next_test": "Open the offline candidate in an ordinary browser and complete desktop, Android-width, iPhone-width, keyboard, zoom, and screen-reader spot checks before release authorization."
+}

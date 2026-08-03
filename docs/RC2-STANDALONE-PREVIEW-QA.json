@@ -1,0 +1,15 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "bytes": 3288035,
+  "embedded_search_entries": 3879,
+  "duplicate_html_ids": 0,
+  "h1_count": 1,
+  "images_without_alt": 0,
+  "javascript_syntax": "tested separately with extracted script"
+}

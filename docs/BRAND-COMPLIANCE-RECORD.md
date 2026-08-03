@@ -1,3 +1,5 @@
+> **Historical supporting record — superseded for current release status.** This document records an earlier checkpoint and is retained for audit history. Current authority: `V2.0.0-FINAL-PREDEPLOYMENT-QA.md`, `V2.0.0-RELEASE-AUTHORIZATION.md`, and `V2.0.0-DOCUMENTATION-CLEANUP-QA.md`.
+
 # Brand Compliance Record — Public BMX Knowledge Register v1.1.0
 
 **Status:** Predeployment PASS  

@@ -1,35 +1,47 @@
 {
-  "register": "Lititz BMX Public BMX Knowledge Register \u2014 Ephemera",
-  "version": "1.2.0",
-  "data_lock": "2026-08-01",
-  "public_deployment": true,
-  "record_range": [
-    "EPH-0001",
-    "EPH-0500"
-  ],
+  "schema_version": "2.0.0",
+  "release": "v2.0.0",
+  "status": "authorized deployment release \u2014 not yet deployed",
+  "data_lock": "2026-08-02",
+  "prior_public_release": "v1.2.0 \u2014 500 Source Records",
+  "experience_principle": "Simple on the surface. Rigorous underneath.",
   "counts": {
-    "source_records": 500,
-    "canonical_objects": 490,
-    "price_observations": 335,
-    "registered_sources": 65,
+    "source_records": 1010,
+    "canonical_objects": 1000,
+    "price_observations": 717,
+    "registered_sources": 73,
     "public_claims": 69,
-    "claim_items": 4472,
-    "chronology_rows": 500,
-    "categories": 10,
-    "validation_checks": 20,
-    "recurring_candidates": 73,
-    "v1_2_qualified_prices": 234
+    "claim_items": 9109,
+    "chronology_rows": 1010,
+    "search_entries": 3879,
+    "generated_html_pages": 1177,
+    "sitemap_urls": 1176,
+    "record_routes": 1010
   },
-  "audit": {
-    "workbook": "PASS",
-    "static_site": "PASS",
-    "browser_interaction": "PASS",
-    "accessibility": "PASS",
-    "branding": "PASS"
+  "source_page_routing": {
+    "previouspage_records": 967,
+    "known_page_routes": 880,
+    "exact_page_unresolved": 87
   },
-  "release_assets": {
-    "workbook": "downloads/Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx",
-    "workbook_sha256": "5b956c0ed7877ccaa6a0a7c03f0d08a00cad695e869e9269026634372431639d"
+  "deployment": {
+    "workflow": ".github/workflows/pages.yml",
+    "build_command": "python site/build.py",
+    "artifact": "_site/"
   },
-  "final_release": true
+  "authorization": {
+    "status": "CLEARED FOR CONTROLLED DEPLOYMENT",
+    "authorized_by": "Kyle A. Huffman",
+    "authorization_date": "2026-08-02",
+    "authority_records": [
+      "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+      "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+      "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+    ]
+  },
+  "research_status_disclosures": {
+    "open_or_unresolved_records": 28,
+    "indexed_text_page_image_review_backlog": 949,
+    "recurring_campaign_or_feature_candidates": 235,
+    "exact_page_unresolved_source_routes": 87
+  }
 }

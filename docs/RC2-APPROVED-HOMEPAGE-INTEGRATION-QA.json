@@ -1,0 +1,73 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "checks": {
+    "html_pages": 1177,
+    "network_header_pages": 1177,
+    "internal_references_checked": 55097,
+    "broken_internal_references": 0,
+    "duplicate_html_id_pages": 0,
+    "pages_without_exactly_one_h1": 0,
+    "images_without_alt": 0,
+    "unlabeled_controls": 0,
+    "record_routes": 1010,
+    "search_entries": 3879,
+    "source_records_in_search": 1010,
+    "hero_title": "Search BMX history.",
+    "hero_title_high_contrast_rule": true,
+    "mobile_network_scroll_rule": true,
+    "mobile_single_column_clusters": true,
+    "cluster_count": 8,
+    "cluster_titles": [
+      "Harry Leary",
+      "GT, Dyno, Auburn, Robinson",
+      "Diamond Back",
+      "Catalogs",
+      "Advertisements",
+      "Historical prices",
+      "BMX Action Bike",
+      "Bicross"
+    ],
+    "more_lititz_count": 4,
+    "more_lititz_titles": [
+      "Rebuild Radical Rick",
+      "Artifact Archive",
+      "Record Collection",
+      "Campaigns and stories"
+    ],
+    "radical_rick_search_controls": 0,
+    "node_js_syntax": "PASS",
+    "search_checks": {
+      "Harry Leary": 10,
+      "GT, Dyno, Auburn, Robinson": 54,
+      "Diamond Back": 47,
+      "Catalogs": 240,
+      "Advertisements": 174,
+      "BMX Action Bike run": 699,
+      "Bicross run": 250,
+      "Prices layer": 717
+    },
+    "search_checks_match_expected": true,
+    "public_deployment_changed": false,
+    "chromium_automated_navigation": "BLOCKED_BY_ADMINISTRATOR"
+  },
+  "details": {
+    "broken": [],
+    "duplicate_ids": [],
+    "h1": [],
+    "missing_alt": [],
+    "unlabeled": [],
+    "other_issues": []
+  },
+  "sha256": {
+    "index.html": "3e00fe3c5e20e8e6d85d8a02504c8d1ed8283fae3e8cdb314a6ecb03bd7f586a",
+    "assets/site.css": "5e7bf291848a13c07fadfe1a44a1ae78e0e67ed04040f86b88cb62fff5455627",
+    "assets/site.js": "d88db3cbdd64d96bfbc80900d1a54249a4a21e66f64eadc061f3c82df768a2b3",
+    "data/universal-search-index-v2.0.0.json": "d2da3b7e33ae86042084278957eb8cdd64d3f00dea405d051867cf334c9ffd7d"
+  }
+}

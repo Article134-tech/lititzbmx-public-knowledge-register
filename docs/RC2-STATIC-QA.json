@@ -1,0 +1,22 @@
+{
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
+  "result": "PASS",
+  "html_pages": 1177,
+  "internal_references_checked": 41414,
+  "missing_internal_targets": 0,
+  "duplicate_id_pages": 0,
+  "pages_without_h1": 0,
+  "unlabeled_form_controls": 0,
+  "images_without_alt": 0,
+  "record_routes": 1010,
+  "expected_record_routes": 1010,
+  "search_entries": 3879,
+  "sample_missing": [],
+  "sample_duplicate_ids": [],
+  "sample_unlabeled_forms": []
+}

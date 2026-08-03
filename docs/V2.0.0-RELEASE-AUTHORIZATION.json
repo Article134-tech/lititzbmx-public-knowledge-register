@@ -1,0 +1,22 @@
+{
+  "release": "v2.0.0",
+  "status": "CLEARED FOR CONTROLLED DEPLOYMENT",
+  "authorized_by": "Kyle A. Huffman",
+  "authorization_date": "2026-08-02",
+  "public_deployment_changed": false,
+  "approved_candidate": {
+    "source_records": 1010,
+    "generated_html_pages": 1177,
+    "search_entries": 3879,
+    "direct_page_routes": 880,
+    "exact_page_unresolved_routes": 87
+  },
+  "non_blocking_disclosures": {
+    "open_or_unresolved_records": 28,
+    "indexed_text_page_image_review_backlog": 949,
+    "recurring_candidate_backlog": 235,
+    "automated_chromium_navigation": "Unavailable in the restricted build environment; project-owner ordinary-browser review passed."
+  },
+  "required_next_action": "Controlled GitHub Desktop deployment followed by immediate live smoke verification.",
+  "rollback": "Revert the v2.0.0 deployment commit if a release-blocking live fault appears."
+}

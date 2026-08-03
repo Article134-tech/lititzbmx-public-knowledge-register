@@ -1,0 +1,19 @@
+{
+  "status": "BUILT \u2014 V2.0.0 AUTHORIZED DEPLOYMENT RELEASE",
+  "public_deployment_changed": false,
+  "deployment_authorization": "CLEARED FOR CONTROLLED DEPLOYMENT",
+  "source_records": 1010,
+  "canonical_objects": 1000,
+  "price_observations": 717,
+  "registered_sources": 73,
+  "public_claims": 69,
+  "claim_items": 9109,
+  "chronology_rows": 1010,
+  "search_entries": 3879,
+  "generated_html_pages": 1177,
+  "sitemap_urls": 1176,
+  "record_routes": 1010,
+  "brand_asset": "Lititz-BMX-Logo-White-Tire-White-Lettering.png",
+  "experience_principle": "Simple on the surface. Rigorous underneath.",
+  "build_time_utc": "2026-08-02T23:21:55.521082+00:00"
+}

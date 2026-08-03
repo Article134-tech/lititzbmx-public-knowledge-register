@@ -1,4 +1,10 @@
 {
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
   "status": "PASS",
   "test_method": "Playwright DOM, responsive CSS, keyboard, and interaction testing with generated HTML/CSS/JS inlined because outbound navigation is blocked in the sandbox. Static route and internal-link resolution are covered separately by BRANDED-PREDEPLOYMENT-QA.json.",
   "results": {
@@ -37,7 +43,7 @@
     },
     "claim_heading": {
       "pass": true,
-      "detail": "PKR-CLM-001 \u2014 Master source records"
+      "detail": "PKR-CLM-001 — Master source records"
     },
     "claim_reconciliation_bar": {
       "pass": true,
@@ -69,7 +75,7 @@
     },
     "EPH-0051_heading": {
       "pass": true,
-      "detail": "EPH-0051 \u2014 Lee Cooper BMX Indoor Grand Prix pre-registration"
+      "detail": "EPH-0051 — Lee Cooper BMX Indoor Grand Prix pre-registration"
     },
     "EPH-0051_breadcrumb": {
       "pass": true,
@@ -77,7 +83,7 @@
     },
     "EPH-0250_heading": {
       "pass": true,
-      "detail": "EPH-0250 \u2014 Gainsborough Firebird frame-and-fork retail offer"
+      "detail": "EPH-0250 — Gainsborough Firebird frame-and-fork retail offer"
     },
     "EPH-0250_breadcrumb": {
       "pass": true,
@@ -126,7 +132,7 @@
     },
     "mobile_record_heading": {
       "pass": true,
-      "detail": "EPH-0051 \u2014 Lee Cooper BMX Indoor Grand Prix pre-registration"
+      "detail": "EPH-0051 — Lee Cooper BMX Indoor Grand Prix pre-registration"
     },
     "browser_console_errors": {
       "pass": true,

@@ -45,9 +45,3 @@ This release expands the public register to 500 Source Records and introduces ca
 ## Rights boundary
 
 No protected historical catalog, flyer, advertisement, publication, or BMXMuseum source scan is reproduced. The release preserves metadata, public URLs, citations, descriptive facts, limitations, rights treatment, confidence, and correction pathways.
-
-## Final release asset
-
-- Workbook: `Lititz_BMX_Public_Knowledge_Register_Ephemera_v1.2.0_FINAL.xlsx`
-- SHA-256: `5b956c0ed7877ccaa6a0a7c03f0d08a00cad695e869e9269026634372431639d`
-

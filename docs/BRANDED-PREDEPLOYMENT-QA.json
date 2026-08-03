@@ -1,4 +1,10 @@
 {
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
   "status": "PASS",
   "checks": {
     "logo_sha256": "d685e1e971c9c37af2b914fe1f291f6c94986282a0ab47b0f18ba3f5c3188775",

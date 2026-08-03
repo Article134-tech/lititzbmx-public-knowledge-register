@@ -1,39 +1,37 @@
-# Lititz BMX Public Knowledge Register — Ephemera v1.2.0
+# Lititz BMX Public Knowledge Register — v2.0.0 Authorized Deployment Release
 
-This finalized release expands the Lititz BMX Public BMX Knowledge Register from 250 to **500 Source Records** and adds category-first browsing, full-register filtering, sorting, progressive loading, mobile usability, accessibility, and corrected source-link architecture.
+**Status:** Cleared for controlled deployment; not yet pushed.  
+**Project-owner approval:** August 2, 2026.  
+**Data lock:** August 2, 2026.  
+**Source Records:** 1,010.
 
-## Release totals
+## Public experience
 
-| Register layer | Count |
-|---|---:|
-| Source Records | 500 |
-| Provisional Canonical Objects | 490 |
-| Price Observations | 335 |
-| Registered Sources | 65 |
-| Public Claims | 69 |
-| Claim Items | 4,472 |
-| Chronology rows | 500 |
-| Primary Categories | 10 |
-| Validation checks | 20/20 PASS |
+The release uses the approved search-first homepage, the Lititz BMX network header, curated historical entry points, four broad exploration paths, and permanent evidence-linked record pages.
 
-## What v1.2.0 adds
+## Included
 
-- Permanent Source Record routes through `EPH-0500`
-- Ten controlled Primary Categories while preserving exact Object Types
-- Category landing pages
-- Search across the full record set
-- Category, decade, brand/promoter, geography, research-status, and price-evidence filters
-- ID, date, title, and category sorting
-- Twenty-five-record progressive loading
-- Responsive record and evidence cards
-- Explicit register-item and original-evidence actions
-- A public recurring-campaign review-backlog claim
-- Qualified confidence for indexed-text price observations awaiting page-image comparison
+- 1,010 permanent Source Record routes
+- 3,879 Universal Search entries
+- 1,000 provisional Canonical Objects
+- 717 historical Price Observations
+- 73 registered sources
+- 69 public claims
+- direct source-page routing for 880 PreviousPage-backed records
+- honest exact-page-unresolved treatment for 87 PreviousPage-backed records
 
-## Rights boundary
+## Build and deployment
 
-The release preserves metadata, citations, public evidence URLs, descriptive facts, limitations, rights treatment, and correction pathways. Protected historical scans and publication pages are not reproduced.
+GitHub Pages runs `python site/build.py` and deploys `_site/`. The builder uses only governed files included in this repository package.
 
-## Release state
+The exact release is authorized for the controlled GitHub Desktop procedure in `DEPLOYMENT.md`. Preserve the pre-v2.0.0 state first and complete the live checks immediately after push.
 
-v1.2.0 is the finalized 500-record public release. See `RELEASE_NOTES_v1.2.0.md` for scope and `DEPLOY_V1.2.0.md` for the finalization deployment check.
+## Release boundary
+
+Protected historical scans are not redistributed. Public pages expose metadata, paraphrased facts, evidence routes, uncertainty, rights treatment, and correction paths.
+
+Current release authority is recorded in:
+
+- `docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.md`
+- `docs/V2.0.0-RELEASE-AUTHORIZATION.md`
+- `docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.md`

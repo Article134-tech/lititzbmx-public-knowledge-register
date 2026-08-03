@@ -1,4 +1,10 @@
 {
+  "_document_status": "historical_supporting_record",
+  "_current_release_authority": [
+    "docs/V2.0.0-FINAL-PREDEPLOYMENT-QA.json",
+    "docs/V2.0.0-RELEASE-AUTHORIZATION.json",
+    "docs/V2.0.0-DOCUMENTATION-CLEANUP-QA.json"
+  ],
   "desktop": {
     "home_500_text": true,
     "home_no_overflow": true,
@@ -13,10 +19,10 @@
     "catalog_filter_matches": "103",
     "id_desc_first_visible": "EPH-0481",
     "records_no_overflow": true,
-    "record_0500_title": "EPH-0500 \u2014 BMX Action Bike October ten-issue subscription offer",
+    "record_0500_title": "EPH-0500 — BMX Action Bike October ten-issue subscription offer",
     "record_0500_primary_source_buttons": 1,
     "record_0500_primary_source_href": "https://previouspage.co.uk/issues/85-october-nineteen-eighty-three",
-    "claim_017_heading": "PKR-CLM-017 \u2014 Recurring campaign or publication-feature candidates",
+    "claim_017_heading": "PKR-CLM-017 — Recurring campaign or publication-feature candidates",
     "claim_017_total": "73",
     "claim_017_visible_initial": 25,
     "claim_017_search_matches": "1",
