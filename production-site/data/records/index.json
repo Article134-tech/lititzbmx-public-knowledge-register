@@ -1,0 +1,30 @@
+[
+  {
+    "record_id": "26.0054",
+    "record_type": "ARTIFACT",
+    "title": "Felicia Stancil's 2012 Worlds GT",
+    "status": "READY-QUALIFIED",
+    "page": "../pages/artifact-26-0054.html"
+  },
+  {
+    "record_id": "BRAND-JMC",
+    "record_type": "BRAND",
+    "title": "JMC Racing",
+    "status": "READY",
+    "page": "../pages/brand-jmc-racing.html"
+  },
+  {
+    "record_id": "CAT-HARO-1990",
+    "record_type": "CATALOG",
+    "title": "1990 Haro BMX Catalog",
+    "status": "READY-QUALIFIED",
+    "page": "../pages/source-1990-haro-catalog.html"
+  },
+  {
+    "record_id": "REF-ASHTABULA-5027",
+    "record_type": "REFERENCE",
+    "title": "Ashtabula Component Catalog — BMXMuseum Reference 5027",
+    "status": "READY-QUALIFIED",
+    "page": "../pages/reference-ashtabula-5027.html"
+  }
+]

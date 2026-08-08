@@ -1,0 +1,74 @@
+[
+  {
+    "id": "PKR-STG-001",
+    "label": "Governed Source Records",
+    "value": 1061,
+    "unit": "records"
+  },
+  {
+    "id": "PKR-STG-002",
+    "label": "Canonical Objects",
+    "value": 1051,
+    "unit": "objects"
+  },
+  {
+    "id": "PKR-STG-003",
+    "label": "Price Observations",
+    "value": 719,
+    "unit": "observations"
+  },
+  {
+    "id": "PKR-STG-004",
+    "label": "Registered Source URLs",
+    "value": 150,
+    "unit": "sources"
+  },
+  {
+    "id": "PKR-STG-005",
+    "label": "Chronology Rows",
+    "value": 1061,
+    "unit": "rows"
+  },
+  {
+    "id": "PKR-STG-006",
+    "label": "Primary Categories",
+    "value": 11,
+    "unit": "categories"
+  },
+  {
+    "id": "PKR-STG-007",
+    "label": "Source Identities",
+    "value": 22,
+    "unit": "identities"
+  },
+  {
+    "id": "PKR-STG-008",
+    "label": "Unresolved Publication Identities",
+    "value": 0,
+    "unit": "records"
+  },
+  {
+    "id": "PKR-STG-009",
+    "label": "Exact BMXMuseum Records Admitted",
+    "value": 41,
+    "unit": "records"
+  },
+  {
+    "id": "PKR-STG-010",
+    "label": "BMXMuseum Reference Leads via Pinterest",
+    "value": 8,
+    "unit": "records"
+  },
+  {
+    "id": "PKR-STG-011",
+    "label": "Copied Historical Source Scans",
+    "value": 0,
+    "unit": "scans"
+  },
+  {
+    "id": "PKR-STG-012",
+    "label": "Live Deployment Changes",
+    "value": 0,
+    "unit": "changes"
+  }
+]

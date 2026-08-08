@@ -1,0 +1,139 @@
+{
+  "record_id": "26.0054",
+  "record_type": "ARTIFACT",
+  "title": "Felicia Stancil's 2012 Worlds GT",
+  "subtitle": "Achievement verified; exact surviving bicycle remains under authentication.",
+  "slug": "felicia-stancil-2012-worlds-gt",
+  "canonical_url": "https://lititzbmx.com/artifacts/26-0054/felicia-stancil-2012-worlds-gt/",
+  "summary": "Lititz BMX artifact 26.0054 is strongly attributed as Felicia Stancil's 2012 Worlds GT Speed Series bicycle with a W1 plate. Official reporting verifies her Junior Women time-trial and race world titles in Birmingham. The exact surviving frame, plate and race-day component configuration remain under authentication.",
+  "at_a_glance": [
+    {
+      "label": "Artifact ID",
+      "value": "26.0054"
+    },
+    {
+      "label": "Brand",
+      "value": "GT",
+      "source_ids": [
+        "SRC-LITITZ-26-0054"
+      ]
+    },
+    {
+      "label": "Evidence grade",
+      "value": "B-"
+    }
+  ],
+  "publication": {
+    "status": "READY-QUALIFIED",
+    "evidence_grade": "B-",
+    "robots": "index,follow"
+  },
+  "claims": [
+    {
+      "claim_id": "CLAIM-26-0054-001",
+      "statement": "Felicia Stancil won both the Junior Women time-trial and race world titles in Birmingham in 2012.",
+      "claim_type": "RESULT",
+      "status": "VERIFIED",
+      "evidence_grade": "A",
+      "public_wording": "Official USA BMX reporting verifies Felicia Stancil's Junior Women time-trial and race world titles at the 2012 UCI BMX World Championships in Birmingham.",
+      "evidence_summary": "USA BMX identifies Stancil as the Factory GT rider who won the time-trial superfinal and the Junior Women race title.",
+      "does_not_prove": "The result does not by itself authenticate the surviving Lititz BMX frame, W1 plate or current component configuration.",
+      "source_ids": [
+        "SRC-USA-BMX-2012"
+      ],
+      "confidence": "HIGH",
+      "date_scope": "2012",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-26-0054-002",
+      "statement": "Artifact 26.0054 is the exact bicycle Stancil used for the 2012 world-title performances.",
+      "claim_type": "IDENTITY",
+      "status": "QUALIFIED",
+      "evidence_grade": "B-",
+      "public_wording": "Artifact 26.0054 is strongly attributed as Stancil's 2012 Worlds GT Speed Series bicycle, but exact frame and race-day configuration authentication remains open.",
+      "evidence_summary": "The Lititz inventory, W1 plate and collection provenance create a strong attribution; serial, plate-reverse, transfer and race-day visual evidence are still required.",
+      "does_not_prove": "The present attribution does not establish that every current component was fitted during both championship rides.",
+      "source_ids": [
+        "SRC-LITITZ-26-0054",
+        "SRC-USA-BMX-2012"
+      ],
+      "confidence": "MEDIUM-HIGH",
+      "date_scope": "2012",
+      "last_reviewed": "2026-07-30"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2012-05-26",
+      "event": "Stancil won the Junior Women time-trial superfinal.",
+      "qualification": "Official event reporting.",
+      "source_ids": [
+        "SRC-USA-BMX-2012"
+      ]
+    },
+    {
+      "date": "2012-05-27",
+      "event": "Stancil won the Junior Women race world title.",
+      "qualification": "Official event reporting.",
+      "source_ids": [
+        "SRC-USA-BMX-2012"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-USA-BMX-2012",
+      "title": "UCI Worlds Update",
+      "url": "https://www.usabmx.com/news-and-media/6/2012-05-27/UCI-Worlds-Update?id=586",
+      "source_class": "OFFICIAL",
+      "rights_code": "FACTUAL-PARAPHRASE",
+      "source_note": "Official result source; it does not authenticate the surviving bicycle.",
+      "accessed": "2026-07-30",
+      "creator": "USA BMX",
+      "date": "2012-05-27"
+    },
+    {
+      "source_id": "SRC-LITITZ-26-0054",
+      "title": "Lititz BMX Artifact 26.0054",
+      "url": "https://sites.google.com/view/lititzbmxinventorylist/home/26-0054",
+      "source_class": "PHYSICAL-EVIDENCE",
+      "rights_code": "LITITZ-OWNED",
+      "source_note": "Collection record for the physical GT bicycle and W1 plate.",
+      "accessed": "2026-07-30",
+      "creator": "Lititz BMX"
+    }
+  ],
+  "relationships": [],
+  "open_questions": [
+    {
+      "question": "What are the complete frame and fork serials and markings?",
+      "why_it_matters": "They may tie the surviving frame to a production period and comparison examples.",
+      "next_evidence": "Full marking package and serial-context photographs.",
+      "priority": "P0"
+    },
+    {
+      "question": "Can the W1 plate and frame be matched to Birmingham race-day images?",
+      "why_it_matters": "A visual match could strengthen exact-object authentication.",
+      "next_evidence": "Plate reverse, manufacturing details and official race imagery.",
+      "priority": "P0"
+    }
+  ],
+  "corrections": [],
+  "rights": {
+    "notice": "Lititz BMX publishes original analysis and links to third-party sources.",
+    "media_policy": "No BMXMuseum, catalog, advertisement, magazine or forum images are reproduced.",
+    "third_party_content": "Third-party facts are summarized and attributed."
+  },
+  "seo": {
+    "meta_title": "Felicia Stancil's 2012 Worlds GT | Lititz BMX",
+    "meta_description": "Lititz BMX artifact 26.0054 is strongly attributed as Felicia Stancil's 2012 Worlds GT Speed Series bicycle with a W1 plate. Official reporting verifies her Jun",
+    "jsonld_type": "CreativeWork"
+  },
+  "revision": {
+    "version": "1.0",
+    "last_reviewed": "2026-07-30",
+    "review_owner": "Lititz BMX Research",
+    "note": "Initial public prototype."
+  }
+}

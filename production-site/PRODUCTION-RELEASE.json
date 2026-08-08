@@ -1,0 +1,13 @@
+{
+  "release": "v2.9.4-standalone-mirror",
+  "approved_interface": "v2.9.4",
+  "base_url": "https://article134-tech.github.io/lititzbmx-public-knowledge-register/",
+  "source_records": 1061,
+  "connected_objects": 1051,
+  "price_observations": 719,
+  "registered_source_urls": 150,
+  "stable_record_routes": 1061,
+  "staging_tree_included": false,
+  "repository_root_files_included": false,
+  "mirror_source": "lititzbmx-docs/public-knowledge-register production sequence through v2.9.4"
+}

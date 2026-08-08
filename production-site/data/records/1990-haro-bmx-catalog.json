@@ -1,0 +1,147 @@
+{
+  "record_id": "CAT-HARO-1990",
+  "record_type": "CATALOG",
+  "title": "1990 Haro BMX Catalog",
+  "subtitle": "Official catalog existence verified; exact BMXMuseum reference ID remains unresolved.",
+  "slug": "1990-haro-bmx-catalog",
+  "canonical_url": "https://lititzbmx.com/sources/catalogs/haro/1990/1990-haro-bmx-catalog/",
+  "summary": "Haro's official BMX archive verifies a manufacturer-issued 1990 catalog. An independent catalog reconstruction organizes six model entries for the year, while a public index exposes a BMXMuseum reference titled “1990 Haro BMX Catalog.” The exact BMXMuseum numeric reference ID, edition and page-for-page match remain unresolved.",
+  "at_a_glance": [
+    {
+      "label": "Object type",
+      "value": "Manufacturer catalog",
+      "source_ids": [
+        "SRC-HARO-OFFICIAL"
+      ]
+    },
+    {
+      "label": "Reconstructed model entries",
+      "value": 6,
+      "source_ids": [
+        "SRC-HARO-RECON"
+      ]
+    },
+    {
+      "label": "BMXMuseum status",
+      "value": "Title exposed; numeric ID unresolved",
+      "source_ids": [
+        "SRC-HARO-TITLE"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "READY-QUALIFIED",
+    "evidence_grade": "N/A",
+    "robots": "index,follow"
+  },
+  "claims": [
+    {
+      "claim_id": "CLAIM-HARO-1990-001",
+      "statement": "Haro issued a BMX catalog for 1990.",
+      "claim_type": "IDENTITY",
+      "status": "VERIFIED",
+      "public_wording": "Haro's official archive verifies the existence of a 1990 BMX catalog.",
+      "evidence_summary": "The first-party archive lists 1990 among its historical BMX catalog years.",
+      "source_ids": [
+        "SRC-HARO-OFFICIAL"
+      ],
+      "confidence": "HIGH",
+      "date_scope": "1990",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-HARO-1990-002",
+      "statement": "The exact BMXMuseum numeric reference ID has been recovered.",
+      "claim_type": "IDENTITY",
+      "status": "OPEN",
+      "public_wording": "A public index exposes the BMXMuseum reference title, but its numeric reference ID has not been recovered.",
+      "evidence_summary": "Search indexing exposes the title and a BMXMuseum-hosted image filename, but no ordinary public backlink reveals a /reference/{id} URL.",
+      "does_not_prove": "The image filename cannot be used to infer or invent the reference ID.",
+      "source_ids": [
+        "SRC-HARO-TITLE"
+      ],
+      "confidence": "MEDIUM",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-HARO-1990-003",
+      "statement": "The reconstruction is necessarily the same edition as the BMXMuseum reference.",
+      "claim_type": "CONTEXT",
+      "status": "OPEN",
+      "public_wording": "The reconstruction is a useful model-year guide, but edition, market and page matching remain open.",
+      "evidence_summary": "Official archive, reconstruction and title indexing support the same year without proving identical files or editions.",
+      "does_not_prove": "Matching year and title do not establish identical pagination or market specification.",
+      "source_ids": [
+        "SRC-HARO-OFFICIAL",
+        "SRC-HARO-RECON",
+        "SRC-HARO-TITLE"
+      ],
+      "confidence": "MEDIUM",
+      "last_reviewed": "2026-07-30"
+    }
+  ],
+  "timeline": [],
+  "sources": [
+    {
+      "source_id": "SRC-HARO-OFFICIAL",
+      "title": "Haro BMX Catalog Archive",
+      "url": "https://archive.harobikes.com/bmx",
+      "source_class": "CURRENT-FIRST-PARTY",
+      "rights_code": "LINK-ONLY",
+      "source_note": "Official source verifying catalog existence and year placement.",
+      "accessed": "2026-07-30",
+      "creator": "Haro Bikes"
+    },
+    {
+      "source_id": "SRC-HARO-RECON",
+      "title": "1990 Haro Model-Year Reconstruction",
+      "url": "https://www.bmx-catalogue.com/haro/mid-school/1990/model.html",
+      "source_class": "INDEPENDENT",
+      "rights_code": "INDEX-ONLY",
+      "source_note": "Secondary reconstruction organizing model pages; it is not the original Haro file.",
+      "accessed": "2026-07-30",
+      "creator": "BMX Catalogue"
+    },
+    {
+      "source_id": "SRC-HARO-TITLE",
+      "title": "Public Index Exposing BMXMuseum Haro Catalog Titles",
+      "url": "https://storage.googleapis.com/dioyjtkukhpqse/haro-bmx-catalog.html",
+      "source_class": "PUBLIC-BACKLINK",
+      "rights_code": "INDEX-ONLY",
+      "source_note": "Low-quality discovery index; useful only for title exposure.",
+      "accessed": "2026-07-30"
+    }
+  ],
+  "relationships": [],
+  "open_questions": [
+    {
+      "question": "What is the exact BMXMuseum reference ID?",
+      "why_it_matters": "It would preserve a canonical source relationship.",
+      "next_evidence": "An ordinary public backlink exposing /reference/{id}.",
+      "priority": "P0"
+    },
+    {
+      "question": "Which market edition and page count does each copy represent?",
+      "why_it_matters": "Specifications and colors can vary by market.",
+      "next_evidence": "Cover, imprint, contents and final-page comparison.",
+      "priority": "P1"
+    }
+  ],
+  "corrections": [],
+  "rights": {
+    "notice": "Lititz BMX publishes original analysis and links to third-party sources.",
+    "media_policy": "No BMXMuseum, catalog, advertisement, magazine or forum images are reproduced.",
+    "third_party_content": "Third-party facts are summarized and attributed."
+  },
+  "seo": {
+    "meta_title": "1990 Haro BMX Catalog | Lititz BMX",
+    "meta_description": "Haro's official BMX archive verifies a manufacturer-issued 1990 catalog. An independent catalog reconstruction organizes six model entries for the year, while a",
+    "jsonld_type": "CreativeWork"
+  },
+  "revision": {
+    "version": "1.0",
+    "last_reviewed": "2026-07-30",
+    "review_owner": "Lititz BMX Research",
+    "note": "Initial public prototype."
+  }
+}

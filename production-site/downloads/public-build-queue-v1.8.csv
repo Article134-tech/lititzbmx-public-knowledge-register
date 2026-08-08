@@ -1,0 +1,5 @@
+Queue ID,Record ID,Record Type,Title,Proposed Slug,Core Fields,Claims Ready,Sources Ready,Rights Clear,Open Blockers,Template,Next Action,Prototype Page
+PUB-001,26.0054,ARTIFACT,Felicia Stancil's 2012 Worlds GT,felicia-stancil-2012-worlds-gt,Y,Y,Y,Y,1,Artifact,Publish qualified page; retain exact-bike evidence gate.,pages/artifact-26-0054.html
+PUB-002,BRAND-JMC,BRAND,JMC Racing,jmc-racing,Y,Y,Y,Y,0,Brand,Publish chronology with model and serial boundary cards.,pages/brand-jmc-racing.html
+PUB-003,CAT-HARO-1990,CATALOG,1990 Haro BMX Catalog,1990-haro-bmx-catalog,Y,Y,Y,Y,1,Catalog,Publish bibliographic page; state BMXMuseum ID unresolved.,pages/source-1990-haro-catalog.html
+PUB-004,REF-ASHTABULA-5027,REFERENCE,Ashtabula Component Catalog — BMXMuseum Reference 5027,ashtabula-component-catalog-reference-5027,Y,Y,Y,Y,2,Reference,Publish qualified page; retain date and page-content uncertainty.,pages/reference-ashtabula-5027.html

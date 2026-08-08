@@ -1,0 +1,58 @@
+{
+  "release": "1.0.0-rc1",
+  "built": "2026-07-31",
+  "result": "PASS",
+  "content_counts": {
+    "queue_records": 14,
+    "documented": 1,
+    "qualified": 8,
+    "holds": 5,
+    "catalogs": 32,
+    "advertisements": 17,
+    "flyers": 10,
+    "prices": 16,
+    "recovery_targets": 10,
+    "chronology_entries": 17,
+    "detailed_records": 4,
+    "html_pages": 12
+  },
+  "json_validation": [
+    {
+      "record_id": "CAT-HARO-1990",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "REF-ASHTABULA-5027",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "26.0054",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "BRAND-JMC",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "html_pages": [
+    "404.html",
+    "artifacts/26-0054/index.html",
+    "brands/jmc-racing/index.html",
+    "browse/index.html",
+    "chronology/index.html",
+    "ephemera/index.html",
+    "index.html",
+    "prices/index.html",
+    "references/bmxmuseum/5027/index.html",
+    "research/recovery/index.html",
+    "sources/catalogs/haro/1990/index.html",
+    "sources-rights-corrections/index.html"
+  ],
+  "unique_titles": 12,
+  "unexpected_image_sources": [],
+  "errors": []
+}

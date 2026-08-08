@@ -1,0 +1,460 @@
+{
+  "version": "2.9.4",
+  "generated": "2026-08-07",
+  "purpose": "Derived public navigation targets. Governing research datasets remain unchanged.",
+  "record_pages": {
+    "EPH-0020": {
+      "page": "67",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0022": {
+      "page": "76–77",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0053": {
+      "page": "76–77",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0021": {
+      "page": "86",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0052": {
+      "page": "63",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0058": {
+      "page": "91",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0030": {
+      "page": "2",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0055": {
+      "page": "2",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-1012": {
+      "page": "26",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0045": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0046": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0054": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0050": {
+      "page": "20",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0412": {
+      "page": "20",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0437": {
+      "page": "39",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0438": {
+      "page": "39",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0442": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0443": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0444": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0445": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0446": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0051": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0059": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0173": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0174": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0175": {
+      "page": "17",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0177": {
+      "page": "25",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0178": {
+      "page": "25",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0179": {
+      "page": "25",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0056": {
+      "page": "12",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0057": {
+      "page": "81",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0060": {
+      "page": "11",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0061": {
+      "page": "28",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0088": {
+      "page": "20",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0108": {
+      "page": "46",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0115": {
+      "page": "13",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0158": {
+      "page": "16",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0208": {
+      "page": "13",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0221": {
+      "page": "48",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0227": {
+      "page": "6",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0230": {
+      "page": "28",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0249": {
+      "page": "59",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0351": {
+      "page": "6",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0375": {
+      "page": "44",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0452": {
+      "page": "19",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0464": {
+      "page": "58–62",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0502": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0503": {
+      "page": "11",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0505": {
+      "page": "19",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0513": {
+      "page": "34",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0514": {
+      "page": "36",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0515": {
+      "page": "35",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0516": {
+      "page": "36",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0540": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0609": {
+      "page": "5",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0610": {
+      "page": "6",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0611": {
+      "page": "6",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0622": {
+      "page": "22",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0626": {
+      "page": "29",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0632": {
+      "page": "38",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0634": {
+      "page": "39",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0639": {
+      "page": "46",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0640": {
+      "page": "47",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0648": {
+      "page": "58",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0654": {
+      "page": "67",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0655": {
+      "page": "68",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0656": {
+      "page": "68",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0668": {
+      "page": "80",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0677": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0678": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0679": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0680": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0681": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0682": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0683": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0684": {
+      "page": "4",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-0759": {
+      "page": "53",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-1011": {
+      "page": "98–99",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    },
+    "EPH-1013": {
+      "page": "2",
+      "basis": "verified issue-page review",
+      "confidence": "verified"
+    }
+  },
+  "unresolved_record_pages": {
+    "EPH-0439": {
+      "reason": "Exact page remains unresolved; issue-level subscription offer is documented without false page precision."
+    },
+    "EPH-0440": {
+      "reason": "Exact page remains unresolved; issue-level sticker offer is documented without false page precision."
+    },
+    "EPH-0441": {
+      "reason": "Exact page remains unresolved; issue-level track-design campaign is documented without false page precision."
+    },
+    "EPH-0602": {
+      "reason": "Contents confirms the installment, but the exact page is not exposed by indexed text."
+    },
+    "EPH-0670": {
+      "reason": "Contents confirms the feature, but the exact page is not exposed by indexed text."
+    },
+    "EPH-0672": {
+      "reason": "Contents confirms the competition, but the exact page is not exposed by indexed text."
+    }
+  },
+  "price_pages": {
+    "MB-PR-0004": {
+      "page": "12",
+      "basis": "verified issue-specific advertisement page",
+      "confidence": "verified"
+    },
+    "MB-PR-0005": {
+      "page": "19",
+      "basis": "verified issue-specific advertisement page",
+      "confidence": "verified"
+    },
+    "MB-PR-0006": {
+      "page": "40",
+      "basis": "verified issue-specific advertisement page",
+      "confidence": "verified"
+    },
+    "MB-PR-0007": {
+      "page": "58",
+      "basis": "verified issue-specific advertisement page",
+      "confidence": "verified"
+    },
+    "MB-PR-0008": {
+      "page": "58",
+      "basis": "verified issue-specific advertisement page",
+      "confidence": "verified"
+    }
+  },
+  "source_health": {
+    "SRC-052": {
+      "status": "intermittent",
+      "checked": "2026-08-07",
+      "original_url": "https://www.sebikes.com/pages/perry-kramer",
+      "fallback_source_id": "SRC-050",
+      "fallback_url": "https://www.sebikes.com/blogs/news/classic-1",
+      "fallback_label": "Open official fallback ↗",
+      "note": "The exact SE Bikes rider-page route was observed unavailable during acceptance testing, then independently reachable again. An official SE Bikes fallback is retained for resilience."
+    }
+  }
+}

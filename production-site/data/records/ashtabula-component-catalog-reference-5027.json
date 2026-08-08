@@ -1,0 +1,143 @@
+{
+  "record_id": "REF-ASHTABULA-5027",
+  "record_type": "REFERENCE",
+  "title": "Ashtabula Component Catalog — BMXMuseum Reference 5027",
+  "subtitle": "Exact external reference recovered; date and page-level contents remain qualified.",
+  "slug": "ashtabula-component-catalog-reference-5027",
+  "canonical_url": "https://lititzbmx.com/references/bmxmuseum/5027/ashtabula-component-catalog/",
+  "summary": "BMXMuseum reference 5027 is the exact publicly cited Ashtabula component-catalog object. An outside technical discussion estimates the catalog at about 1977 and reports crank and fork information, while period Mongoose catalogs independently corroborate Ashtabula-branded component offerings. The edition, exact date, page count and direct page transcription remain open.",
+  "at_a_glance": [
+    {
+      "label": "External source",
+      "value": "BMXMuseum"
+    },
+    {
+      "label": "Reference ID",
+      "value": "5027"
+    },
+    {
+      "label": "Date",
+      "value": "Circa 1977 — provisional",
+      "source_ids": [
+        "SRC-ASHTABULA-CABE"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "READY-QUALIFIED",
+    "evidence_grade": "N/A",
+    "robots": "index,follow"
+  },
+  "claims": [
+    {
+      "claim_id": "CLAIM-ASHTABULA-5027-001",
+      "statement": "BMXMuseum reference 5027 is an Ashtabula component catalog.",
+      "claim_type": "IDENTITY",
+      "status": "VERIFIED",
+      "public_wording": "Public technical citations identify BMXMuseum reference 5027 as an Ashtabula component catalog.",
+      "evidence_summary": "The outside discussion links directly to the exact BMXMuseum reference URL and describes the catalog object.",
+      "does_not_prove": "Exact identity does not establish the catalog's date, edition or complete contents.",
+      "source_ids": [
+        "SRC-ASHTABULA-5027",
+        "SRC-ASHTABULA-CABE"
+      ],
+      "confidence": "HIGH",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-ASHTABULA-5027-002",
+      "statement": "The catalog is definitively a 1977 edition.",
+      "claim_type": "DATE",
+      "status": "QUALIFIED",
+      "public_wording": "A knowledgeable public discussion estimates the catalog at about 1977; the exact edition date remains provisional.",
+      "evidence_summary": "The discussion author describes consulting the catalog and explicitly frames the date as an estimate.",
+      "source_ids": [
+        "SRC-ASHTABULA-CABE"
+      ],
+      "confidence": "MEDIUM",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-ASHTABULA-5027-003",
+      "statement": "The catalog lists cranks up to 6-1/2 inches.",
+      "claim_type": "SPECIFICATION",
+      "status": "ATTRIBUTED",
+      "public_wording": "The public technical discussion reports that the cited catalog's crank range topped out at 6-1/2 inches.",
+      "evidence_summary": "This is an externally interpreted catalog fact rather than a direct Lititz transcription.",
+      "does_not_prove": "The statement does not describe all later Ashtabula catalogs or all products the company made.",
+      "source_ids": [
+        "SRC-ASHTABULA-CABE"
+      ],
+      "confidence": "MEDIUM",
+      "last_reviewed": "2026-07-30"
+    }
+  ],
+  "timeline": [],
+  "sources": [
+    {
+      "source_id": "SRC-ASHTABULA-5027",
+      "title": "Ashtabula Component Catalog",
+      "url": "https://bmxmuseum.com/reference/5027",
+      "source_class": "SUBMITTED-METADATA",
+      "rights_code": "INDEX-ONLY",
+      "source_note": "Exact canonical reference object; Lititz BMX does not crawl or mirror its pages.",
+      "accessed": "2026-07-30",
+      "creator": "BMXMuseum reference collection",
+      "external_id": "BMXMuseum reference 5027"
+    },
+    {
+      "source_id": "SRC-ASHTABULA-CABE",
+      "title": "Ashtabula Fork Identification Help",
+      "url": "https://thecabe.com/forum/threads/ashtabula-fork-identification-help.253603/",
+      "source_class": "PUBLIC-BACKLINK",
+      "rights_code": "FACTUAL-PARAPHRASE",
+      "source_note": "Technical discussion directly cites reference 5027 and provides an attributed approximate date and component interpretation.",
+      "accessed": "2026-07-30",
+      "creator": "The CABE community",
+      "date": "2025-01-26"
+    },
+    {
+      "source_id": "SRC-MONGOOSE-7980",
+      "title": "1979/80 Mongoose Bicycle and Components Catalog",
+      "url": "https://www.vintagemongoose.com/pdfs/mongoose_cat79-80.pdf",
+      "source_class": "PERIOD-CATALOG",
+      "rights_code": "INDEX-ONLY",
+      "source_note": "Independent period corroboration for Ashtabula crank offerings; it is not the same object as reference 5027.",
+      "accessed": "2026-07-30",
+      "creator": "BMX Products / Vintage Mongoose",
+      "date": "1979–1980"
+    }
+  ],
+  "relationships": [],
+  "open_questions": [
+    {
+      "question": "What is the exact catalog title, edition date and page count?",
+      "why_it_matters": "It would complete the bibliographic identity.",
+      "next_evidence": "A public imprint or contents citation, or rights-cleared page inspection.",
+      "priority": "P0"
+    },
+    {
+      "question": "What later Ashtabula catalog did the discussion author recall?",
+      "why_it_matters": "It may document a broader late product range.",
+      "next_evidence": "Public catalog citation or surviving-copy metadata.",
+      "priority": "P1"
+    }
+  ],
+  "corrections": [],
+  "rights": {
+    "notice": "Lititz BMX publishes original analysis and links to third-party sources.",
+    "media_policy": "No BMXMuseum, catalog, advertisement, magazine or forum images are reproduced.",
+    "third_party_content": "Third-party facts are summarized and attributed."
+  },
+  "seo": {
+    "meta_title": "Ashtabula Component Catalog — BMXMuseum Reference 5027 | Lititz BMX",
+    "meta_description": "BMXMuseum reference 5027 is the exact publicly cited Ashtabula component-catalog object. An outside technical discussion estimates the catalog at about 1977 and",
+    "jsonld_type": "CreativeWork"
+  },
+  "revision": {
+    "version": "1.0",
+    "last_reviewed": "2026-07-30",
+    "review_owner": "Lititz BMX Research",
+    "note": "Initial public prototype."
+  }
+}

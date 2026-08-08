@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://article134-tech.github.io/lititzbmx-public-knowledge-register/sitemap.xml

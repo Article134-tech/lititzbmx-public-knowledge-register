@@ -1,0 +1,189 @@
+{
+  "record_id": "BRAND-JMC",
+  "record_type": "BRAND",
+  "title": "JMC Racing",
+  "subtitle": "Business origin, BMX entry, prototypes and production are documented as separate phases.",
+  "slug": "jmc-racing",
+  "canonical_url": "https://lititzbmx.com/brands/jmc-racing/",
+  "summary": "JMC Racing's public history is strongest when its phases remain separate: a bicycle business established in 1969, direct BMX involvement around 1974, a shop team in 1975, XP prototype development in 1976 and production-frame launches in March and April 1977. Model and serial conclusions remain tied to period, construction and company records.",
+  "at_a_glance": [
+    {
+      "label": "Business established",
+      "value": "December 1969",
+      "source_ids": [
+        "SRC-JMC-ABOUT"
+      ]
+    },
+    {
+      "label": "Prototype phase",
+      "value": "1976",
+      "source_ids": [
+        "SRC-JMC-ABOUT",
+        "SRC-JMC-ID"
+      ]
+    },
+    {
+      "label": "Production launch",
+      "value": "March–April 1977",
+      "source_ids": [
+        "SRC-JMC-ID"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "READY",
+    "evidence_grade": "N/A",
+    "robots": "index,follow"
+  },
+  "claims": [
+    {
+      "claim_id": "CLAIM-JMC-001",
+      "statement": "JMC began producing BMX frames in 1969.",
+      "claim_type": "DATE",
+      "status": "REJECTED",
+      "public_wording": "The business that became JMC was established in 1969; BMX involvement developed in the mid-1970s and production frames began in 1977.",
+      "evidence_summary": "JMC's history separates business origin, BMX involvement, prototype development and production-frame launch.",
+      "does_not_prove": "The 1969 business date is not a BMX frame-production date.",
+      "source_ids": [
+        "SRC-JMC-ABOUT",
+        "SRC-JMC-ID"
+      ],
+      "confidence": "HIGH",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-JMC-002",
+      "statement": "JMC1 and JMC20 were the first production short and long frames.",
+      "claim_type": "IDENTITY",
+      "status": "ATTRIBUTED",
+      "public_wording": "JMC's archive identifies JMC1 and JMC20 as its first production short and long frames, dated March and April 1977.",
+      "evidence_summary": "The company identification guide preserves the serials, dates and short/long roles.",
+      "does_not_prove": "Any present-day claimant frame still requires serial, construction, provenance and certification evidence.",
+      "source_ids": [
+        "SRC-JMC-ID"
+      ],
+      "confidence": "HIGH",
+      "date_scope": "1977",
+      "last_reviewed": "2026-07-30"
+    },
+    {
+      "claim_id": "CLAIM-JMC-003",
+      "statement": "The first two digits of every JMC serial identify the production year.",
+      "claim_type": "SPECIFICATION",
+      "status": "REJECTED",
+      "public_wording": "JMC serial interpretation depends on model, period, prefix and construction features; the first two digits are not a universal year code.",
+      "evidence_summary": "Early frames used sequential JMC numbers, model prefixes appeared later and the public archive describes a transition rather than a universal rule.",
+      "source_ids": [
+        "SRC-JMC-ID"
+      ],
+      "confidence": "HIGH",
+      "last_reviewed": "2026-07-30"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "December 1969",
+      "event": "The bicycle business later associated with JMC was established.",
+      "qualification": "Business origin, not BMX production.",
+      "source_ids": [
+        "SRC-JMC-ABOUT"
+      ]
+    },
+    {
+      "date": "1975",
+      "event": "JM Cyclery organized a BMX shop team that included Harry Leary.",
+      "qualification": "Pre-production shop-team phase.",
+      "source_ids": [
+        "SRC-JMC-ABOUT"
+      ]
+    },
+    {
+      "date": "1976",
+      "event": "XP prototype development included short and long configurations.",
+      "qualification": "Prototype phase.",
+      "source_ids": [
+        "SRC-JMC-ABOUT",
+        "SRC-JMC-ID"
+      ]
+    },
+    {
+      "date": "March–April 1977",
+      "event": "JMC1 and JMC20 are identified as the first production short and long frames.",
+      "qualification": "Company archive attribution.",
+      "source_ids": [
+        "SRC-JMC-ID"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-JMC-ABOUT",
+      "title": "About JMC",
+      "url": "https://jmcbmx.wordpress.com/about/",
+      "source_class": "FIRST-PERSON",
+      "rights_code": "FACTUAL-PARAPHRASE",
+      "source_note": "Company-authored retrospective chronology; production-book certification remains separate.",
+      "accessed": "2026-07-30",
+      "creator": "JMC Racing historical archive"
+    },
+    {
+      "source_id": "SRC-JMC-ID",
+      "title": "How to ID a JMC",
+      "url": "https://jmcbmx.wordpress.com/2010/02/02/how-to-id-a-jmc/",
+      "source_class": "FIRST-PERSON",
+      "rights_code": "FACTUAL-PARAPHRASE",
+      "source_note": "Company/specialist identification guide for serial families, first production frames and construction transitions.",
+      "accessed": "2026-07-30",
+      "creator": "JMC Racing historical archive",
+      "date": "2010-02-02"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-JMC-HARRY-XP2",
+      "subject_id": "PERSON-HARRY-LEARY",
+      "predicate": "associated-with",
+      "object_id": "MODEL-JMC-XP2",
+      "date_scope": "1976",
+      "status": "ATTRIBUTED",
+      "public_wording": "JMC's archive associates Harry Leary with the 1976 XP2 Long prototype.",
+      "does_not_prove": "No surviving-frame ownership chain is implied.",
+      "source_ids": [
+        "SRC-JMC-ABOUT",
+        "SRC-JMC-ID"
+      ],
+      "last_reviewed": "2026-07-30"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "What exact serials mark the construction transitions?",
+      "why_it_matters": "They would improve year and model authentication.",
+      "next_evidence": "Public certification examples or official production-record summaries.",
+      "priority": "P0"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-07-30",
+      "change": "Separated the 1969 business origin from the 1977 production-frame launch.",
+      "reason": "Compressed wording could imply production began in 1969."
+    }
+  ],
+  "rights": {
+    "notice": "Lititz BMX publishes original analysis and links to third-party sources.",
+    "media_policy": "No BMXMuseum, catalog, advertisement, magazine or forum images are reproduced.",
+    "third_party_content": "Third-party facts are summarized and attributed."
+  },
+  "seo": {
+    "meta_title": "JMC Racing | Lititz BMX",
+    "meta_description": "JMC Racing's public history is strongest when its phases remain separate: a bicycle business established in 1969, direct BMX involvement around 1974, a shop tea",
+    "jsonld_type": "Organization"
+  },
+  "revision": {
+    "version": "1.0",
+    "last_reviewed": "2026-07-30",
+    "review_owner": "Lititz BMX Research",
+    "note": "Initial public prototype."
+  }
+}

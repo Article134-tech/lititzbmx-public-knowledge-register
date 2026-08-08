@@ -1,0 +1,21 @@
+{
+  "release": "v2.8.8-production",
+  "generated": "2026-08-03",
+  "deployment_status": "PRODUCTION — APPROVED INTERFACE AND STABLE ROUTES",
+  "source_records": 1061,
+  "canonical_objects": 1051,
+  "price_observations": 719,
+  "registered_source_urls": 150,
+  "chronology_rows": 1061,
+  "primary_categories": 11,
+  "detailed_research_pages": 9,
+  "unresolved_title_leads": 58,
+  "attached_title_leads": 2,
+  "copied_historical_source_scans": 0,
+  "live_changes": 1,
+  "counting_rule": "Source Records, canonical objects, price observations, source URLs, chronology rows and detailed pages remain separate governed layers. Source identity and access host are also separate fields.",
+  "stable_record_routes": 1061,
+  "route_map_entries": 1061,
+  "source_identities": 22,
+  "unresolved_publication_identities": 0
+}

@@ -1,0 +1,521 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lititzbmx.com/schemas/public-record-v1.0.json",
+  "title": "Lititz BMX Public Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "record_type",
+    "title",
+    "slug",
+    "canonical_url",
+    "summary",
+    "publication",
+    "claims",
+    "sources",
+    "rights",
+    "seo",
+    "revision"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 2
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "ARTIFACT",
+        "BIKE_RECORD",
+        "BRAND",
+        "MODEL",
+        "PERSON",
+        "TEAM",
+        "RESULT",
+        "EVENT",
+        "TRACK",
+        "CATALOG",
+        "ADVERTISEMENT",
+        "FLYER",
+        "PRICE_OBSERVATION",
+        "REFERENCE",
+        "THREAD",
+        "SOURCE",
+        "RELATIONSHIP",
+        "COLLECTION"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 40
+    },
+    "at_a_glance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fact"
+      }
+    },
+    "publication": {
+      "$ref": "#/$defs/publication"
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/timeline"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/correction"
+      }
+    },
+    "rights": {
+      "$ref": "#/$defs/rights"
+    },
+    "seo": {
+      "$ref": "#/$defs/seo"
+    },
+    "revision": {
+      "$ref": "#/$defs/revision"
+    }
+  },
+  "$defs": {
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "robots"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "INTERNAL",
+            "DRAFT",
+            "READY",
+            "READY-QUALIFIED",
+            "HOLD-EVIDENCE",
+            "BLOCKED-RIGHTS",
+            "RETIRED",
+            "FEATURED"
+          ]
+        },
+        "evidence_grade": {
+          "type": "string"
+        },
+        "robots": {
+          "type": "string",
+          "enum": [
+            "index,follow",
+            "noindex,follow",
+            "noindex,nofollow"
+          ]
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "value"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "statement",
+        "claim_type",
+        "status",
+        "public_wording",
+        "evidence_summary",
+        "source_ids",
+        "last_reviewed"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "claim_type": {
+          "type": "string",
+          "enum": [
+            "IDENTITY",
+            "DATE",
+            "PROVENANCE",
+            "RESULT",
+            "RARITY",
+            "SPECIFICATION",
+            "RELATIONSHIP",
+            "RIGHTS",
+            "PRICE",
+            "CONTEXT"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "VERIFIED",
+            "ATTRIBUTED",
+            "QUALIFIED",
+            "OPEN",
+            "REJECTED",
+            "SUPERSEDED"
+          ]
+        },
+        "evidence_grade": {
+          "type": "string"
+        },
+        "public_wording": {
+          "type": "string"
+        },
+        "evidence_summary": {
+          "type": "string"
+        },
+        "does_not_prove": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "date_scope": {
+          "type": "string"
+        },
+        "last_reviewed": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title",
+        "url",
+        "source_class",
+        "rights_code",
+        "source_note",
+        "accessed"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_class": {
+          "type": "string",
+          "enum": [
+            "OFFICIAL",
+            "FIRST-PERSON",
+            "PERIOD-PUBLICATION",
+            "PERIOD-CATALOG",
+            "CURRENT-FIRST-PARTY",
+            "INDEPENDENT",
+            "SUBMITTED-METADATA",
+            "PUBLIC-BACKLINK",
+            "PHYSICAL-EVIDENCE"
+          ]
+        },
+        "rights_code": {
+          "type": "string",
+          "enum": [
+            "LINK-ONLY",
+            "INDEX-ONLY",
+            "FACTUAL-PARAPHRASE",
+            "LITITZ-OWNED",
+            "LICENSED",
+            "PUBLIC-DOMAIN",
+            "PERMISSION-REQUIRED"
+          ]
+        },
+        "source_note": {
+          "type": "string"
+        },
+        "accessed": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "citation_text": {
+          "type": "string"
+        },
+        "availability_note": {
+          "type": "string"
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "event",
+        "source_ids"
+      ],
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        },
+        "qualification": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relationship_id",
+        "subject_id",
+        "predicate",
+        "object_id",
+        "status",
+        "public_wording",
+        "source_ids",
+        "last_reviewed"
+      ],
+      "properties": {
+        "relationship_id": {
+          "type": "string"
+        },
+        "subject_id": {
+          "type": "string"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "date_scope": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "public_wording": {
+          "type": "string"
+        },
+        "does_not_prove": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "last_reviewed": {
+          "type": "string"
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "why_it_matters",
+        "next_evidence"
+      ],
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "why_it_matters": {
+          "type": "string"
+        },
+        "next_evidence": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3"
+          ]
+        }
+      }
+    },
+    "correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "change",
+        "reason"
+      ],
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "change": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "notice",
+        "media_policy"
+      ],
+      "properties": {
+        "notice": {
+          "type": "string"
+        },
+        "media_policy": {
+          "type": "string"
+        },
+        "third_party_content": {
+          "type": "string"
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "meta_title",
+        "meta_description",
+        "jsonld_type"
+      ],
+      "properties": {
+        "meta_title": {
+          "type": "string"
+        },
+        "meta_description": {
+          "type": "string"
+        },
+        "jsonld_type": {
+          "type": "string"
+        }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "last_reviewed",
+        "review_owner",
+        "note"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "last_reviewed": {
+          "type": "string"
+        },
+        "review_owner": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

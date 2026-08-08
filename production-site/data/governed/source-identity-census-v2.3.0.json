@@ -1,0 +1,268 @@
+[
+  {
+    "source_identity": "BMX Action Bike",
+    "record_count": 707,
+    "access_hosts": [
+      "previouspage.co.uk"
+    ],
+    "example_record_ids": [
+      "EPH-0045",
+      "EPH-0046",
+      "EPH-0050",
+      "EPH-0051",
+      "EPH-0054"
+    ]
+  },
+  {
+    "source_identity": "Bicross",
+    "record_count": 250,
+    "access_hosts": [
+      "previouspage.co.uk"
+    ],
+    "example_record_ids": [
+      "EPH-0761",
+      "EPH-0762",
+      "EPH-0763",
+      "EPH-0764",
+      "EPH-0765"
+    ]
+  },
+  {
+    "source_identity": "BMXMuseum",
+    "record_count": 45,
+    "access_hosts": [
+      "bmxmuseum.com"
+    ],
+    "example_record_ids": [
+      "EPH-0006",
+      "EPH-0007",
+      "EPH-0010",
+      "EPH-0031",
+      "EPH-1021"
+    ]
+  },
+  {
+    "source_identity": "BMX Plus!",
+    "record_count": 8,
+    "access_hosts": [
+      "previouspage.co.uk"
+    ],
+    "example_record_ids": [
+      "EPH-0020",
+      "EPH-0021",
+      "EPH-0022",
+      "EPH-0052",
+      "EPH-0053"
+    ]
+  },
+  {
+    "source_identity": "BMXMuseum reference lead",
+    "record_count": 8,
+    "access_hosts": [
+      "in.pinterest.com",
+      "pinterest.com"
+    ],
+    "example_record_ids": [
+      "EPH-0001",
+      "EPH-0002",
+      "EPH-0003",
+      "EPH-0005",
+      "EPH-0011"
+    ]
+  },
+  {
+    "source_identity": "BMX Catalogue archive",
+    "record_count": 6,
+    "access_hosts": [
+      "bmx-catalogue.com"
+    ],
+    "example_record_ids": [
+      "EPH-0024",
+      "EPH-0025",
+      "EPH-0026",
+      "EPH-0027",
+      "EPH-0028"
+    ]
+  },
+  {
+    "source_identity": "Vintage Mongoose archive",
+    "record_count": 5,
+    "access_hosts": [
+      "vintagemongoose.com"
+    ],
+    "example_record_ids": [
+      "EPH-0034",
+      "EPH-0035",
+      "EPH-0039",
+      "EPH-0040",
+      "EPH-0041"
+    ]
+  },
+  {
+    "source_identity": "GO",
+    "record_count": 4,
+    "access_hosts": [
+      "previouspage.co.uk"
+    ],
+    "example_record_ids": [
+      "EPH-0030",
+      "EPH-0055",
+      "EPH-1012",
+      "EPH-1013"
+    ]
+  },
+  {
+    "source_identity": "JMC historical archive",
+    "record_count": 4,
+    "access_hosts": [
+      "jmcbmx.wordpress.com"
+    ],
+    "example_record_ids": [
+      "EPH-0013",
+      "EPH-0014",
+      "EPH-0015",
+      "EPH-0016"
+    ]
+  },
+  {
+    "source_identity": "Torker Racing archive",
+    "record_count": 4,
+    "access_hosts": [
+      "torkerracing.com"
+    ],
+    "example_record_ids": [
+      "EPH-0009",
+      "EPH-0047",
+      "EPH-0048",
+      "EPH-0049"
+    ]
+  },
+  {
+    "source_identity": "Haro official archive",
+    "record_count": 3,
+    "access_hosts": [
+      "archive.harobikes.com"
+    ],
+    "example_record_ids": [
+      "EPH-0023",
+      "EPH-1014",
+      "EPH-1015"
+    ]
+  },
+  {
+    "source_identity": "USA BMX",
+    "record_count": 3,
+    "access_hosts": [
+      "usabmx.com"
+    ],
+    "example_record_ids": [
+      "EPH-0037",
+      "EPH-1019",
+      "EPH-1020"
+    ]
+  },
+  {
+    "source_identity": "Redline Vintage BMX archive",
+    "record_count": 2,
+    "access_hosts": [
+      "redlinevintagebmx.com"
+    ],
+    "example_record_ids": [
+      "EPH-0036",
+      "EPH-0038"
+    ]
+  },
+  {
+    "source_identity": "SE Bikes official archive",
+    "record_count": 2,
+    "access_hosts": [
+      "sebikes.com"
+    ],
+    "example_record_ids": [
+      "EPH-0043",
+      "EPH-0044"
+    ]
+  },
+  {
+    "source_identity": "The CABE",
+    "record_count": 2,
+    "access_hosts": [
+      "thecabe.com"
+    ],
+    "example_record_ids": [
+      "EPH-0032",
+      "EPH-0033"
+    ]
+  },
+  {
+    "source_identity": "UCI",
+    "record_count": 2,
+    "access_hosts": [
+      "uci.org"
+    ],
+    "example_record_ids": [
+      "EPH-1017",
+      "EPH-1018"
+    ]
+  },
+  {
+    "source_identity": "BMX Weekly",
+    "record_count": 1,
+    "access_hosts": [
+      "previouspage.co.uk"
+    ],
+    "example_record_ids": [
+      "EPH-0056"
+    ]
+  },
+  {
+    "source_identity": "Blogging a Dead Horse",
+    "record_count": 1,
+    "access_hosts": [
+      "bloggingadeadhorse.com"
+    ],
+    "example_record_ids": [
+      "EPH-0042"
+    ]
+  },
+  {
+    "source_identity": "DIG BMX",
+    "record_count": 1,
+    "access_hosts": [
+      "digbmx.com"
+    ],
+    "example_record_ids": [
+      "EPH-1016"
+    ]
+  },
+  {
+    "source_identity": "Edward Koenning archive",
+    "record_count": 1,
+    "access_hosts": [
+      "edwardkoenning.blogspot.com"
+    ],
+    "example_record_ids": [
+      "EPH-0008"
+    ]
+  },
+  {
+    "source_identity": "Haro catalog record",
+    "record_count": 1,
+    "access_hosts": [
+      "storage.googleapis.com"
+    ],
+    "example_record_ids": [
+      "EPH-0004"
+    ]
+  },
+  {
+    "source_identity": "Public JMC collection post",
+    "record_count": 1,
+    "access_hosts": [
+      "facebook.com"
+    ],
+    "example_record_ids": [
+      "EPH-0012"
+    ]
+  }
+]
